@@ -28,16 +28,16 @@
 .fa {
     padding: 3%;
     font-size: 2vw;
-    width: 5%;
     text-align: center;
     text-decoration: none;
-    height: 10%;
+    border-radius: 45%;
   }
 
   .fa-facebook {
     background: #3B5998;
     color: white;
     margin-left: 5%;
+    width: 7%;
   }
 
   .fa-twitter {
