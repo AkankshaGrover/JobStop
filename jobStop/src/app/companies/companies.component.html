@@ -1,0 +1,19 @@
+<div style="background-color: #c7c0c0">
+    <p style="text-align: center; font-size: 40px;font-weight: bold;margin:0px;padding: 50px;">Companies</p>
+    <mat-card class="companies" *ngFor="let item of items">
+      <div class="main">
+        <img class="image" src="{{item.image}}">
+        <h4 class="name">{{item.name}}</h4>
+      </div>
+      <div class="detail">
+        <p class="para">Post:{{item.title}}</p>
+        <p class="para">Location:{{item.location}}</p>
+        <p class="para">Package:{{item.package_offered}}</p>
+        <p class="para">Skills:{{item.skills_required}}</p>
+      </div>
+      <div class="navi">
+        <button class="btn">Apply</button>
+      </div>
+    </mat-card>
+  </div>
+  

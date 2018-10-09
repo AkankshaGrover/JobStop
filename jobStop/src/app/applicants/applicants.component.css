@@ -1,0 +1,36 @@
+.applicants{
+    display: flex;
+    border: 03ch;  
+    margin:20px;
+    background-color:  rgb(172, 228, 223);
+    }
+.detail{
+    width: 40%;
+}
+.btn{
+    justify-self: flex-end;
+    /* padding-left: 5%; */
+    align-self: center;
+    height: 25px;
+    background-color: rgb(6, 150, 247);
+}
+.link{
+    align-self: center;
+    text-decoration: none;
+    color: blue;
+    padding: 20px;
+}
+.name{
+    color: rgb(36, 56, 56);
+}
+.para
+{
+    font-size: 15px;
+    color: rgb(59, 58, 58);
+}
+.navi{
+    display: flex;
+    justify-self: flex-end;
+    justify-content: flex-end;
+    align-content: center;
+}
