@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
-// import { FirebaseUISignInFailure } from '../../../projects/firebaseui-angular-library/src/lib/firebaseui-angular-library.helper';
 import { FirebaseUISignInFailure } from 'firebaseui-angular';
 
 @Component({
@@ -9,7 +8,6 @@ import { FirebaseUISignInFailure } from 'firebaseui-angular';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-
 
 
 export class LoginComponent implements OnInit {
