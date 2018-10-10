@@ -4,12 +4,14 @@ import {MatCardModule} from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { ApplicantsComponent } from './applicants/applicants.component';
 import { CompaniesComponent } from './companies/companies.component';
+import { CompanyComponent } from './company/company.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ApplicantsComponent,
-    CompaniesComponent
+    CompaniesComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,

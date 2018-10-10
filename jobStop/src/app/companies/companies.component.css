@@ -1,6 +1,4 @@
-body{
-    background-color: rgb(204, 233, 226)
-}
+
 .companies
 {
     display: flex;
@@ -41,5 +39,5 @@ body{
 .btn{
     height: 35px;
     width: 90px;
-    background-color:rgb(182, 143, 219)
+    background-color:#006666;
 }

@@ -7,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompaniesComponent implements OnInit {
   items=[
-    {name:"Mountblue Technologies",
+    {
+    name:"Mountblue Technologies",
     title: "full stack web",
     location:"bangalore",
-    package_offered: "6 lpa",
+    package_offered: '6 lpa',
     postDesc: "sdghcags",
     skills_required: "JS, MEAN Stack",
-     image:"https://cdn0.elitmus.net/company_logos_for_job_posts/MountBlue_logo-_w_text.png"
+    image:"https://cdn0.elitmus.net/company_logos_for_job_posts/MountBlue_logo-_w_text.png"
     },
-    {name:"Prime Focus",
+    {
+    name:"Prime Focus",
     title: "full stack web",
     location:"bangalore",
     package_offered: "6 lpa",
