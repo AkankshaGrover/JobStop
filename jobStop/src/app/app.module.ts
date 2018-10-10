@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
+// import { MatDialog, MatDialogRef } from '@angular/material';
 import { environment } from '../environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
@@ -28,10 +29,14 @@ import { AppComponent } from './app.component';
 // import { HttpClientModule } from '@angular/common/http';
 // import { HttpParams } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
+    {
+      requireDisplayName: false,
+      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
+    },
+
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     {
       scopes: [
@@ -44,22 +49,16 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
         'auth_type': 'reauthenticate'
       },
       provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
-    },
-    {
-      requireDisplayName: false,
-      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
-    },
-    firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+    }
+    // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
   ],
-  tosUrl: '<your-tos-link>',
-  privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
-  credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
+   credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
 };
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +78,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     CommonModule,
     // AngularFireModule.initializeApp(uiConfig),
     AngularFireAuthModule,
+    // MatDialog,
+    // MatDialogRef
     // FirebaseUIModule.forRoot(uiAuthConfig)
     // NgModule
     // ReactiveFormsModule,
