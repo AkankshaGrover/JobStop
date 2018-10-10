@@ -12,6 +12,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { MatToolbarModule } from '@angular/material/toolbar';
 // import { FlexLayoutModule } from '@angular/flex-layout';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { CompanyProfileComponent } from './company-profile/company-profile.component';
+import { JobprofileComponent } from './jobprofile/jobprofile.component';
+import { CandidateprofileComponent } from './candidateprofile/candidateprofile.component';
 import { AppComponent } from './app.component';
 // // import { baseURL } from './shared/baseURL';
 // import { MatListModule } from '@angular/material/list';
@@ -56,11 +61,6 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   ],
    credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
 };
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { CompanyProfileComponent } from './company-profile/company-profile.component';
-import { JobprofileComponent } from './jobprofile/jobprofile.component';
-import { CandidateprofileComponent } from './candidateprofile/candidateprofile.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +109,8 @@ import { CandidateprofileComponent } from './candidateprofile/candidateprofile.c
       {path : 'footer' , component : FooterComponent},
       {path : 'companyprofile' , component : CompanyProfileComponent},
       {path : 'candidateprofile', component : CandidateprofileComponent},
-      {path : 'jobprofile', component : JobprofileComponent}
+      {path : 'jobprofile', component : JobprofileComponent},
+      {path : 'login', component: LoginComponent },
     ])
   ],
   providers: [],
