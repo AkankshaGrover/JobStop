@@ -53,6 +53,7 @@ export class CandidateprofileComponent implements OnInit {
     this.uginstitution = value.uginstitution;
     this.ugyear = value.ugyear;
     this.techskills = value.techskills;
+    console.log(this.name);
   }
   specializationfunc(event) {
     this.specialization = event.target.value;
@@ -92,6 +93,10 @@ export class CandidateprofileComponent implements OnInit {
     
     console.log(this.projects);
     this.addProject = !this.addProject;
+  }
+
+  complete(){
+
   }
 
 }

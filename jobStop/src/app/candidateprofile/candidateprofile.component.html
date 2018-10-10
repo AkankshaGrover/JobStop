@@ -3,22 +3,23 @@
   <div>
     <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(companydetails.value)">
       <label class="tag"><b>Name </b> </label>
-      <input required style="margin-left: 8.5%;"  class="input" type="text" name="name" placeholder="Your Name" ngModel>
+      <input required style="margin-left: 8.5%;" class="input" type="text" name="name" placeholder="Your Name" ngModel>
       <br />
       <label class="tag"><b>Address</b></label>
       <input required style="margin-left: 7.5%;" class="input" type="text" name="address" placeholder=" Present Address"
         ngModel>
       <br />
       <label class="tag"><b>E-mail Id</b></label>
-      <input required style="margin-left: 6.6%;"  class="input" type="number" name="emailid" placeholder="Mail Id for Communication" ngModel>
+      <input required style="margin-left: 6.6%;" class="input" type="text" name="emailid" placeholder="Mail Id for Communication"
+        ngModel>
       <br />
       <label class="tag"><b>Contact Number</b></label>
       <input required style="margin-left: 2.4%;" class="input" type="number" name="contactnumber" placeholder="Contact Number"
         ngModel>
       <br />
       <div class="wrapper1">
-        <p class = "tag"><b>10th QUALIFICATION</b></p>
-      </div>      
+        <p class="tag"><b>10th QUALIFICATION</b></p>
+      </div>
       <label class="tag"><b>Institutuion</b></label>
       <input style="margin-left: 5%;" required class="input" required type="text" name="tenthinstitution" placeholder="10th Institutuion"
         ngModel>
@@ -32,8 +33,8 @@
         ngModel>
       <br />
       <div class="wrapper1">
-        <p class = "tag"><b>12th QUALIFICATION</b></p>
-      </div>  
+        <p class="tag"><b>12th QUALIFICATION</b></p>
+      </div>
       <label class="tag"><b>Institutuion</b></label>
       <input style="margin-left: 5%;" required class="input" required type="text" name="twelfthinstitution" placeholder="12th Institution"
         ngModel>
@@ -47,8 +48,8 @@
         ngModel>
       <br />
       <div class="wrapper1">
-        <p class = "tag"><b>UNDER GRADUATION</b></p>
-      </div>  
+        <p class="tag"><b>UNDER GRADUATION</b></p>
+      </div>
       <label class="tag"><b>Institutuion</b></label>
       <input style="margin-left: 5%;" required class="input" required type="text" name="uginstitution" placeholder="UG Institution"
         ngModel>
@@ -58,7 +59,7 @@
         ngModel>
       <br />
       <label class="tag"><b>specilization</b></label>
-      <select class="input" style="background: white; margin-left: 4.6%;font-size: 1.2vw;"(input)="specializationfunc($event)">
+      <select class="input" style="background: white; margin-left: 4.6%;font-size: 1.2vw;" (input)="specializationfunc($event)">
         <option>...</option>
         <option value="BE">BE</option>
         <option value="B-Tech">B Tech</option>
@@ -67,13 +68,13 @@
       </select>
       <br />
       <label class="tag"><b>Department</b></label>
-      <select class="input" style="background: white; margin-left: 4.6%;font-size: 1.2vw;" (input) = "departmentfunc($event)" >
+      <select class="input" style="background: white; margin-left: 4.6%;font-size: 1.2vw;" (input)="departmentfunc($event)">
         <option>...</option>
-        <option *ngFor = "let array of arrays" value="{{array}}">{{array}}</option>
+        <option *ngFor="let array of arrays" value="{{array}}">{{array}}</option>
       </select>
       <br />
       <label class="tag"><b>Year of Passing</b></label>
-      <select class="input" style="background: white; margin-left: 2.8%; font-size: 1.2vw;"(input)="year($event)">
+      <select class="input" style="background: white; margin-left: 2.8%; font-size: 1.2vw;" (input)="year($event)">
         <option>...</option>
         <option value="2011">2011</option>
         <option value="2012">2012</option>
@@ -86,31 +87,31 @@
       </select>
       <br />
       <label class="tag"><b>Technical skills</b></label>
-      <input required style="margin-left: 2.8%;" class="input" type="number" name="techskills" placeholder="Technical Skills"
+      <input required style="margin-left: 2.8%;" class="input" type="text" name="techskills" placeholder="Technical Skills"
         ngModel>
       <br />
       <div class="wrapper">
-        <input class="submit" type="submit" value="SUBMIT" [disabled] = candidatedetails.invalid>
+        <input class="submit" type="submit" value="SUBMIT" [disabled]=candidatedetails.invalid>
       </div>
     </form>
-      <button class="add1" (click) = "addProjectFunc()"> + Add projects</button>
-      <div *ngIf = "addProject">
+    <button class="add1" (click)="addProjectFunc()"> + Add projects</button>
+    <div *ngIf="addProject">
       <form #projectdetails="ngForm" (ngSubmit)="addProjectFunc1(projectdetails.value)">
-          <label class="tag"><b>Project Name</b></label>
-          <input style="margin-left: 3.6%;" required class="input" type="text" name="pname" placeholder="Name of the Project"
-            ngModel>
-          <br />
-          <label class="tag"><b>Description</b></label>
-          <input style="margin-left: 4.7%" required class="input" type="text" name="pdescription" placeholder="Few words about project"
-            ngModel>
-          <br />
-          <div class="wrapper">
-            <input class="submit" type="submit" value="Add" [disabled] = projectdetails.invalid>
-          </div>
-        </form>
-      </div>  
-      
-     
+        <label class="tag"><b>Project Name</b></label>
+        <input style="margin-left: 3.6%;" required class="input" type="text" name="pname" placeholder="Name of the Project"
+          ngModel>
+        <br />
+        <label class="tag"><b>Description</b></label>
+        <input style="margin-left: 4.7%" required class="input" type="text" name="pdescription" placeholder="Few words about project"
+          ngModel>
+        <br />
+        <div class="wrapper">
+          <input class="submit" type="submit" value="Add" [disabled]=projectdetails.invalid>
+        </div>
+      </form>
+    </div>
+
+
 
   </div>
 
