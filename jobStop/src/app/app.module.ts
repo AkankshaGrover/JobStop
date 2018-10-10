@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 // import { MatDialog, MatDialogRef } from '@angular/material';
 import { environment } from '../environments/environment';
+import { RouterModule } from '@angular/router';
+import { FormsModule }   from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -54,11 +56,22 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   ],
    credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
 };
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { CompanyProfileComponent } from './company-profile/company-profile.component';
+import { JobprofileComponent } from './jobprofile/jobprofile.component';
+import { CandidateprofileComponent } from './candidateprofile/candidateprofile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    CompanyProfileComponent,
+    JobprofileComponent,
+    CandidateprofileComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +102,15 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     // FormsModule,
     // ReactiveFormsModule,
     // HttpClientModule 
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot([
+      {path : 'header' , component : HeaderComponent},
+      {path : 'footer' , component : FooterComponent},
+      {path : 'companyprofile' , component : CompanyProfileComponent},
+      {path : 'candidateprofile', component : CandidateprofileComponent},
+      {path : 'jobprofile', component : JobprofileComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
