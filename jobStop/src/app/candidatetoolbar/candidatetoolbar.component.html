@@ -1,0 +1,8 @@
+<div class = "container">
+  <button *ngIf = "home" class = "button" (click) = "homeFunc()">Home</button>
+  <button class = "hide" *ngIf = "!home" (click) = "homeFunc()">Home</button>
+  <button *ngIf = "profile" class = "button" (click) = "profileFunc()">Profile</button>
+  <button class = "hide" *ngIf = "!profile" (click) = "profileFunc()">Profile</button>
+  <button *ngIf = "jobsapplied" class = "button" (click) = "jobsappliedFunc()">Applied Jobs</button>
+  <button class = "hide" *ngIf = "!jobsapplied" (click) = "jobsappliedFunc()">Applied Jobs</button>
+</div>

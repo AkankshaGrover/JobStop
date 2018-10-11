@@ -8,21 +8,11 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-<<<<<<< HEAD
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "css"
         }
       },
-||||||| merged common ancestors
-      "schematics": {
-        "@schematics/angular:component": {
-          "styleext": "=scss"
-        }
-      },
-=======
-      "schematics": {},
->>>>>>> edf9bd48407f2453acae92b90882828362efcda7
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
