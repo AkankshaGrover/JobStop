@@ -1,16 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { ApplicantsComponent } from './applicants/applicants.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 // import { MatDialog, MatDialogRef } from '@angular/material';
 import { environment } from '../environments/environment';
-import { RouterModule } from '@angular/router';
-import { FormsModule }   from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
+import { UserService } from "./services/user.service";
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Routes, RouterModule } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,7 +22,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // import { MatGridListModule } from '@angular/material/grid-list';
 // import { MatCardModule } from '@angular/material/card';
 // import { MatButtonModule } from '@angular/material/button';
-// // import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 // import { MatCheckboxModule } from '@angular/material/checkbox';
 // import { FormsModule } from '@angular/forms';
 // import { MatSelectModule } from '@angular/material/select';
@@ -57,7 +58,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     }
     // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
   ],
-   credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
+  credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
 };
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -69,11 +70,7 @@ import { CandidateprofileComponent } from './candidateprofile/candidateprofile.c
   declarations: [
     AppComponent,
     ApplicantsComponent,
-    CompaniesComponent
-  ],
-  imports: [
-    BrowserModule,
-    MatCardModule,
+    CompaniesComponent,
     LoginComponent,
     AppComponent,
     HeaderComponent,
@@ -81,20 +78,49 @@ import { CandidateprofileComponent } from './candidateprofile/candidateprofile.c
     CompanyProfileComponent,
     JobprofileComponent,
     CandidateprofileComponent,
+  ],
+  imports: [
+    BrowserModule,
+    MatCardModule,
+   
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
-    CommonModule, 
+    RouterModule,
+    // MatButtonModule,
+    // MatInputModule,
+    // MatCardModule,
+    // MatCheckboxModule,
+    // MatCheckboxModule,
+    // MatGridListModule,
+    // MatSelectModule,
+    // MatSlideToggleModule,
+    // MatFormFieldModule,
+    // MatListModule,
+    CommonModule,
+    // AngularFireModule.initializeApp(uiConfig),
+    AngularFireAuthModule,
+    // MatDialog,
+    // MatDialogRef
+    // FirebaseUIModule.forRoot(uiAuthConfig)
+    // NgModule
+    // ReactiveFormsModule,
+    // BrowserAnimationsModule,
+    // MatToolbarModule,
+    // FlexLayoutModule,
+    // FormsModule,
+    // ReactiveFormsModule,
+    // HttpClientModule 
+    BrowserModule,
+   
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    CommonModule,
     FormsModule,
-    RouterModule.forRoot([
-      {path : 'header' , component : HeaderComponent},
-      {path : 'footer' , component : FooterComponent},
-      {path : 'companyprofile' , component : CompanyProfileComponent},
-      {path : 'candidateprofile', component : CandidateprofileComponent},
-      {path : 'jobprofile', component : JobprofileComponent}
-    ])
   ],
-  providers: [],
+  providers: [AngularFireDatabase, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
