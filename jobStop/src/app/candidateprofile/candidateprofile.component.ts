@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidateprofileComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit() {
   }
