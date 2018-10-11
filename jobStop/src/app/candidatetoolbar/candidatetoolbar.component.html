@@ -1,3 +1,8 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <div class = "container">
   <button *ngIf = "home" class = "button" (click) = "homeFunc()">Home</button>
   <button class = "hide" *ngIf = "!home" (click) = "homeFunc()">Home</button>
@@ -5,4 +10,15 @@
   <button class = "hide" *ngIf = "!profile" (click) = "profileFunc()">Profile</button>
   <button *ngIf = "jobsapplied" class = "button" (click) = "jobsappliedFunc()">Applied Jobs</button>
   <button class = "hide" *ngIf = "!jobsapplied" (click) = "jobsappliedFunc()">Applied Jobs</button>
+</div>
+
+<div class = "mcontainer">
+    <div class = "dropdown">
+        <button class = "dropbtn" style="font-size:22px; background: #006666; border: none;"><i class="fa fa-reorder"></i></button>
+        <div class="dropdown-content">
+            <a (click) = "homeFunc()">Home</a>
+            <a (click) = "profileFunc()">Profile</a>
+            <a (click) = "jobsappliedFunc()">Applied Jobs</a>
+          </div>
+    </div>
 </div>

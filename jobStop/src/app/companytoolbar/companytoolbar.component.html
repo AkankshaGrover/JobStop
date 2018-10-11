@@ -8,3 +8,16 @@
     <button *ngIf = "addjob" class = "button" (click) = "addjobFunc()">Add Jobs</button>
     <button class = "hide" *ngIf = "!addjob" (click) = "addjobFunc()">Add Jobs</button>
   </div>
+
+  <div class = "mcontainer">
+      <div class = "dropdown">
+          <button class = "dropbtn" style="font-size:22px; background: #006666; border: none;"><i class="fa fa-reorder"></i></button>
+          <div class="dropdown-content">
+              <a (click) = "homeFunc()">Home</a>
+              <a (click) = "profileFunc()">Profile</a>
+              <a (click) = "candidatesappliedFunc()">List of Candidates</a>
+              <a (click) = "addjobFunc()">Add Job</a>
+            </div>
+      </div>
+  </div>
+  
