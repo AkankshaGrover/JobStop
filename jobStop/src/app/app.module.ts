@@ -35,6 +35,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 // import { HttpClientModule } from '@angular/common/http';
 // import { HttpParams } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { Ng2Webstorage } from 'ngx-webstorage';
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
@@ -82,7 +83,7 @@ import { CandidateprofileComponent } from './candidateprofile/candidateprofile.c
   imports: [
     BrowserModule,
     MatCardModule,
-   
+    Ng2Webstorage,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,

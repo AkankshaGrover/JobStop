@@ -1,7 +1,7 @@
 <div class="container">
   <p class="head"><b>JOB PROFILE</b></p>
   <div>
-    <form #jobdetails="ngForm" (ngSubmit)="addJob(companydetails.value)">
+    <form #jobdetails="ngForm" (ngSubmit)="addJob(jobdetails.value)">
       <label class="tag"><b>Company Name </b> </label>
       <input required class="input" type="text" name="companyname" placeholder="Company Name" ngModel>
       <br />
@@ -32,8 +32,10 @@
       <input style="margin-left: 5.8%" required class="input" type="text" name="skills" placeholder="Skills required"
         ngModel>
       <br />
+
       <div class="wrapper">
-        <input class="submit" type="submit" value="Add" [disabled]="jobdetails.invalid">
+        <input class="submit" type="submit" value=" + Submit and Add more Jobs" [disabled]="jobdetails.invalid" (click)="addMoreJobs(jobdetails.value);">
+        <input class="submit" type="submit" value="Submit" [disabled]="jobdetails.invalid">
       </div>
     </form>
 
