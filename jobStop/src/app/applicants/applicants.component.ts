@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-applicants',
@@ -6,23 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./applicants.component.css']
 })
 export class ApplicantsComponent implements OnInit {
- items=[
-   {name:"Shubham",
-    CGPA:7.90,
-    Qualification:"B.E."
-   },
-   {name:"inder",
-    CGPA:7.50,
-    Qualification:"B.Tech."
-   },
-   {name:"Aka",
-    CGPA:8.90,
-    Qualification:"B.A."
-   }
- ]
-  constructor() { }
-
-  ngOnInit() {
+  items: Observable<any[]>;
+  constructor(db: AngularFireDatabase) {
+    this.items = db.list('candidate').valueChanges();
+    this.items.subscribe(res=>
+      console.log(res));
   }
+  ngOnInit() {}
 
 }

@@ -1,19 +1,21 @@
-<div style="background-color: #f2f2f2">
-    <p style="text-align: center; font-size: 40px;font-weight: bold;margin:0px;padding: 50px;">Companies</p>
-    <mat-card class="companies" *ngFor="let item of items">
+<div>
+  <p style="text-align: center; font-size: 40px;font-weight: bold;margin:0px;padding: 50px;">Companies</p>
+  <div *ngFor="let item of items| async">
+    <mat-card class="companies" *ngFor="let job of item.jobs">
       <div class="main">
         <img class="image" src="{{item.image}}">
         <h4 class="name">{{item.name}}</h4>
       </div>
       <div class="detail">
-        <p class="para">Post:{{item.title}}</p>
-        <p class="para">Location:{{item.location}}</p>
-        <p class="para">Package:{{item.package_offered}}</p>
-        <p class="para">Skills:{{item.skills_required}}</p>
+        <p class="para"><b>Contacts: </b>{{item.contact_details}}</p>
+        <p class="para"><b>Location: </b>{{item.location}}</p>
+        <p class="para"><b>Email: </b>{{item.email}}</p>
+        <p class="para"><b>Title: </b>{{job.jobTitle}}</p>
+        <p class="para"><b>Skills: </b>{{item.skills_required}}</p>
       </div>
       <div class="navi">
-        <button class="btn">Apply</button>
+        <button class="btn" (click)="apply(item,job)">Apply</button>
       </div>
     </mat-card>
   </div>
-  
+</div>

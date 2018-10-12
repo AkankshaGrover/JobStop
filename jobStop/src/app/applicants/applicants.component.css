@@ -2,7 +2,7 @@
     display: flex;
     border: 03ch;  
     margin:20px;
-    background-color:  rgb(237, 238, 210);
+    background-color: #f2f2f2;
     }
 .detail{
     width: 40%;
@@ -12,6 +12,8 @@
     /* padding-left: 5%; */
     align-self: center;
     height: 25px;
+    border: 0px;
+    margin:5px;
     background-color:#006666;
 }
 .link{
