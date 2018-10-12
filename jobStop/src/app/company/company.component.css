@@ -1,0 +1,26 @@
+.tabs{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+.tabs>a{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.tab{
+    display: flex;
+    background-color: #006666;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 20%;
+    font-size: 20px;
+    border-radius: 8px;
+}
+.link-text{
+    margin: 12px;
+    justify-self: center;
+    font-weight: bold;
+    color: rgb(180, 255, 224)
+}

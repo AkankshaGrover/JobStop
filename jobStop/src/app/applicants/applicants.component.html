@@ -1,0 +1,15 @@
+<div>
+  <h1 style="text-align: center">applicants</h1>
+  <mat-card class="applicants" *ngFor="let item of items|async">
+    <div class="detail">
+      <h2 class="name">{{item.name}}</h2>
+      <p class="para">CGPA:{{item.CGPA}}</p>
+      <p class="para">Qualification:{{item.Qualification}}</p>
+    </div>
+    <div class="navi">
+      <a class="link" href="#">Resume</a>
+      <button class="btn">Call for Interview</button>
+      <button class="btn">Reject</button>
+    </div>
+  </mat-card>
+</div>

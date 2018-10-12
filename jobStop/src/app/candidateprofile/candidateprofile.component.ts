@@ -42,7 +42,6 @@ export class CandidateprofileComponent implements OnInit {
 
   data;
   value;
-  addProject = false;
   name: string;
   address: string;
   emailid: string;
@@ -186,18 +185,5 @@ export class CandidateprofileComponent implements OnInit {
 
   year(event) {
     this.candidate.ugyear = event.target.value;
-  }
-
-  addProjectFunc() {
-    this.addProject = !this.addProject;
-  }
-
-  addProjectFunc1(value) {
-    this.candidate.projects.push({
-      "pame": value.pname,
-      "pdescription": value.pdescription
-    })
-    console.log(this.candidate.projects);
-    this.addProject = !this.addProject;
   }
 }

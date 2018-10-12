@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { ApplicantsComponent } from './applicants/applicants.component';
 import { CompaniesComponent } from './companies/companies.component';
+import { CompanyComponent } from './company/company.component';
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 // import { MatDialog, MatDialogRef } from '@angular/material';
 import { environment } from '../environments/environment';
@@ -22,11 +23,11 @@ import { FooterComponent } from './footer/footer.component';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 import { JobprofileComponent } from './jobprofile/jobprofile.component';
 import { CandidateprofileComponent } from './candidateprofile/candidateprofile.component';
-import { AppComponent } from './app.component';
+
 // // import { baseURL } from './shared/baseURL';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
+
 // import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 // import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -75,7 +76,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     ApplicantsComponent,
     CompaniesComponent,
     LoginComponent,
-    AppComponent,
+    CompanyComponent,LoginComponent,
     HeaderComponent,
     FooterComponent,
     CompanyProfileComponent,
@@ -117,6 +118,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     // HttpClientModule 
     BrowserModule,
    
+    
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
