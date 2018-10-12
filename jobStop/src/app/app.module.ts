@@ -61,6 +61,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 import { JobprofileComponent } from './jobprofile/jobprofile.component';
 import { CandidateprofileComponent } from './candidateprofile/candidateprofile.component';
+import { CandidatetoolbarComponent } from './candidatetoolbar/candidatetoolbar.component';
+import { CompanytoolbarComponent } from './companytoolbar/companytoolbar.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { CandidateprofileComponent } from './candidateprofile/candidateprofile.c
     FooterComponent,
     CompanyProfileComponent,
     JobprofileComponent,
-    CandidateprofileComponent
+    CandidateprofileComponent,
+    CandidatetoolbarComponent,
+    CompanytoolbarComponent
   ],
   imports: [
     BrowserModule,
