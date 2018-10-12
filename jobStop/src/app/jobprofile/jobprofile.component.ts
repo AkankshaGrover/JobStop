@@ -6,29 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jobprofile.component.css']
 })
 export class JobprofileComponent implements OnInit {
-  companyname: string;
-  contactperson: string;
-  contactnumber: string;
-  jobtitle: string;
-  location: string;
-  package: string;
-  description: string;
-  skills: string;
+  job = {
+  "companyname":"",
+  "contactperson": "",
+  "contactnumber":"",
+  "jobtitle": "",
+  "location": "",
+  "package":"",
+  "description": "",
+  "skills":""
+
+  }
+  
 
   constructor() { }
 
   ngOnInit() {
+   
   }
 
-  addJob(value) {
-    this.companyname = value.companyname;
-    this.contactperson = value.contactperson;
-    this.contactnumber = value.contactnumber;
-    this.jobtitle = value.jobtitle;
-    this.location = value.location;
-    this.package = value.package;
-    this.description = value.description;
-    this.skills = value.skills;
+  addJob() {
+    console.log(this.job);
   }
 
 }
