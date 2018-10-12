@@ -23,6 +23,7 @@ export class JobprofileComponent implements OnInit {
   constructor(private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase) { }
 
   ngOnInit() {
+   
   }
 
   addJob(value) {

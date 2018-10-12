@@ -3,33 +3,41 @@
   <div>
     <form #jobdetails="ngForm" (ngSubmit)="addJob(jobdetails.value)">
       <label class="tag"><b>Company Name </b> </label>
-      <input required class="input" type="text" name="companyname" placeholder="Company Name" ngModel>
+      <input required class="input" type="text" [(ngModel)]="job.companyname" [ngModelOptions]="{standalone:
+        true}" placeholder="Company Name" ngModel>
       <br />
       <label class="tag"><b>Contact Person </b></label>
-      <input required style="margin-left: 5.5%;" class="input" type="text" name="contactperson" placeholder="Designation"
+      <input required style="margin-left: 5.5%;" class="input" type="text" [(ngModel)]="job.contactperson" [ngModelOptions]="{standalone:
+        true}" placeholder="Designation"
         ngModel>
       <br />
       <label class="tag"><b>Contact number </b></label>
-      <input required class="input" type="number" name="contactnumber" placeholder="contact num" ngModel>
+      <input required class="input" type="text" [(ngModel)]="job.contactnumber" [ngModelOptions]="{standalone:
+        true}" placeholder="contact num" ngModel>
       <br />
       <label class="tag"><b>Job Title </b></label>
-      <input required style="margin-left: 9.3%;" class="input" type="text" name="jobtitle" placeholder="Job Profile"
+      <input required style="margin-left: 9.3%;" class="input" type="text" [(ngModel)]="job.jobtitle" [ngModelOptions]="{standalone:
+        true}" placeholder="Job Profile"
         ngModel>
       <br />
       <label class="tag"><b>Location </b></label>
-      <input style="margin-left: 9.3%;" required class="input" required type="text" name="location" placeholder="Location"
+      <input style="margin-left: 9.3%;" required class="input" required type="text" [(ngModel)]="job.location" [ngModelOptions]="{standalone:
+        true}" placeholder="Location"
         ngModel>
       <br />
       <label class="tag"><b>Package Offered </b></label>
-      <input style="margin-left: 4.8%;" required class="input" type="text" name="package" placeholder="Package Offered"
+      <input style="margin-left: 4.8%;" required class="input" type="text" [(ngModel)]="job.package" [ngModelOptions]="{standalone:
+        true}" placeholder="Package Offered"
         ngModel>
       <br />
       <label class="tag"><b>Post Description </b></label>
-      <input style="margin-left: 4.9%;" required class="input" type="text" name="description" placeholder="Description"
+      <input style="margin-left: 4.9%;" required class="input" type="text" [(ngModel)]="job.description" [ngModelOptions]="{standalone:
+        true}" placeholder="Description"
         ngModel>
       <br />
       <label class="tag"><b>Skills required </b></label>
-      <input style="margin-left: 5.8%" required class="input" type="text" name="skills" placeholder="Skills required"
+      <input style="margin-left: 5.8%" required class="input" type="text" [(ngModel)]="job.skills" [ngModelOptions]="{standalone:
+        true}" placeholder="Skills required"
         ngModel>
       <br />
 
@@ -42,3 +50,55 @@
   </div>
 
 </div>
+
+<div class="mcontainer">
+  <p class="mhead"><b>JOB PROFILE</b></p>
+  <div>
+    <form #jobdetails="ngForm" (ngSubmit)="addJob()">
+      <label class="tag"><b>Company Name </b> </label>
+      <input required class="minput" type="text" [(ngModel)]="job.companyname" [ngModelOptions]="{standalone:
+        true}" placeholder="Company Name" ngModel>
+      <br />
+      <label class="tag"><b>Contact Person </b></label>
+      <input required  class="minput" type="text" [(ngModel)]="job.contactperson" [ngModelOptions]="{standalone:
+        true}" placeholder="Designation"
+        ngModel>
+      <br />
+      <label class="tag"><b>Contact number </b></label>
+      <input required class="minput" type="text" [(ngModel)]="job.contactnumber" [ngModelOptions]="{standalone:
+        true}" placeholder="contact num" ngModel>
+      <br />
+      <label class="tag"><b>Job Title </b></label>
+      <input required  class="minput" type="text" [(ngModel)]="job.jobtitle" [ngModelOptions]="{standalone:
+        true}" placeholder="Job Profile"
+        ngModel>
+      <br />
+      <label class="tag"><b>Location </b></label>
+      <input  required class="minput" required type="text" [(ngModel)]="job.location" [ngModelOptions]="{standalone:
+        true}" placeholder="Location"
+        ngModel>
+      <br />
+      <label class="tag"><b>Package Offered </b></label>
+      <input  required class="minput" type="text" [(ngModel)]="job.package" [ngModelOptions]="{standalone:
+        true}" placeholder="Package Offered"
+        ngModel>
+      <br />
+      <label class="tag"><b>Post Description </b></label>
+      <input required class="minput" type="text" [(ngModel)]="job.description" [ngModelOptions]="{standalone:
+        true}" placeholder="Description"
+        ngModel>
+      <br />
+      <label class="tag"><b>Skills required </b></label>
+      <input  required class="minput" type="text" [(ngModel)]="job.skills" [ngModelOptions]="{standalone:
+        true}" placeholder="Skills required"
+        ngModel>
+      <br />
+      <div class="wrapper">
+        <input class="msubmit" type="submit" value="Add" [disabled]="jobdetails.invalid">
+      </div>
+    </form>
+
+  </div>
+
+</div>
+
