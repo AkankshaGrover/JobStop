@@ -1,112 +1,46 @@
 <div class="container">
-    <p class="head"><b>COMPANY PROFILE</b></p>
-    <div>
-      <form #companydetails="ngForm" (ngSubmit)="addCompany()">
-        <label class="tag"><b>Company Name </b> </label>
-        <input required style="margin-left: 2.5%;"  class="input" type="text" [(ngModel)]="company.companyname" [ngModelOptions]="{standalone:
-          true}" placeholder="Company Name" ngModel>
-        <br />
-        <label class="tag"><b>Hubs</b></label>
-        <input required style="margin-left: 9%;" class="input" type="text" [(ngModel)]="company.hubs" [ngModelOptions]="{standalone:
-          true}" placeholder="Locations"
-          ngModel>
-        <br />
-        <label class="tag"><b>Founded </b></label>
-        <input required style="margin-left: 6.6%;"  class="input" type="number" [(ngModel)]="company.history" [ngModelOptions]="{standalone:
-          true}" placeholder="Company history" ngModel>
-        <br />
-        <label class="tag"><b>Website </b></label>
-        <input required style="margin-left: 7.1%;" class="input" type="text" [(ngModel)]="company.website" [ngModelOptions]="{standalone:
-          true}" placeholder="website Id or Ids"
-          ngModel>
-        <br />
-        <label class="tag"><b>Description </b></label>
-        <input style="margin-left: 5%;" required class="input" required type="text" [(ngModel)]="company.description" [ngModelOptions]="{standalone:
-          true}" placeholder="About"
-          ngModel>
-        <br />
-        <label class="tag"><b>Top Clients</b></label>
-        <input style="margin-left: 5.4%;" required class="input" type="text" [(ngModel)]="company.topclients" [ngModelOptions]="{standalone:
-          true}" placeholder="Top clients"
-          ngModel>
-        <br />
-        <label class="tag"><b>E-mail Ids </b></label>
-        <input style="margin-left: 5.6%;" required class="input" type="text" [(ngModel)]="company.emailids" [ngModelOptions]="{standalone:
-          true}" placeholder="Contact info"
-          ngModel>
-        <br />
-        <label class="tag"><b>Contact Number</b></label>
-        <input style="margin-left: 2.3%" required class="input" type="text" [(ngModel)]="company.contactnumber" [ngModelOptions]="{standalone:
-          true}" placeholder="Contact number"
-          ngModel>
-        <br />
-        <label class="tag"><b>Address</b></label>
-        <input style="margin-left: 7.3%" required class="input" type="text" [(ngModel)]="company.address" [ngModelOptions]="{standalone:
-          true}" placeholder="Address"
-          ngModel>
-        <br />
-        <div class="wrapper">
-          <input class="submit" type="submit" value="Add" [disabled]="companydetails.invalid">
-        </div>
-      </form>
-  
-    </div>
-  
+  <p class="head"><b>COMPANY PROFILE</b></p>
+  <div>
+    <form #companydetails="ngForm" (ngSubmit)="addCompany(companydetails.value)">
+      <label class="tag"><b>Company Name </b> </label>
+      <input required style="margin-left: 2.5%;" class="input" type="text" name="companyname" placeholder="Company Name"
+        ngModel>
+      <br />
+      <label class="tag"><b>Hubs</b></label>
+      <input required style="margin-left: 9%;" class="input" type="text" name="hubs" placeholder="Locations" ngModel>
+      <br />
+      <label class="tag"><b>Founded </b></label>
+      <input required style="margin-left: 6.6%;" class="input" type="number" name="history" placeholder="Company history"
+        ngModel>
+      <br />
+      <label class="tag"><b>Website </b></label>
+      <input required style="margin-left: 7.1%;" class="input" type="text" name="website" placeholder="website Id or Ids"
+        ngModel>
+      <br />
+      <label class="tag"><b>Description </b></label>
+      <input style="margin-left: 5%;" required class="input" required type="text" name="description" placeholder="About"
+        ngModel>
+      <br />
+      <label class="tag"><b>Top Clients</b></label>
+      <input style="margin-left: 5.4%;" required class="input" type="text" name="topclients" placeholder="Top clients"
+        ngModel>
+      <br />
+      <label class="tag"><b>E-mail Ids </b></label>
+      <input style="margin-left: 5.6%;" required class="input" type="text" name="emailids" placeholder="Contact info"
+        ngModel>
+      <br />
+      <label class="tag"><b>Contact Number</b></label>
+      <input style="margin-left: 2.3%" required class="input" type="text" name="contactnumber" placeholder="Contact number"
+        ngModel>
+      <br />
+      <label class="tag"><b>Address</b></label>
+      <input style="margin-left: 7.3%" required class="input" type="text" name="address" placeholder="Address" ngModel>
+      <br />
+      <div class="wrapper">
+        <input class="submit" type="submit" value="Add" [disabled]="companydetails.invalid">
+      </div>
+    </form>
+
   </div>
 
-  <div class="mcontainer">
-    <p class="mhead"><b>COMPANY PROFILE</b></p>
-    <div>
-      <form #companydetails="ngForm" (ngSubmit)="addCompany()">
-        <label class="tag"><b>Company Name </b> </label>
-        <input required   class="minput" type="text" [(ngModel)]="company.companyname" [ngModelOptions]="{standalone:
-          true}" placeholder="Company Name" ngModel>
-        <br />
-        <label class="tag"><b>Hubs</b></label>
-        <input required  class="minput" type="text" [(ngModel)]="company.hubs" [ngModelOptions]="{standalone:
-          true}" placeholder="Locations"
-          ngModel>
-        <br />
-        <label class="tag"><b>Founded </b></label>
-        <input required   class="minput" type="number" [(ngModel)]="company.history" [ngModelOptions]="{standalone:
-          true}" placeholder="Company history" ngModel>
-        <br />
-        <label class="tag"><b>Website </b></label>
-        <input required  class="minput" type="text" [(ngModel)]="company.website" [ngModelOptions]="{standalone:
-          true}" placeholder="website Id or Ids"
-          ngModel>
-        <br />
-        <label class="tag"><b>Description </b></label>
-        <input  required class="minput" required type="text" [(ngModel)]="company.description" [ngModelOptions]="{standalone:
-          true}" placeholder="About"
-          ngModel>
-        <br />
-        <label class="tag"><b>Top Clients</b></label>
-        <input  required class="minput" type="text" [(ngModel)]="company.topclients" [ngModelOptions]="{standalone:
-          true}" placeholder="Top clients"
-          ngModel>
-        <br />
-        <label class="tag"><b>E-mail Ids </b></label>
-        <input required class="minput" type="text" [(ngModel)]="company.emailids" [ngModelOptions]="{standalone:
-          true}" placeholder="Contact info"
-          ngModel>
-        <br />
-        <label class="tag"><b>Contact Number</b></label>
-        <input required class="minput" type="text" [(ngModel)]="company.contactnumber" [ngModelOptions]="{standalone:
-          true}" placeholder="Contact number"
-          ngModel>
-        <br />
-        <label class="tag"><b>Address</b></label>
-        <input  required class="minput" type="text" [(ngModel)]="company.address" [ngModelOptions]="{standalone:
-          true}" placeholder="Address"
-          ngModel>
-        <br />
-        <div class="wrapper">
-          <input class="msubmit" type="submit" value="Add" [disabled]="companydetails.invalid">
-        </div>
-      </form>
-  
-    </div>
-  
-  </div>
-  
+</div>

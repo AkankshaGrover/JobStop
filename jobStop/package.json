@@ -25,9 +25,10 @@
     "@angular/router": "^6.1.0",
     "angularfire2": "^5.0.2",
     "core-js": "^2.5.4",
-    "firebase": "^5.5.3",
+    "firebase": "^5.5.4",
     "firebaseui": "^3.4.1",
     "firebaseui-angular": "^3.3.2",
+    "ngx-webstorage": "^2.0.1",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
