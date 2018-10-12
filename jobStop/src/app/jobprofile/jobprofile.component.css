@@ -68,7 +68,7 @@
   }
 
   .mcontainer {
-      display: grid;
+    display: grid;
     background: #F2F2F2;
   }
 
@@ -87,8 +87,7 @@
   .minput {
     width: 80%;
     height: 30%;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 5%;
     height: 30px;
     border: none;
     margin-left: 10%;

@@ -1,46 +1,267 @@
 <div class="container">
-  <p class="head"><b>CANDIDATE PROFILE</b></p>
-  <div>
-    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(companydetails.value)">
-      <label class="tag"><b>Company Name </b> </label>
-      <input required style="margin-left: 2.5%;"  class="input" type="text" name="companyname" placeholder="Company Name" ngModel>
-      <br />
-      <label class="tag"><b>Hubs</b></label>
-      <input required style="margin-left: 9%;" class="input" type="text" name="hubs" placeholder="Locations"
-        ngModel>
-      <br />
-      <label class="tag"><b>Founded </b></label>
-      <input required style="margin-left: 6.6%;"  class="input" type="number" name="history" placeholder="Company history" ngModel>
-      <br />
-      <label class="tag"><b>Website </b></label>
-      <input required style="margin-left: 7.1%;" class="input" type="text" name="website" placeholder="website Id or Ids"
-        ngModel>
-      <br />
-      <label class="tag"><b>Description </b></label>
-      <input style="margin-left: 5%;" required class="input" required type="text" name="description" placeholder="About"
-        ngModel>
-      <br />
-      <label class="tag"><b>Top Clients</b></label>
-      <input style="margin-left: 5.4%;" required class="input" type="text" name="topclients" placeholder="Top clients"
-        ngModel>
-      <br />
-      <label class="tag"><b>E-mail Ids </b></label>
-      <input style="margin-left: 5.6%;" required class="input" type="text" name="emailids" placeholder="Contact info"
-        ngModel>
-      <br />
-      <label class="tag"><b>Contact Number</b></label>
-      <input style="margin-left: 2.3%" required class="input" type="text" name="contactnumber" placeholder="Contact number"
-        ngModel>
-      <br />
-      <label class="tag"><b>Address</b></label>
-      <input style="margin-left: 7.3%" required class="input" type="text" name="address" placeholder="Address"
-        ngModel>
-      <br />
-      <div class="wrapper">
-        <input class="submit" type="submit" value="Add" [disabled]="candidatedetails.invalid">
+    <p class="head"><b>CANDIDATE PROFILE</b></p>
+    <div>
+      <form #candidatedetails="ngForm" (ngSubmit)="addCandidate()">
+        <label class="tag"><b>Name </b> </label>
+        <input required style="margin-left: 8.5%;" class="input" type="text" [(ngModel)]="candidate.name" [ngModelOptions]="{standalone:
+          true}" placeholder="Your Name" ngModel>
+        <br />
+        <label class="tag"><b>Address</b></label>
+        <input required style="margin-left: 7.5%;" class="input" type="text" [(ngModel)]="candidate.address" [ngModelOptions]="{standalone:
+          true}" placeholder=" Present Address"
+          ngModel>
+        <br />
+        <label class="tag"><b>E-mail Id</b></label>
+        <input required style="margin-left: 6.6%;" class="input" type="text" [(ngModel)]="candidate.emailid" [ngModelOptions]="{standalone:
+          true}" placeholder="Mail Id for Communication"
+          ngModel>
+        <br />
+        <label class="tag"><b>Contact Number</b></label>
+        <input required style="margin-left: 2.4%;" class="input" type="number" [(ngModel)]="candidate.contactnumber" [ngModelOptions]="{standalone:
+          true}" placeholder="Contact Number"
+          ngModel>
+        <br />
+        <div class="wrapper1">
+          <p class="tag"><b>10th QUALIFICATION</b></p>
+        </div>
+        <label class="tag"><b>Institutuion</b></label>
+        <input style="margin-left: 5%;" required class="input" required type="text" [(ngModel)]="candidate.tenthinstitution" [ngModelOptions]="{standalone:
+          true}" placeholder="10th Institutuion"
+          ngModel>
+        <br />
+        <label class="tag"><b>Percentage</b></label>
+        <input style="margin-left: 5.4%;" required class="input" type="text" [(ngModel)]="candidate.tenthpercentage" [ngModelOptions]="{standalone:
+          true}" placeholder="Overall Percentage secuered"
+          ngModel>
+        <br />
+        <label class="tag"><b>Year of Passing</b></label>
+        <input style="margin-left:3%;" required class="input" type="number" [(ngModel)]="candidate.tenthyear" [ngModelOptions]="{standalone:
+          true}" placeholder="Year of Passing"
+          ngModel>
+        <br />
+        <div class="wrapper1">
+          <p class="tag"><b>12th QUALIFICATION</b></p>
+        </div>
+        <label class="tag"><b>Institutuion</b></label>
+        <input style="margin-left: 5%;" required class="input" required type="text" [(ngModel)]="candidate.twelfthinstitution" [ngModelOptions]="{standalone:
+          true}" placeholder="12th Institution"
+          ngModel>
+        <br />
+        <label class="tag"><b>Percentage</b></label>
+        <input style="margin-left: 5.4%;" required class="input" type="text" [(ngModel)]="candidate.twelfthpercentage" [ngModelOptions]="{standalone:
+          true}" placeholder="Overall Percentage secuered"
+          ngModel>
+        <br />
+        <label class="tag"><b>Year of Passing</b></label>
+        <input style="margin-left: 3%;" required class="input" type="text" [(ngModel)]="candidate.twelfthyear" [ngModelOptions]="{standalone:
+          true}" placeholder="Year of Passing"
+          ngModel>
+        <br />
+        <div class="wrapper1">
+          <p class="tag"><b>UNDER GRADUATION</b></p>
+        </div>
+        <label class="tag"><b>Institutuion</b></label>
+        <input style="margin-left: 5%;" required class="input" required type="text" [(ngModel)]="candidate.uginstitution" [ngModelOptions]="{standalone:
+          true}" placeholder="UG Institution"
+          ngModel>
+        <br />
+        <label class="tag"><b>Percentage</b></label>
+        <input style="margin-left: 5.4%;" required class="input" type="text" [(ngModel)]="candidate.ugpercentage" [ngModelOptions]="{standalone:
+          true}" placeholder="Overall Percentage secuered or CGPA"
+          ngModel>
+        <br />
+        <label class="tag"><b>specilization</b></label>
+        <select class="input" style="background: white; margin-left: 4.6%;font-size: 1.2vw;" (input)="specializationfunc($event)">
+          <option>...</option>
+          <option value="BE">BE</option>
+          <option value="B-Tech">B Tech</option>
+          <option value="BA">BA</option>
+          <option value="Others">Others</option>
+        </select>
+        <br />
+        <label class="tag"><b>Department</b></label>
+        <select class="input" style="background: white; margin-left: 4.6%;font-size: 1.2vw;" (input)="departmentfunc($event)">
+          <option>...</option>
+          <option *ngFor="let array of arrays" value="{{array}}">{{array}}</option>
+        </select>
+        <br />
+        <label class="tag"><b>Year of Passing</b></label>
+        <select class="input"  type = "text"style="background: white; margin-left: 2.8%; font-size: 1.2vw;" (input)="year($event)">
+          <option>...</option>
+          <option value="2011">2011</option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2013">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+        </select>
+        <br />
+        <label class="tag"><b>Technical skills</b></label>
+        <input required style="margin-left: 2.8%;" class="input" type="text" [(ngModel)]="candidate.techskills" [ngModelOptions]="{standalone:
+          true}" placeholder="Technical Skills"
+          ngModel>
+        <br />
+        <button class="add" (click)="addProjectFunc()"> + Add projects</button>
+      <div *ngIf="addProject">
+        <form #projectdetails="ngForm" (ngSubmit)="addProjectFunc1(projectdetails.value)">
+          <label class="tag"><b>Project Name</b></label>
+          <input style="margin-left: 3.6%;" required class="input" type="text" name="pname" placeholder="Name of the Project"
+            ngModel>
+          <br />
+          <label class="tag"><b>Description</b></label>
+          <input style="margin-left: 4.7%" required class="input" type="text" name="pdescription" placeholder="Few words about project"
+            ngModel>
+          <br />
+          <div class="wrapper">
+            <input class="submit" type="submit" value="Add" [disabled]=projectdetails.invalid>
+          </div>
+        </form>
       </div>
-    </form>
-
+        <div class="wrapper">
+          <input class="submit" type="submit" value="SUBMIT" [disabled]=candidatedetails.invalid>
+        </div>
+      </form>
+      
+  
+  
+  
+    </div>
+  
   </div>
 
-</div>
+  <div class="mcontainer">
+    <p class="mhead"><b>CANDIDATE PROFILE</b></p>
+    <div>
+      <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(candidatedetails.value)">
+        <label class="tag"><b>Name </b> </label>
+        <input required  class="minput" type="text" [(ngModel)]="candidate.name" [ngModelOptions]="{standalone:
+          true}" placeholder="Your Name" ngModel>
+        <br />
+        <label class="tag"><b>Address</b></label>
+        <input required  class="minput" type="text" [(ngModel)]="candidate.address" [ngModelOptions]="{standalone:
+          true}" placeholder=" Present Address"
+          ngModel>
+        <br />
+        <label class="tag"><b>E-mail Id</b></label>
+        <input required class="minput" type="text" [(ngModel)]="candidate.emailid" [ngModelOptions]="{standalone:
+          true}" placeholder="Mail Id for Communication"
+          ngModel>
+        <br />
+        <label class="tag"><b>Contact Number</b></label>
+        <input required class="minput" type="number" [(ngModel)]="candidate.contactnumber" [ngModelOptions]="{standalone:
+          true}" placeholder="Contact Number"
+          ngModel>
+        <br />
+        <div class="wrapper1">
+          <p class="tag1"><b>10th QUALIFICATION</b></p>
+        </div>
+        <label class="tag"><b>Institutuion</b></label>
+        <input  required class="minput" required type="text" [(ngModel)]="candidate.tenthinstitution" [ngModelOptions]="{standalone:
+          true}" placeholder="10th Institutuion"
+          ngModel>
+        <br />
+        <label class="tag"><b>Percentage</b></label>
+        <input required class="minput" type="text" [(ngModel)]="candidate.tenthpercentage" [ngModelOptions]="{standalone:
+          true}" placeholder="Overall Percentage secuered"
+          ngModel>
+        <br />
+        <label class="tag"><b>Year of Passing</b></label>
+        <input required class="minput" type="number" [(ngModel)]="candidate.tenthyear" [ngModelOptions]="{standalone:
+          true}" placeholder="Year of Passing"
+          ngModel>
+        <br />
+        <div class="wrapper1">
+          <p class="tag1"><b>12th QUALIFICATION</b></p>
+        </div>
+        <label class="tag"><b>Institutuion</b></label>
+        <input  required class="minput" required type="text" [(ngModel)]="candidate.twelfthinstitution" [ngModelOptions]="{standalone:
+          true}" placeholder="12th Institution"
+          ngModel>
+        <br />
+        <label class="tag"><b>Percentage</b></label>
+        <input  required class="minput" type="text" [(ngModel)]="candidate.twelfthpercentage" [ngModelOptions]="{standalone:
+          true}" placeholder="Overall Percentage secuered"
+          ngModel>
+        <br />
+        <label class="tag"><b>Year of Passing</b></label>
+        <input  required class="minput" type="text" [(ngModel)]="candidate.twelfthyear" [ngModelOptions]="{standalone:
+          true}" placeholder="Year of Passing"
+          ngModel>
+        <br />
+        <div class="wrapper1">
+          <p class="tag1"><b>UNDER GRADUATION</b></p>
+        </div>
+        <label class="tag"><b>Institutuion</b></label>
+        <input  required class="minput" required type="text" [(ngModel)]="candidate.uginstitution" [ngModelOptions]="{standalone:
+          true}" placeholder="UG Institution"
+          ngModel>
+        <br />
+        <label class="tag"><b>Percentage</b></label>
+        <input  required class="minput" type="text" [(ngModel)]="candidate.ugpercentage" [ngModelOptions]="{standalone:
+          true}" placeholder="Overall Percentage secuered or CGPA"
+          ngModel>
+        <br />
+        <label class="tag"><b>specilization</b></label>
+        <select class="minput" style="background: white;font-size: 3vw;" (input)="specializationfunc($event)">
+          <option>...</option>
+          <option value="BE">BE</option>
+          <option value="B-Tech">B Tech</option>
+          <option value="BA">BA</option>
+          <option value="Others">Others</option>
+        </select>
+        <br />
+        <label class="tag"><b>Department</b></label>
+        <select class="minput" style="background: white;font-size: 3vw;" (input)="departmentfunc($event)">
+          <option>...</option>
+          <option *ngFor="let array of arrays" value="{{array}}">{{array}}</option>
+        </select>
+        <br />
+        <label class="tag"><b>Year of Passing</b></label>
+        <select class="minput"  type = "text"style="background: white;font-size: 3vw;" (input)="year($event)">
+          <option>...</option>
+          <option value="2011">2011</option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2013">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+        </select>
+        <br />
+        <label class="tag"><b>Technical skills</b></label>
+        <input required  class="minput" type="text" [(ngModel)]="candidate.techskills" [ngModelOptions]="{standalone:
+          true}" placeholder="Technical Skills"
+          ngModel>
+        <br />
+        <button class="add" (click)="addProjectFunc()"> + Add projects</button>
+      <div *ngIf="addProject">
+        <form #projectdetails="ngForm" (ngSubmit)="addProjectFunc1(projectdetails.value)">
+          <label class="tag"><b>Project Name</b></label>
+          <input  required class="minput" type="text" name="pname" placeholder="Name of the Project"
+            ngModel>
+          <br />
+          <label class="tag"><b>Description</b></label>
+          <input  required class="minput" type="text" name="pdescription" placeholder="Few words about project"
+            ngModel>
+          <br />
+          <div class="wrapper">
+            <input class="submit" type="submit" value="Add" [disabled]=projectdetails.invalid>
+          </div>
+        </form>
+      </div>
+        <div class="wrapper">
+          <input class="submit" type="submit" value="SUBMIT" [disabled]=candidatedetails.invalid>
+        </div>
+      </form>
+      
+  
+  
+  
+    </div>
+  
+  </div>
+  
+  
