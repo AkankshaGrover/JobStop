@@ -1,7 +1,8 @@
+<!-- <app-header></app-header> -->
 <div class="container">
   <p class="head"><b>JOB PROFILE</b></p>
   <div>
-    <form #jobdetails="ngForm" (ngSubmit)="addJob(jobdetails.value)">
+    <form #jobdetails="ngForm" (ngSubmit)="addJob(jobdetails.value)" style= "text-align: left">
       <label class="tag"><b>Company Name </b> </label>
       <input required class="input" type="text" [(ngModel)]="job.companyname" [ngModelOptions]="{standalone:
         true}" placeholder="Company Name" ngModel>

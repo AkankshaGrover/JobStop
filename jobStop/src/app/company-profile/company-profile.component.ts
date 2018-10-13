@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { UserService } from "../services/user.service";
 import { CompanyService } from "../services/company.service";
 import { AngularFireDatabase } from 'angularfire2/database';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-company-profile',
@@ -19,7 +21,7 @@ export class CompanyProfileComponent implements OnInit {
   emailids: string;
   contactnumber: string;
   address: string;
-
+  // userid:string= this.userService.uid();
   dataToBePushed = [];
   name: string;
   email: string;
@@ -49,9 +51,8 @@ export class CompanyProfileComponent implements OnInit {
     this.contactnumber = value.contactnumber;
     this.address = value.address;
     console.log(this.companyname, this.hubs, this.history, this.website, this.description, this.topclients, this.emailids, this.contactnumber, this.address);
-
-    console.log(value)
-
+    // console.log(this.userid)
+    
     console.log("hi" + JSON.stringify(this.userService.userData));
     this.name = this.companyname;
     this.email = value.emailids;

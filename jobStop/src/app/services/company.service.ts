@@ -26,4 +26,6 @@ export class CompanyService {
     await this.session.store('company', job);
     // await this.db2.list('/company').push(job)
   }
+
+  
 }

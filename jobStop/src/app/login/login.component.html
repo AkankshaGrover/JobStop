@@ -10,7 +10,7 @@
         <a (click)="login('Company'); Company()">Company</a>
       </li>
     </ul>
-    <firebase-ui (signInSuccessWithAuthResult)="successCallback($event)" (signInFailure)="errorCallback($event)"></firebase-ui>
+    <firebase-ui (signInSuccessWithAuthResult)="successCallback($event); " (signInFailure)="errorCallback($event)"></firebase-ui>
   </div>
   <button (click)="logout()">Logout</button>
 </body>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
+import { UserService } from "../services/user.service";
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,14 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private signout: LoginComponent) { }
+  constructor(private signout: LoginComponent, private userService: UserService) { }
 
   ngOnInit() {
   }
 
-  logout()
+  logout1()
   {
-    this.signout.logout();
+    this.userService.logout();
+    console.log("logout clicked");
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Routes, Router, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-companytoolbar',
@@ -11,36 +13,39 @@ export class CompanytoolbarComponent implements OnInit {
   candidatesapplied = false;
   addjob = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  homeFunc(){
+  homeFunc() {
     this.home = true;
     this.profile = false;
     this.candidatesapplied = false;
     this.addjob = false;
+    // this.router.navigate(['totalapplicants']);
   }
-  profileFunc(){
+  profileFunc() {
     this.home = false;
     this.profile = true;
     this.candidatesapplied = false;
     this.addjob = false;
+    // this.router.navigate(['companyprofile']);
   }
-  candidatesappliedFunc(){
+  candidatesappliedFunc() {
     this.home = false;
     this.profile = false;
     this.candidatesapplied = true;
     this.addjob = false;
-  }
+    // this.router.navigate(['candidatestatus']);
+  }    
 
-  addjobFunc(){
+  addjobFunc() {
     this.home = false;
     this.profile = false;
     this.candidatesapplied = false;
     this.addjob = true;
-
+    // this.router.navigate(['jobprofile']);
   }
 
 }

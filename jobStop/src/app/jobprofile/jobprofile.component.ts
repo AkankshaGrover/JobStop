@@ -3,6 +3,9 @@ import { Router } from "@angular/router";
 import { UserService } from "../services/user.service";
 import { CompanyService } from "../services/company.service";
 import { AngularFireDatabase } from 'angularfire2/database';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
+
 
 @Component({
   selector: 'app-jobprofile',

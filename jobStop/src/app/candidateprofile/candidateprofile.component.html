@@ -3,7 +3,7 @@
     <b>CANDIDATE PROFILE</b>
   </p>
   <div>
-    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(candidatedetails.value)">
+    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(candidatedetails.value)" style="text-align: left">
       <label class="tag">
         <b>Name </b>
       </label>
@@ -99,7 +99,7 @@
       <input class="input" style="margin-left: 8%;" required type="text" name="ugdegree" placeholder="Enter your Degree (e.g B.E, BA)"
         ngModel>
       <br />
-    <!-- <label class="tag">
+      <!-- <label class="tag">
         <b>specilization</b>
       </label>
        <select class="input" style="background: white; margin-left: 4.6%;font-size: 1.2vw;" (input)="specializationfunc($event)">
@@ -124,8 +124,8 @@
         <option *ngFor="let array of arrays" value="{{array}}">{{array}}</option>
       </select>
       <br /> -->
-      
-    <!-- <label class="tag">
+
+      <!-- <label class="tag">
         <b>Year of Passing</b>
       </label>
        <select class="input" style="background: white; margin-left: 2.8%; font-size: 1.2vw;" [value]="year(value)" ngModel>
@@ -148,8 +148,7 @@
       <label class="tag">
         <b>Institutuion</b>
       </label>
-      <input style="margin-left: 5%;" class="input" type="text" name="pginstitution" placeholder="PG Institution"
-        ngModel>
+      <input style="margin-left: 5%;" class="input" type="text" name="pginstitution" placeholder="PG Institution" ngModel>
       <br />
       <label class="tag">
         <b>Percentage</b>
