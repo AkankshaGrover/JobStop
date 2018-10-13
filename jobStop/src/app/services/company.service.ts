@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { UserService } from '../services/user.service';
 import { SessionStorageService, LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { SessionStorageService, LocalStorageService } from 'ngx-webstorage';
 export class CompanyService {
 
   companyData;
-  constructor(private db2: AngularFireDatabase, private session: SessionStorageService) { }
+  constructor(private db2: AngularFireDatabase, private session: SessionStorageService,private userService:UserService) { }
 
   async CompanyData(data) {
     console.log(data)
@@ -25,5 +26,6 @@ export class CompanyService {
     console.log((job.jobs))
     await this.session.store('company', job);
     // await this.db2.list('/company').push(job)
+    this.db2.database.ref('/company/'+this.session.retrieve('user')[0].uid).set(job)
   }
 }

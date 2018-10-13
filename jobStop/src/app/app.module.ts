@@ -1,12 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { CandidateStatusComponent} from '../app/candidate-status/candidate-status.component'
+import { CompanyStatusComponent } from '../app/company-status/company-status.component'
 import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { ApplicantsComponent } from './applicants/applicants.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { CompanyComponent } from './company/company.component';
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
+import { CompanytoolbarComponent} from '../app/companytoolbar/companytoolbar.component';
+import { CandidatetoolbarComponent} from '../app/candidatetoolbar/candidatetoolbar.component';
 // import { MatDialog, MatDialogRef } from '@angular/material';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
@@ -80,13 +84,19 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     HeaderComponent,
     FooterComponent,
     CompanyProfileComponent,
+    CompanyStatusComponent,
+    CompanytoolbarComponent,
     JobprofileComponent,
     CandidateprofileComponent,
+    CandidateStatusComponent,
+    CandidatetoolbarComponent
   ],
   imports: [
     BrowserModule,
     MatCardModule,
     Ng2Webstorage,
+    MatListModule,
+    MatGridListModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
