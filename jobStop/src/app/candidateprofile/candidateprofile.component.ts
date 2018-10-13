@@ -17,18 +17,19 @@ export class CandidateprofileComponent implements OnInit {
     "address": "",
     "emailid": "",
     "contactnumber": "",
-    "twelfthpercentage": "",
-    "twelfthinstitution": "",
-    "twelfthyear": "",
-    "tenthyear": "",
-    "tenthinstitution": "",
-    "tenthpercentage": "",
-    "uginstitution": "",
-    "specialization": "",
-    "department": "",
-    "ugyear": "",
+    // "twelfthpercentage": "",
+    // "twelfthinstitution": "",
+    // "twelfthyear": "",
+    // "tenthyear": "",
+    // "tenthinstitution": "",
+    // "tenthpercentage": "",
+    // "uginstitution": "",
+    // "specialization": "",
+    // "department": "",
+    // "ugyear": "",
     "techskills": "",
     "projects": [],
+    "qualifications": []
   }
 
   // BE = ["Civil Engineering", "Geo Informatics", "Agriculture and Irrigation Engineering", "Mechanical Engineering",
@@ -44,73 +45,74 @@ export class CandidateprofileComponent implements OnInit {
 
   data;
   value;
-  name: string;
-  address: string;
-  emailid: string;
-  contactnumber: string;
+  // name: string;
+  // address: string;
+  // emailid: string;
+  // contactnumber: string;
 
-  twelfthpercentage: string;
-  twelfthinstitution: string;
-  twelfthyear: string;
+  // twelfthpercentage: string;
+  // twelfthinstitution: string;
+  // twelfthyear: string;
 
-  tenthyear: string;
-  tenthinstitution: string;
-  tenthpercentage: string;
+  // tenthyear: string;
+  // tenthinstitution: string;
+  // tenthpercentage: string;
 
-  uginstitution: string;
-  ugpercentage: string;
-  ugyear: string;
-  ugfield: string;
-  ugdegree: string;
+  // uginstitution: string;
+  // ugpercentage: string;
+  // ugyear: string;
+  // ugfield: string;
+  // ugdegree: string;
 
-  pgyear: string;
-  pginstitution: string;
-  pgpercentage: string;
-  pgfield: string;
-  pgdegree: string;
+  // pgyear: string;
+  // pginstitution: string;
+  // pgpercentage: string;
+  // pgfield: string;
+  // pgdegree: string;
 
-  techskills: string;
+  // techskills: string;
 
   qualifications = [];
   projects = [];
 
   async addCandidate(value) {
     this.qualifications.push({
-      tenth_percentage: value.tenthpercentage,
-      tenth_instituition: value.tenthpercentage,
-      tenth_passing: value.tenthyear
+      "tenth_percentage": value.tenthpercentage,
+      "tenth_instituition": value.tenthpercentage,
+      "tenth_passing": value.tenthyear
     }),
       this.qualifications.push({
-        twelfth_percentage: value.twelfthpercentage,
-        twelfth_intituition: value.twelfthinstitution,
-        twelfth_passing: value.twelfthyear
+        "twelfth_percentage": value.twelfthpercentage,
+        "twelfth_intituition": value.twelfthinstitution,
+        "twelfth_passing": value.twelfthyear
       }),
       this.qualifications.push({
-        ug_percentage: value.ugpercentage,
-        ug_intituition: value.uginstitution,
-        ug_passing: value.ugyear,
-        ug_field: value.ugfield,
-        ug_degree: value.ugdegree
+        "ug_percentage": value.ugpercentage,
+        "ug_instituition": value.uginstitution,
+        "ug_passing": value.ugyear,
+        "ug_field": value.ugfield,
+        "ug_degree": value.ugdegree
       }),
       this.qualifications.push({
-        pg_percentage: value.pgpercentage,
-        pg_intituition: value.pginstitution,
-        pg_passing: value.pgyear,
-        pg_field: value.pgfield,
-        pg_degree: value.pgdegree
+        "pg_percentage": value.pgpercentage,
+        "pg_intituition": value.pginstitution,
+        "pg_passing": value.pgyear,
+        "pg_field": value.pgfield,
+        "pg_degree": value.pgdegree
       }),
-      console.log((value))
-      this.data.push({
-        name: value.name,
-        address: value.address,
-        emailid: value.emailid,
-        contactnumber: value.contactnumber,
-        qualifications: this.qualifications,
-        techskills: value.techskills,
-    })
+      this.candidate.name = value.name;
+      this.candidate.address= value.address;
+      this.candidate.emailid= value.emailid;
+      this.candidate.contactnumber= value.contactnumber;
+      this.candidate.qualifications= this.qualifications;
+      this.candidate.techskills= value.techskills;  
+      this.addCandidatetoDB.CandidateData(this.candidate);
+      console.log((this.candidate))
+    //   this.data.push({
+    // })
   }
 
-  constructor(db: AngularFireDatabase) {
+  constructor(db: AngularFireDatabase, private addCandidatetoDB: CandidateService) {
     this.data = db.list('/candidate');
   }
 
@@ -146,8 +148,10 @@ export class CandidateprofileComponent implements OnInit {
   }
 
   addProjectFunc1(value) {
-    if (this.name && this.contactnumber && this.address && this.emailid && this.uginstitution && this.ugyear && this.ugfield && this.ugdegree) {
-      this.projects.push({
+    if (this.candidate.name && this.candidate.contactnumber && this.candidate.address && this.candidate.emailid && 
+      this.candidate.qualifications[2].ug_instituition && this.candidate.qualifications[2].ug_year && 
+      this.candidate.qualifications[2].ug_field && this.candidate.qualifications[2].ug_degree) {
+      this.candidate.projects.push({
         "pname": value.pname,
         "pdescription": value.pdescription
       })
@@ -160,11 +164,7 @@ export class CandidateprofileComponent implements OnInit {
     this.addProject = !this.addProject;
   }
 
-  // complete() {
-
-  // }
-
   year(event) {
-    this.candidate.ugyear = event.target.value;
+    this.candidate.qualifications[2].ug_year = event.target.value;
   }
 }

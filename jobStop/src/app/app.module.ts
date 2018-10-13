@@ -87,7 +87,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     MatGridListModule
   ],
   providers: [AngularFireDatabase, LoginComponent, HeaderComponent,
-    FooterComponent,, UserService],
+    FooterComponent, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

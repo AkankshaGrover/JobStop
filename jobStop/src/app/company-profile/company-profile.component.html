@@ -1,7 +1,7 @@
 <div class="container">
   <p class="head"><b>COMPANY PROFILE</b></p>
   <div>
-    <form #companydetails="ngForm" (ngSubmit)="addCompany()">
+    <form #companydetails="ngForm" (ngSubmit)="addCompany()" style= "text-align: left">
       <label class="tag"><b>Company Name </b> </label>
       <input required style="margin-left: 2.5%;" class="input" type="text" [(ngModel)]="company.companyname"
         [ngModelOptions]="{standalone : true}" placeholder="Company Name" ngModel>
@@ -22,7 +22,7 @@
           true}" placeholder="website Id or Ids" ngModel>
       <br />
       <label class="tag"><b>Description </b></label>
-      <input style="margin-left: 5%;" required class="input" required type="text" [(ngModel)]="company.description"
+      <input style="margin-left: 5%;" required class="input" type="text" [(ngModel)]="company.description"
         [ngModelOptions]="{standalone:
           true}" placeholder="About" ngModel>
       <br />
@@ -50,9 +50,7 @@
         <input class="submit" type="submit" value="Add" [disabled]="companydetails.invalid">
       </div>
     </form>
-
   </div>
-
 </div>
 
 <div class="mcontainer">
@@ -80,7 +78,7 @@
         placeholder="website Id or Ids" ngModel>
       <br />
       <label class="tag"><b>Description </b></label>
-      <input required class="minput" required type="text" [(ngModel)]="company.description" [ngModelOptions]="{standalone:
+      <input required class="minput" type="text" [(ngModel)]="company.description" [ngModelOptions]="{standalone:
           true}"
         placeholder="About" ngModel>
       <br />

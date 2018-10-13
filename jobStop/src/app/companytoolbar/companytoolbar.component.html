@@ -1,3 +1,8 @@
+<app-header></app-header>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <div class="container">
     <button *ngIf="home" class="button" (click)="homeFunc()">List of Candidates</button>
     <button class="hide" *ngIf="!home" (click)="homeFunc()">List of Candidates</button>
@@ -7,6 +12,10 @@
     <button class="hide" *ngIf="!candidatesapplied" (click)="candidatesappliedFunc()">Status</button>
     <button *ngIf="addjob" class="button" (click)="addjobFunc()">Add Jobs</button>
     <button class="hide" *ngIf="!addjob" (click)="addjobFunc()">Add Jobs</button>
+    <app-applicants *ngIf="home"></app-applicants>
+    <app-company-status *ngIf="candidatesapplied"></app-company-status>
+    <app-company-profile *ngIf="profile"></app-company-profile>
+    <app-jobprofile *ngIf="addjob"></app-jobprofile>
 </div>
 
 <div class="mcontainer">
@@ -22,3 +31,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>
