@@ -32,21 +32,6 @@ export class UserService {
 
   async  successCallback(data: FirebaseUISignInSuccessWithAuthResult) {
     console.log('login hogya', data.authResult.user.displayName);
-    // this.afAuth.authState.subscribe(d => this.data = d.providerData);
-    // await this.data;
-    // await this.userService.UserData(this.data)
-    // console.log(this.data)
-
-    // this.db2.list('/candidate')
-    //   .valueChanges()
-    //   .subscribe(res => {
-
-    //     console.log("inside db2.list method"+res[0].name);
-
-    //   })
-
-    // if (this.type == 'Company') { this.router.navigate(['companyprofile']) }
-    // else if (this.type == 'Applicant') { this.router.navigate(['candidatetoolbar']) }
   }
 
   errorCallback(data: FirebaseUISignInFailure) {

@@ -6,7 +6,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 
-
 @Component({
   selector: 'app-company-profile',
   templateUrl: './company-profile.component.html',
