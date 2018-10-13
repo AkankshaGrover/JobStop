@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { CandidateService } from '../services/candidate.service'
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-candidateprofile',
@@ -11,32 +13,32 @@ import { CandidateService } from '../services/candidate.service'
 export class CandidateprofileComponent implements OnInit {
   addProject = false;
   candidate = {
-  "name": "",
-  "address": "",
-  "emailid": "",
-  "contactnumber": "",
-  "twelfthpercentage": "",
-  "twelfthinstitution": "",
-  "twelfthyear": "",
-  "tenthyear":"",
-  "tenthinstitution": "",
-  "tenthpercentage": "",
-  "uginstitution": "",
-  "specialization": "",
-  "department": "",
-  "ugyear": "",
-  "techskills": "",
-  "projects" : [],
+    "name": "",
+    "address": "",
+    "emailid": "",
+    "contactnumber": "",
+    "twelfthpercentage": "",
+    "twelfthinstitution": "",
+    "twelfthyear": "",
+    "tenthyear": "",
+    "tenthinstitution": "",
+    "tenthpercentage": "",
+    "uginstitution": "",
+    "specialization": "",
+    "department": "",
+    "ugyear": "",
+    "techskills": "",
+    "projects": [],
   }
-  
-  BE = ["Civil Engineering", "Geo Informatics", "Agriculture and Irrigation Engineering", "Mechanical Engineering",
-    "Electronics and Communication Engineering", "Material Science and Engineering", "Mining Engineering",
-    "Industrial Engineering", "Aeronautical Engineering", "Automobile Engineering", " Electrical and Electronics Engineering",
-    "Computer Science and Engineering"];
-  B_Tech = ["Information Technology", "Computer Science and Engineering", " Information Technology",
-    "Chemical Engineering", "Textile Technology", "Industrial Bio-Technology", "Industrial Bio-Technology", "Pharmaceutical Technology",
-    "Rubber and Plastic Technology", " Petroleum Engineering and Technology"];
-  BA = ["Media and Communication", "Culinary Arts", "Mass Communication", "English", "Social Work with Specialisation in Rural Development", "Mass Communication", "English Language and Literature"];
+
+  // BE = ["Civil Engineering", "Geo Informatics", "Agriculture and Irrigation Engineering", "Mechanical Engineering",
+  //   "Electronics and Communication Engineering", "Material Science and Engineering", "Mining Engineering",
+  //   "Industrial Engineering", "Aeronautical Engineering", "Automobile Engineering", " Electrical and Electronics Engineering",
+  //   "Computer Science and Engineering"];
+  // B_Tech = ["Information Technology", "Computer Science and Engineering", " Information Technology",
+  //   "Chemical Engineering", "Textile Technology", "Industrial Bio-Technology", "Industrial Bio-Technology", "Pharmaceutical Technology",
+  //   "Rubber and Plastic Technology", " Petroleum Engineering and Technology"];
+  // BA = ["Media and Communication", "Culinary Arts", "Mass Communication", "English", "Social Work with Specialisation in Rural Development", "Mass Communication", "English Language and Literature"];
   arrays = [];
 
 
@@ -66,21 +68,10 @@ export class CandidateprofileComponent implements OnInit {
   pgpercentage: string;
   pgfield: string;
   pgdegree: string;
-  
-  
+
   techskills: string;
-  
+
   qualifications = [];
-  // BE = ["Civil Engineering", "Geo Informatics", "Agriculture and Irrigation Engineering", "Mechanical Engineering",
-  //   "Electronics and Communication Engineering", "Material Science and Engineering", "Mining Engineering",
-  //   "Industrial Engineering", "Aeronautical Engineering", "Automobile Engineering", " Electrical and Electronics Engineering",
-  //   "Computer Science and Engineering"];
-  // B_Tech = ["Information Technology", "Computer Science and Engineering", " Information Technology",
-  //   "Chemical Engineering", "Textile Technology", "Industrial Bio-Technology", "Industrial Bio-Technology", "Pharmaceutical Technology",
-  //   "Rubber and Plastic Technology", " Petroleum Engineering and Technology"];
-  // BA = ["Media and Communication", "Culinary Arts", "Mass Communication", "English", "Social Work with Specialisation in Rural Development", "Mass Communication", "English Language and Literature"];
-  // arrays = [];
-  // years = ['2011','2012','2013','2014','2015','2016','2017','2018']
   projects = [];
 
   async addCandidate(value) {
@@ -99,34 +90,24 @@ export class CandidateprofileComponent implements OnInit {
         ug_intituition: value.uginstitution,
         ug_passing: value.ugyear,
         ug_field: value.ugfield,
-        ug_degree: value.ug_degree
+        ug_degree: value.ugdegree
       }),
       this.qualifications.push({
         pg_percentage: value.pgpercentage,
         pg_intituition: value.pginstitution,
         pg_passing: value.pgyear,
         pg_field: value.pgfield,
-        pg_degree: value.pg_degree
+        pg_degree: value.pgdegree
       }),
-    console.log("function called" + JSON.stringify(value))
-    this.data.push({
-      name : value.name,
-      address : value.address,
-      emailid : value.emailid,
-      contactnumber : value.contactnumber,
-      qualifications :this.qualifications,
-      
-      // tenthinstitution : value.tenthinstitution,
-      // tenthpercentage : value.tenthpercentage,
-      // tenthyear : value.tenthyear,
-      // twelfthinstitution : value.twelfthinstitution,
-      // twelfthpercentage : value.twelfthpercentage,
-      // twelfthyear : value.twelfthyear,
-      // uginstitution : value.uginstitution,
-      // ugyear : value.ugyear,
-      // ugpercentage: value.ugpercentage,
-      techskills : value.techskills,
-    })  
+      console.log((value))
+      this.data.push({
+        name: value.name,
+        address: value.address,
+        emailid: value.emailid,
+        contactnumber: value.contactnumber,
+        qualifications: this.qualifications,
+        techskills: value.techskills,
+    })
   }
 
   constructor(db: AngularFireDatabase) {
@@ -179,9 +160,9 @@ export class CandidateprofileComponent implements OnInit {
     this.addProject = !this.addProject;
   }
 
-  complete() {
+  // complete() {
 
-  }
+  // }
 
   year(event) {
     this.candidate.ugyear = event.target.value;

@@ -7,13 +7,18 @@ import { SessionStorageService,LocalStorageService} from 'ngx-webstorage';
 export class UserService {
 
  
-
+uid;
   userData;
   constructor(private session: SessionStorageService) { }
 
  async UserData(data) {
-    console.log(data);
+  
    this.userData = await data;
    this.session.store('user',data);
+    console.log(this.session.retrieve('user')[0].uid);
+  }
+
+  Uid(){
+      return this.session.retrieve('user')
   }
 }
