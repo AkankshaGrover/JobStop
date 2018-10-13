@@ -13,14 +13,16 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrls: ['./jobprofile.component.css']
 })
 export class JobprofileComponent implements OnInit {
-  companyname: string;
-  contactperson: string;
-  contactnumber: string;
-  jobtitle: string;
-  location: string;
-  package: string;
-  description: string;
-  skills: string;
+  job = {
+    "companyname": "",
+    "contactperson": "",
+    "contactnumber": "",
+    "jobtitle": "",
+    "location": "",
+    "package": "",
+    "description": "",
+    "skills": ""
+  }
   jobs = [];
 
   constructor(private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase) { }
@@ -29,30 +31,32 @@ export class JobprofileComponent implements OnInit {
    
   }
 
-  addJob(value) {
+  addJob() {
     this.jobs.push({
-      "companyname": value.companyname,
+      "companyname":this.job.companyname,
       // "contactperson" : value.contactperson,
       // "contactnumber" : value.contactnumber,
-      "jobtitle" : value.jobtitle,
-      "location" : value.location,
-      "package" : value.package,
-      "description" : value.description,
-      "skills" : value.skills
+      "jobtitle": this.job.jobtitle,
+      "location": this.job.package,
+      "package": this.job.package,
+      "description": this.job.description,
+      "skills": this.job.skills
     });
-   // console.log(this.jobs);  
+   console.log("this.jobs");  
+    this.companyService.UpdateCompanyData(this.jobs)
+    // this.companyService.;
   }
 
-  addMoreJobs(value){
+  addMoreJobs(){
     this.jobs.push({
-      "companyname": value.companyname,
-      // "contactperson": value.contactperson,
-      // "contactnumber": value.contactnumber,
-      "jobTitle": value.jobtitle,
-      "location": value.location,
-      "package": value.package,
-      "description": value.description,
-      "skills": value.skills
+      "companyname": this.job.companyname,
+      // "contactperson" : value.contactperson,
+      // "contactnumber" : value.contactnumber,
+      "jobtitle": this.job.jobtitle,
+      "location": this.job.package,
+      "package": this.job.package,
+      "description": this.job.description,
+      "skills": this.job.skills
     });
     console.log(this.jobs);
     this.companyService.UpdateCompanyData(this.jobs)

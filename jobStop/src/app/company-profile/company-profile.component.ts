@@ -3,9 +3,6 @@ import { Router } from '@angular/router';
 import { UserService } from "../services/user.service";
 import { CompanyService } from "../services/company.service";
 import { AngularFireDatabase } from 'angularfire2/database';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
-
 
 @Component({
   selector: 'app-company-profile',
@@ -13,25 +10,38 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrls: ['./company-profile.component.css']
 })
 export class CompanyProfileComponent implements OnInit {
-  companyname: string;
-  hubs: string;
-  history: string;
-  website: string;
-  description: string;
-  topclients: string;
-  emailids: string;
-  contactnumber: string;
-  address: string;
-  // userid:string= this.userService.uid();
+  company = {
+    "companyname": "",
+    "hubs": "",
+    "history": "",
+    "website": "",
+    "description": "",
+    "topclients": "",
+    "emailids": "",
+    "contactnumber": "",
+    "address": ""
+  }
+
   dataToBePushed = [];
   name: string;
   email: string;
   contact_details: string;
   location: string;
   jobs = [];
-  candidatesApplied=[];
+  candidatesApplied = [];
 
-   async addCompany(value) {
+ 
+  constructor(
+    private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase
+    ) {
+     
+   }
+
+  ngOnInit() {
+  
+  }
+
+  addCompany() {
 
     // this.jobs.push({
     //   "Job Title": "NA",
@@ -40,27 +50,20 @@ export class CompanyProfileComponent implements OnInit {
     //   "package_offered": "NA",
     //   "location": "NA"
     // })
-    await value;
-    debugger;
-    this.companyname = value.companyname;
-    this.hubs = value.hubs;
-    this.history = value.history;
-    this.website = value.website;
-    this.description = value.description;
-    this.topclients = value.topclients;
-    this.emailids = value.emailids;
-    this.contactnumber = value.contactnumber;
-    this.address = value.address;
-    console.log(this.companyname, this.hubs, this.history, this.website, this.description, this.topclients, this.emailids, this.contactnumber, this.address);
-    // console.log(this.userid)
-    
-    console.log("hi" + JSON.stringify(this.userService.userData));
-    this.name = this.companyname;
-    this.email = value.emailids;
-    this.contact_details = value.contactnumber;
-    this.location = this.hubs;
-    this.jobs = this.jobs;
-     this.candidatesApplied.push("none")
+    // console.log("hi");
+
+
+    console.log(this.company);
+
+
+
+    // console.log("hi" + JSON.stringify(this.userService.userData));
+    // this.name = this.companyname;
+    // this.email = value.emailids;
+    // this.contact_details = value.contactnumber;
+    // this.location = this.hubs;
+    // this.jobs = this.jobs;
+    // this.candidatesApplied.push("none")
     // this.dataToBePushed.push(this.name );
     // this.dataToBePushed.push(this.email);
     // this.dataToBePushed.push(this.contact_details);
@@ -68,22 +71,15 @@ export class CompanyProfileComponent implements OnInit {
     // this.dataToBePushed.push(this.jobs);
     // console.log("hi" + JSON.stringify(this.dataToBePushed));
     this.dataToBePushed.push({
-      name: this.name,
-      email: this.email,
-      contact_details: this.contact_details,
-      location: this.hubs,
+      name: this.company.companyname,
+      email: this.company.emailids,
+      contact_details: this.company.contactnumber,
+      location: this.company.hubs,
       jobs: this.jobs,
-      candidatesApplied:this.candidatesApplied
+      candidatesApplied: this.candidatesApplied
     })
-
-   this.companyService.CompanyData(this.dataToBePushed[0])
-
+    this.companyService.CompanyData(this.dataToBePushed[0])
     this.router.navigate(['jobprofile'])
-
     // this.db2.list('/company').push(this.dataToBePushed[0])
-  }
-  constructor(private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase) { }
-
-  ngOnInit() {
   }
 }
