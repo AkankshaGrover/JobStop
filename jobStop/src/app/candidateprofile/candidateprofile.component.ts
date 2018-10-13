@@ -160,10 +160,6 @@ export class CandidateprofileComponent implements OnInit {
     this.addProject = !this.addProject;
   }
 
-  // complete() {
-
-  // }
-
   year(event) {
     this.candidate.ugyear = event.target.value;
   }

@@ -1,24 +1,63 @@
 import { Injectable } from '@angular/core';
-import { SessionStorageService,LocalStorageService} from 'ngx-webstorage';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
+import { FirebaseUISignInFailure } from 'firebaseui-angular';
+import { SessionStorageService, LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
- 
-uid;
-  userData;
-  constructor(private session: SessionStorageService) { }
 
- async UserData(data) {
-  
-   this.userData = await data;
-   this.session.store('user',data);
+  uid;
+  userData;
+  constructor(private session: SessionStorageService, private afAuth: AngularFireAuth) { }
+
+  async UserData(data) {
+
+    this.userData = await data;
+    this.session.store('user', data);
     console.log(this.session.retrieve('user')[0].uid);
   }
 
-  Uid(){
-      return this.session.retrieve('user')
+  Uid() {
+    return this.session.retrieve('user')
   }
+
+ 
+    // // console.log(this.afAuth.authState);
+    // this.afAuth.auth.signOut();
+    // }
+
+  async  successCallback(data: FirebaseUISignInSuccessWithAuthResult) {
+    console.log('login hogya', data.authResult.user.displayName);
+    // this.afAuth.authState.subscribe(d => this.data = d.providerData);
+    // await this.data;
+    // await this.userService.UserData(this.data)
+    // console.log(this.data)
+
+    // this.db2.list('/candidate')
+    //   .valueChanges()
+    //   .subscribe(res => {
+
+    //     console.log("inside db2.list method"+res[0].name);
+
+    //   })
+
+    // if (this.type == 'Company') { this.router.navigate(['companyprofile']) }
+    // else if (this.type == 'Applicant') { this.router.navigate(['candidatetoolbar']) }
+  }
+
+  errorCallback(data: FirebaseUISignInFailure) {
+    console.warn('nahi hua login', data);
+  }
+
+  public logout() {
+    // console.log(this.afAuth.user);
+    this.afAuth.auth.signOut();
+    this.session.clear('user')
+
+  }
+
 }

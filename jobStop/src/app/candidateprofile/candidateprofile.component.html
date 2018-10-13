@@ -1,11 +1,9 @@
-<app-header></app-header>
-<app-candidatetoolbar></app-candidatetoolbar>
 <div class="container">
   <p class="head">
     <b>CANDIDATE PROFILE</b>
   </p>
   <div>
-    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(candidatedetails.value)">
+    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(candidatedetails.value)" style="text-align: left">
       <label class="tag">
         <b>Name </b>
       </label>

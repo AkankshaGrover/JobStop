@@ -1,7 +1,7 @@
 <div class="container">
   <p class="head"><b>COMPANY PROFILE</b></p>
   <div>
-    <form #companydetails="ngForm" (ngSubmit)="addCompany(companydetails.value)">
+    <form #companydetails="ngForm" (ngSubmit)="addCompany(companydetails.value)" style= "text-align: left">
       <label class="tag"><b>Company Name </b> </label>
       <input required style="margin-left: 2.5%;" class="input" type="text" name="companyname" placeholder="Company Name"
         ngModel>

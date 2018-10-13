@@ -18,9 +18,8 @@ import { promise } from 'protractor';
 export class LoginComponent implements OnInit {
   activeApplicant: string = "active"
   activeCompany: string
-  type: string = 'Company';
+  type: string = 'Applicant';
   data;
-
 
   users;
   constructor(private afAuth: AngularFireAuth, private router: Router, private db2: AngularFireDatabase,
@@ -51,16 +50,18 @@ export class LoginComponent implements OnInit {
   //   })
 
   if (this.type == 'Company' )
-  { this.router.navigate(['companyprofile']) }
+  { this.router.navigate(['companytoolbar']) }
   else if (this.type == 'Applicant') 
-  { this.router.navigate(['candidateprofile']) }
+  { this.router.navigate(['candidatetoolbar']) }
 }
 
 errorCallback(data: FirebaseUISignInFailure) {
   console.warn('nahi hua login', data);
 }
 
-logout() {
+public logout() {
+  // console.log(this.afAuth.user);
+  
   this.afAuth.auth.signOut();
 }
 

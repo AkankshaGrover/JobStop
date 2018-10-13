@@ -12,6 +12,8 @@ import { CandidateStatusComponent } from '../candidate-status/candidate-status.c
 import { CompanyStatusComponent } from '../company-status/company-status.component';
 import { ApplicantsComponent } from '../applicants/applicants.component';
 import { CompaniesComponent } from '../companies/companies.component';
+import { CandidatetoolbarComponent } from '../candidatetoolbar/candidatetoolbar.component';
+import { CompanytoolbarComponent } from '../companytoolbar/companytoolbar.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -24,5 +26,7 @@ export const routes: Routes = [
     { path: 'candidatestatus', component: CandidateStatusComponent }, 
     { path: 'companystatus', component: CompanyStatusComponent },
     { path: 'totalapplicants', component: ApplicantsComponent },
-    { path: 'totaljobs', component: CompaniesComponent }
+    { path: 'totaljobs', component: CompaniesComponent },
+    { path: 'candidatetoolbar', component: CandidatetoolbarComponent },
+    { path: 'companytoolbar', component: CompanytoolbarComponent },
 ];

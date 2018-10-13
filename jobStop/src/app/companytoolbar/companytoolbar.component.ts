@@ -23,21 +23,21 @@ export class CompanytoolbarComponent implements OnInit {
     this.profile = false;
     this.candidatesapplied = false;
     this.addjob = false;
-    this.router.navigate(['totalapplicants']);
+    // this.router.navigate(['totalapplicants']);
   }
   profileFunc() {
     this.home = false;
     this.profile = true;
     this.candidatesapplied = false;
     this.addjob = false;
-    this.router.navigate(['companyprofile']);
+    // this.router.navigate(['companyprofile']);
   }
   candidatesappliedFunc() {
     this.home = false;
     this.profile = false;
     this.candidatesapplied = true;
     this.addjob = false;
-    this.router.navigate(['candidatestatus']);
+    // this.router.navigate(['candidatestatus']);
   }    
 
   addjobFunc() {
@@ -45,7 +45,7 @@ export class CompanytoolbarComponent implements OnInit {
     this.profile = false;
     this.candidatesapplied = false;
     this.addjob = true;
-    this.router.navigate(['jobprofile']);
+    // this.router.navigate(['jobprofile']);
   }
 
 }
