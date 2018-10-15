@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Routes, Router, RouterModule } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { SessionStorageService } from 'ngx-webstorage';
+// @import 'node_modules/angular5-toaster/toaster';
 @Component({
   selector: 'app-candidatetoolbar',
   templateUrl: './candidatetoolbar.component.html',
@@ -12,7 +14,11 @@ export class CandidatetoolbarComponent implements OnInit {
   profile = false;
   jobsapplied = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, session: SessionStorageService) {
+    if (session.retrieve('user') == null) {
+      this.router.navigate(['login']);
+    }
+  }
 
   ngOnInit() {
   }

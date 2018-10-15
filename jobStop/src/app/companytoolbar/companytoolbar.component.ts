@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes, Router, RouterModule } from '@angular/router';
-
+import { SessionStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-companytoolbar',
@@ -13,7 +13,12 @@ export class CompanytoolbarComponent implements OnInit {
   candidatesapplied = false;
   addjob = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, session: SessionStorageService) { 
+    if (session.retrieve('user')==null)
+    {
+      this.router.navigate(['login']);
+    }
+  }
 
   ngOnInit() {
   }

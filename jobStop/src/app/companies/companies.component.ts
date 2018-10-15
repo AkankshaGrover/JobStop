@@ -27,7 +27,7 @@ export class CompaniesComponent implements OnInit {
   apply(item, job, i) {
     console.log(item.uid)
     this.session.retrieve('user');
-    this.db.database.ref('/company/' + item.uid + '/candidatesApplied').push({ name: this.session.retrieve('user')[0].displayName, jobTitle: job.jobtitle })
+    this.db.database.ref('/company/' + item.uid + '/candidatesApplied').push({ 'uid': this.session.retrieve('user')[0].uid })
   }
 }
 

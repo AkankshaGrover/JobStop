@@ -7,6 +7,8 @@ import { UserService } from "../services/user.service";
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { promise } from 'protractor';
+import { Observable} from 'rxjs';
+import { AlertsService } from 'angular-alert-module';
 // import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
@@ -20,10 +22,13 @@ export class LoginComponent implements OnInit {
   activeCompany: string
   type: string = 'Applicant';
   data;
+  items: Observable<any[]>;
+  item: Observable<any[]>;
+  foo
 
   users;
   constructor(private afAuth: AngularFireAuth, private router: Router, private db2: AngularFireDatabase,
-    private userService: UserService) {
+    private userService: UserService, private alerts: AlertsService) {
 
   }
 
@@ -33,7 +38,6 @@ export class LoginComponent implements OnInit {
 
   }
  
-
   async  successCallback(data: FirebaseUISignInSuccessWithAuthResult) {
   console.log('login hogya', data.authResult.user.displayName);
   this.afAuth.authState.subscribe( d => this.data= d.providerData );
@@ -50,9 +54,48 @@ export class LoginComponent implements OnInit {
   //   })
 
   if (this.type == 'Company' )
-  { this.router.navigate(['companytoolbar']) }
+  { 
+    this.items = this.db2.list('candidate/' + this.userService.Uid()).valueChanges();
+    this.items.subscribe(res =>
+        {
+      // console.log(res[0]);
+          // debugger;
+        if(res[0]!=undefined)
+        {
+          console.log(res);
+          
+          this.alerts.setMessage('You are already registered as an applicant', 'error');
+          this.alerts.setDefaults('timeout', 6000);
+          this.alerts.setConfig('warn', 'icon', 'warning')
+          this.logout();
+        }
+        else{
+          console.log(res)
+          this.router.navigate(['companytoolbar'])
+        }
+      } 
+      )
+  }
   else if (this.type == 'Applicant') 
-  { this.router.navigate(['candidatetoolbar']) }
+  { 
+    this.items = this.db2.list('company/' + this.userService.Uid()).valueChanges();
+    this.items.subscribe(res => {
+      if (res[0] != undefined){
+        console.log(res);
+
+        this.alerts.setMessage('You are already registered as a company', 'error');
+        this.alerts.setDefaults('timeout', 6000);
+        this.alerts.setConfig('warn', 'icon', 'warning')
+        this.logout();
+      }
+      else {
+        console.log(res)
+        this.router.navigate(['candidatetoolbar'])
+      }
+    }
+
+    )
+  }
 }
 
 errorCallback(data: FirebaseUISignInFailure) {
@@ -61,8 +104,8 @@ errorCallback(data: FirebaseUISignInFailure) {
 
 public logout() {
   // console.log(this.afAuth.user);
-  
   this.afAuth.auth.signOut();
+  this.router.navigate(['login'])
 }
 
 login(type){
