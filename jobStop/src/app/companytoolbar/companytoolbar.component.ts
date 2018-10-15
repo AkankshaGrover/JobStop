@@ -33,6 +33,7 @@ export class CompanytoolbarComponent implements OnInit {
     // this.router.navigate(['companyprofile']);
   }
   candidatesappliedFunc() {
+    console.log("function called")
     this.home = false;
     this.profile = false;
     this.candidatesapplied = true;

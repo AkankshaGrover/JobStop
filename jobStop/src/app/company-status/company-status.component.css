@@ -15,4 +15,45 @@
   color: #006666;
   text-align: center;
 }
-
+.applicants{
+  display: flex;
+  border: 03ch;  
+  margin:20px;
+  background-color: #f2f2f2;
+  }
+.detail{
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  align-items: center;
+}
+.btn{
+  justify-self: flex-end;
+  /* padding-left: 5%; */
+  align-self: center;
+  height: 25px;
+  border: 0px;
+  margin:5px;
+  background-color:#006666;
+}
+.link{
+  align-self: center;
+  text-decoration: none;
+  color: blue;
+  padding: 20px;
+}
+.name{
+  color: rgb(36, 56, 56);
+}
+.para
+{
+  font-size: 15px;
+  color: rgb(59, 58, 58);
+  margin: 10px;
+}
+.navi{
+  display: flex;
+  justify-self: flex-end;
+  justify-content: flex-end;
+  align-content: center;
+}

@@ -3,9 +3,19 @@
     <b>COMPANY STATUS</b>
   </p>
   <h1 class="tag">SHORTLISTED CANDIDATES</h1>
-  <mat-grid-list>
-    <mat-card>
-
+  <div *ngFor="let item of candidates"> 
+    <mat-card class="applicants">
+      <div class="detail">
+        <h2 class="name">{{item.name}}</h2>
+        <p class="para">Email:{{item.emailid}}</p>
+        <p class="para">Technical Skills:{{item.techskills[0]}}</p>
+       
+      </div>
+      <div class="navi">
+        <!-- <a class="link" href="#">Resume</a> -->
+        <!-- <button class="btn" id="callButton" (click)="call(item.uid)">Call for Interview</button>
+        <button class="btn" id="rejectButton" (click)="reject(item.uid)">Reject</button> -->
+      </div>
     </mat-card>
-  </mat-grid-list>
+  </div> 
 </div>
