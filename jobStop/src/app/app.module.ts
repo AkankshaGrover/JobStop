@@ -30,6 +30,7 @@ import { CompanyStatusComponent } from './company-status/company-status.componen
 import { LoginComponent } from './login/login.component';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { CandidateService } from './services/candidate.service';
+import { AlertsModule } from 'angular-alert-module';
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
@@ -84,10 +85,11 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     CommonModule,
     AngularFireAuthModule,
     FormsModule,
-    MatGridListModule
+    MatGridListModule,
+    AlertsModule.forRoot()
   ],
   providers: [AngularFireDatabase, LoginComponent, HeaderComponent,
-    FooterComponent, UserService],
+    FooterComponent, UserService, AlertsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

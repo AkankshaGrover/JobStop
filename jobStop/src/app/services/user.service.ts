@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
 import { FirebaseUISignInFailure } from 'firebaseui-angular';
 import { SessionStorageService, LocalStorageService } from 'ngx-webstorage';
+import { Routes,Router, RouterModule } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class UserService {
 
   uid;
   userData;
-  constructor(private session: SessionStorageService, private afAuth: AngularFireAuth) { }
+  constructor(private session: SessionStorageService, private afAuth: AngularFireAuth, private router: Router) { 
+    
+  }
 
   async UserData(data) {
 
@@ -22,7 +25,7 @@ export class UserService {
   }
 
   Uid() {
-    return this.session.retrieve('user')
+    return this.session.retrieve('user')[0].uid
   }
 
  
@@ -41,8 +44,11 @@ export class UserService {
   public logout() {
     // console.log(this.afAuth.user);
     this.afAuth.auth.signOut();
-    this.session.clear('user')
-
+    this.session.clear('user');
+    this.session.clear('candidate');
+    this.session.clear('company');
+    console.log(this.session.retrieve('user'));
+    this.router.navigate(['login'])
   }
 
 }

@@ -6,12 +6,12 @@
       <h2 class="name">{{item.name}}</h2>
       <p class="para">Job Title:{{item.jobTitle}}</p>
       <p class="para">CGPA:{{item.CGPA}}</p>
-      <p class="para">Qualification:{{item.Qualification}}</p>
+      <p class="para">uid:{{item.uid}}</p>
     </div>
     <div class="navi">
       <a class="link" href="#">Resume</a>
-      <button class="btn">Call for Interview</button>
-      <button class="btn">Reject</button>
+      <button class="btn" (click)="call(item.uid)">Call for Interview</button>
+      <button class="btn" (click)="reject(item.uid)">Reject</button>
     </div>
   </mat-card>
 </div>
