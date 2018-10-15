@@ -3,6 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { CandidateService } from '../services/candidate.service'
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { SessionStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-candidateprofile',
@@ -29,7 +30,8 @@ export class CandidateprofileComponent implements OnInit {
     // "ugyear": "",
     "techskills": "",
     "projects": [],
-    "qualifications": []
+    "qualifications": [],
+    "uid": ''
   }
 
   // BE = ["Civil Engineering", "Geo Informatics", "Agriculture and Irrigation Engineering", "Mechanical Engineering",
@@ -99,20 +101,23 @@ export class CandidateprofileComponent implements OnInit {
         "pg_passing": value.pgyear,
         "pg_field": value.pgfield,
         "pg_degree": value.pgdegree
-      }),
-      this.candidate.name = value.name;
-      this.candidate.address= value.address;
-      this.candidate.emailid= value.emailid;
-      this.candidate.contactnumber= value.contactnumber;
-      this.candidate.qualifications= this.qualifications;
-      this.candidate.techskills= value.techskills;  
-      this.addCandidatetoDB.CandidateData(this.candidate);
-      console.log((this.candidate))
+      });
+    this.candidate.name = value.name;
+    this.candidate.address = value.address;
+    this.candidate.emailid = value.emailid;
+    this.candidate.contactnumber = value.contactnumber;
+    this.candidate.qualifications = this.qualifications;
+    this.candidate.techskills = value.techskills;
+    this.candidate.uid = this.session.retrieve('user')[0].uid;
+
+    this.addCandidatetoDB.CandidateData(this.candidate);
+
+    console.log((this.candidate))
     //   this.data.push({
     // })
   }
 
-  constructor(db: AngularFireDatabase, private addCandidatetoDB: CandidateService) {
+  constructor(db: AngularFireDatabase, private session: SessionStorageService, private addCandidatetoDB: CandidateService) {
     this.data = db.list('/candidate');
   }
 
@@ -148,8 +153,8 @@ export class CandidateprofileComponent implements OnInit {
   }
 
   addProjectFunc1(value) {
-    if (this.candidate.name && this.candidate.contactnumber && this.candidate.address && this.candidate.emailid && 
-      this.candidate.qualifications[2].ug_instituition && this.candidate.qualifications[2].ug_year && 
+    if (this.candidate.name && this.candidate.contactnumber && this.candidate.address && this.candidate.emailid &&
+      this.candidate.qualifications[2].ug_instituition && this.candidate.qualifications[2].ug_year &&
       this.candidate.qualifications[2].ug_field && this.candidate.qualifications[2].ug_degree) {
       this.candidate.projects.push({
         "pname": value.pname,

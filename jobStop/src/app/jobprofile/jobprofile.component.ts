@@ -6,7 +6,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 
-
 @Component({
   selector: 'app-jobprofile',
   templateUrl: './jobprofile.component.html',
@@ -28,7 +27,6 @@ export class JobprofileComponent implements OnInit {
   constructor(private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase) { }
 
   ngOnInit() {
-   
   }
 
   addJob() {
@@ -37,7 +35,7 @@ export class JobprofileComponent implements OnInit {
       // "contactperson" : value.contactperson,
       // "contactnumber" : value.contactnumber,
       "jobtitle": this.job.jobtitle,
-      "location": this.job.package,
+      "location": this.job.location,
       "package": this.job.package,
       "description": this.job.description,
       "skills": this.job.skills
@@ -59,8 +57,7 @@ export class JobprofileComponent implements OnInit {
       "skills": this.job.skills
     });
     console.log(this.jobs);
-    this.companyService.UpdateCompanyData(this.jobs)
-    
+    this.companyService.UpdateCompanyData(this.jobs)   
     // setTimeout(function () { window.location.reload(); }, 5000);
   }
 
