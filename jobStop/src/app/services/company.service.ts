@@ -28,7 +28,11 @@ export class CompanyService {
     console.log("new job"+JSON.stringify(data))
     this.companyData = await data;
     var job = this.session.retrieve('company')
-    job.jobs.push(data[0])
+    for(var i of data)
+    {
+      console.log(i)
+      job.jobs.push(i)  
+    }
     console.log((job.jobs))
     await this.session.store('company', job);
     // this.sendData();

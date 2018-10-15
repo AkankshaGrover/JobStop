@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
-
+import { UserService } from "../services/user.service";
+import { SessionStorageService } from 'ngx-webstorage';
 
 
 @Component({
@@ -13,21 +12,24 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class CompaniesComponent implements OnInit {
   items: Observable<any[]>;
-  constructor(private db: AngularFireDatabase) {
-    this.items = db.list('company').valueChanges();
-    this.items.subscribe(res=>
+  item: Observable<any[]>;
+  constructor(private db: AngularFireDatabase, private session: SessionStorageService, private userService: UserService) {
+    this.items = db.list('company/').valueChanges();
+    this.items.subscribe(res =>
       console.log(res));
-  }
-  ngOnInit(){
 
+    // db.database.ref('company/').orderByKey();
+    // this.item.subscribe(res =>
+    //   console.log(res));
   }
-  apply(item,job){
-    this.db.list('/company/'+item.name+'/candidatesApplied').push(
-      {name:"shubham",jobTitle:job.jobTitle}
-    )
-    console.log(item.name,job.jobTitle);
+  ngOnInit() {
+  }
+  apply(item, job, i) {
+    console.log(item.uid)
+    this.session.retrieve('user');
+    this.db.database.ref('/company/' + item.uid + '/candidatesApplied').push({ name: this.session.retrieve('user')[0].displayName, jobTitle: job.jobtitle })
   }
 }
 
- 
-  
+
+

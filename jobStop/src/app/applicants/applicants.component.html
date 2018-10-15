@@ -4,6 +4,7 @@
   <mat-card class="applicants" *ngFor="let item of items|async">
     <div class="detail">
       <h2 class="name">{{item.name}}</h2>
+      <p class="para">Job Title:{{item.jobTitle}}</p>
       <p class="para">CGPA:{{item.CGPA}}</p>
       <p class="para">Qualification:{{item.Qualification}}</p>
     </div>

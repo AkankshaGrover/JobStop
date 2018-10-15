@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from "../services/user.service";
 import { CompanyService } from "../services/company.service";
+import { SessionStorageService } from 'ngx-webstorage';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -34,7 +35,7 @@ export class CompanyProfileComponent implements OnInit {
 
  
   constructor(
-    private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase
+    private router: Router, private session: SessionStorageService, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase
     ) {
      
    }
@@ -78,10 +79,11 @@ export class CompanyProfileComponent implements OnInit {
       contact_details: this.company.contactnumber,
       location: this.company.hubs,
       jobs: this.jobs,
-      candidatesApplied: this.candidatesApplied
+      candidatesApplied: this.candidatesApplied,
+      uid: this.session.retrieve('user')[0].uid
     })
     this.companyService.CompanyData(this.dataToBePushed[0])
-    this.router.navigate(['jobprofile'])
+    // this.router.navigate(['jobprofile'])
     // this.db2.list('/company').push(this.dataToBePushed[0])
   }
 }
