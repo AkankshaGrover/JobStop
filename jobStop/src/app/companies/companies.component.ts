@@ -13,11 +13,12 @@ import { SessionStorageService } from 'ngx-webstorage';
 })
 export class CompaniesComponent implements OnInit {
   items: Observable<any[]>;
-  item: Observable<any[]>;
+  // item: Observable<any[]>;
   constructor(private db: AngularFireDatabase, private session: SessionStorageService, private userService: UserService) {
     this.items = db.list('company/').valueChanges();
-    // this.items.subscribe(res =>
-    //   console.log(res));
+    this.items.subscribe(res =>
+      console.log(res)
+      );
 
     // db.database.ref('company/').orderByKey();
     // this.item.subscribe(res =>
@@ -25,11 +26,11 @@ export class CompaniesComponent implements OnInit {
   }
   ngOnInit() {
   }
-  apply(item, job, i) {
+  apply(item, jobtitle, i) {
     console.log(item.uid)
     this.session.retrieve('user');
-    this.db.database.ref('/company/' + item.uid + '/candidatesApplied').push({ 'uid':  this.session.retrieve('user')[0].uid})
-    this.db.database.ref('/candidate/' + this.session.retrieve('user')[0].uid + '/companiesApplied').push({ 'uid': item.uid })
+    this.db.database.ref('/company/' + item.uid + '/jobs/'+jobtitle+'/candidatesApplied/').push({ 'uid':  this.session.retrieve('user')[0].uid})
+    this.db.database.ref('/candidate/' + this.session.retrieve('user')[0].uid + '/companiesApplied').push({ 'uid': item.uid, 'jobtitle':jobtitle })
   }
 }
 

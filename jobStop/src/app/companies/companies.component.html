@@ -1,7 +1,7 @@
 <div style="background-color: #f2f2f2">
   <p style="text-align: center; font-size: 40px;font-weight: bold;margin:0px;padding: 50px;">Companies</p>
   <div *ngFor="let item of items | async">
-    <mat-card class="companies" *ngFor="let job of item.jobs">
+    <mat-card class="companies" *ngFor="let job of item.jobs | keyvalue">
       <div class="main">
         <img class="image" src="{{item.image}}">
         <h4 class="name">{{item.name}}</h4>
@@ -14,11 +14,11 @@
         <p class="para">
           <b>Email: </b>{{item.email}}</p>
         <p class="para">
-          <b>Title: </b>{{job.jobtitle}}</p>
+          <b>Title: </b>{{job.value.jobtitle}}</p>
         <!-- <p class="para"><b>Skills: </b>{{item.skills_required}}</p> -->
       </div>
       <div class="navi">
-        <button class="btn" (click)="apply(item,job)">Apply</button>
+        <button class="btn" (click)="apply(item,job.value.jobtitle)">Apply</button>
       </div>
     </mat-card>
   </div>
