@@ -1,0 +1,25 @@
+<div>
+  <p style="text-align: center; font-size: 40px;font-weight: bold;margin:0px;padding: 50px;">Companies</p>
+  <div *ngFor="let item of items | async">
+    <mat-card class="companies" *ngFor="let job of item.jobs">
+      <div class="main">
+        <img class="image" src="{{item.image}}">
+        <h4 class="name">{{item.name}}</h4>
+      </div>
+      <div class="detail">
+        <p class="para">
+          <b>Contacts: </b>{{item.contact_details}}</p>
+        <p class="para">
+          <b>Location: </b>{{item.location}}</p>
+        <p class="para">
+          <b>Email: </b>{{item.email}}</p>
+        <p class="para">
+          <b>Title: </b>{{job.jobtitle}}</p>
+        <!-- <p class="para"><b>Skills: </b>{{item.skills_required}}</p> -->
+      </div>
+      <div class="navi">
+        <button class="btn" (click)="apply(item,job)">Apply</button>
+      </div>
+    </mat-card>
+  </div>
+</div>
