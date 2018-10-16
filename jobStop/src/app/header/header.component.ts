@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { UserService } from "../services/user.service";
+import { SessionStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,9 @@ import { UserService } from "../services/user.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private signout: LoginComponent, private userService: UserService) { }
+  constructor(private signout: LoginComponent, private userService: UserService, private session: SessionStorageService) { }
 
+  // user = this.session.retrieve('user')[0].displayname;
   ngOnInit() {
   }
 

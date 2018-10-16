@@ -12,7 +12,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 })
 
 export class CandidateprofileComponent implements OnInit {
-  // addProject = false;
+  addProject = false;
   candidate = {
     "name": "",
     "address": "",
@@ -44,70 +44,29 @@ export class CandidateprofileComponent implements OnInit {
     "uid": this.session.retrieve('user')[0].uid
   }
 
-  // BE = ["Civil Engineering", "Geo Informatics", "Agriculture and Irrigation Engineering", "Mechanical Engineering",
-  //   "Electronics and Communication Engineering", "Material Science and Engineering", "Mining Engineering",
-  //   "Industrial Engineering", "Aeronautical Engineering", "Automobile Engineering", " Electrical and Electronics Engineering",
-  //   "Computer Science and Engineering"];
-  // B_Tech = ["Information Technology", "Computer Science and Engineering", " Information Technology",
-  //   "Chemical Engineering", "Textile Technology", "Industrial Bio-Technology", "Industrial Bio-Technology", "Pharmaceutical Technology",
-  //   "Rubber and Plastic Technology", " Petroleum Engineering and Technology"];
-  // BA = ["Media and Communication", "Culinary Arts", "Mass Communication", "English", "Social Work with Specialisation in Rural Development", "Mass Communication", "English Language and Literature"];
-  // arrays = [];
-
-
   data;
-  value;
-  name: string;
-  address: string;
-  emailid: string;
-  contactnumber: string;
-  qualifications = [];
-  projects = {
-    "pname" : "",
-    "pdescription" : ""
-  }; 
-
-  twelfth_percentage: string;
-  twelfth_institution: string;
-  twelfth_year: string;
-
-  tenth_year: string;
-  tenth_institution: string;
-  tenth_percentage: string;
-
-  ug_instituition: string;
-  ug_percentage: string;
-  ug_year: string;
-  ug_field: string;
-  ug_degree: string;
-
-  pg_year: string;
-  pg_institution: string;
-  pg_percentage: string;
-  pg_field: string;
-  pg_degree: string;
-
-  techskills: string;
+  projects = []
+  
+  project = {};
 
   async addCandidate(value) {
     
-    name: this.candidate.name  
-    address: this.candidate.address 
-    emailid: this.candidate.emailid
-    contactnumber: this.candidate.contactnumber 
-    qualifications: this.candidate.qualifications;
-    techskills: this.candidate.techskills; 
-    uid : this.session.retrieve('user')[0].uid;
-    console.log(value)
-    this.projects.pname = this.candidate.projects[0].pname;
-    this.projects.pdescription = this.candidate.projects[0].pdescription;
+    // name: this.candidate.name  
+    // address: this.candidate.address 
+    // emailid: this.candidate.emailid
+    // contactnumber: this.candidate.contactnumber 
+    // qualifications: this.candidate.qualifications;
+    // techskills: this.candidate.techskills; 
+    // uid : this.session.retrieve('user')[0].uid;
+    // console.log(value)
+    // this.projects.pname = this.candidate.projects[0].pname;
+    // this.projects.pdescription = this.candidate.projects[0].pdescription;
     // this.candidate.projects.push(this.projects)
 
     // console.log(this.candidate.projects);
     
     this.addCandidatetoDB.CandidateData(this.candidate);
-    console.log((this.candidate))
-    
+    // console.log((this.candidate))
   }
 
   constructor(db: AngularFireDatabase, private session: SessionStorageService, private addCandidatetoDB: CandidateService) {
@@ -141,28 +100,33 @@ export class CandidateprofileComponent implements OnInit {
   // }
 
 
-  // addProjectFunc() {
-  //   this.addProject = !this.addProject;
-  // }
+  addProjectFunc() {
+    this.addProject = !this.addProject;
+  }
 
-  // addProjectFunc1(value) {
-  //   if (this.candidate.name && this.candidate.contactnumber && this.candidate.address && this.candidate.emailid &&
-  //     this.candidate.qualifications.ug_instituition && this.candidate.qualifications.ug_year &&
-  //     this.candidate.qualifications.ug_field && this.candidate.qualifications.ug_degree)  {
-  //       console.log(value)
-  //       this.projects.pname = value.pname;  
-  //       this.projects.pdescription = value.pdescription;
-  //       this.candidate.projects.push(this.projects)
-  //       console.log(this.candidate.projects);
-  //     // alert("Project Added");
-  //   } 
+  addProjectFunc1() {
+    // if (this.candidate.name && this.candidate.contactnumber && this.candidate.address && this.candidate.emailid &&
+    //   this.candidate.qualifications.ug_instituition && this.candidate.qualifications.ug_year &&
+    //   this.candidate.qualifications.ug_field && this.candidate.qualifications.ug_degree)  {
+        console.log(this.project)
+
+        // debugger;
+        // this.project.pname = this.project.pname;  
+        // this.project.pdescription = value.pdescription;
+        let tempProj = Object.assign({}, this.project);
+        this.projects.push(tempProj)
+        console.log(this.projects);
+
+
+      // alert("Project Added");
+    // } 
     // else {
     //   alert("Enter User Details");
     // }
 
-  //   console.log(this.candidate.projects);
-  //   this.addProject = !this.addProject;
-  // }
+    // console.log(this.candidate.projects);
+    this.addProject = !this.addProject;
+  }
 
   year(event) {
     this.candidate.qualifications.ug_year = event.target.value;
