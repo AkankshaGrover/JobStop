@@ -1,10 +1,13 @@
+<div class="alert">
+  <app-alerts></app-alerts>
+</div>
 <div class="container">
   <p class="head">
     <b>ADD JOBS </b>
   </p>
   <div>
     <form>
-      <div *ngFor ="let i of jobs" >
+      <mat-card class="jobs" *ngFor ="let i of jobs" >
       <form #jobdetails="ngForm" style="text-align: left">
         <label class="tag">
           <b>Job Title </b>
@@ -37,10 +40,10 @@
         true}" placeholder="Skills required" ngModel>
         <br />
         </form>
-        </div>
-      <button class="add" (click)="addMoreJobs()"> + Add More projects</button>
+      </mat-card>
+      <button class="add" (click)="addMoreJobs()"> + Add More Jobs</button>
       <div class="wrapper">
-        <input class="submit" type="submit" value="Add">
+        <input class="submit" type="submit" value="Add" (click) = "addJobs()">
       </div>
     </form>
   </div>

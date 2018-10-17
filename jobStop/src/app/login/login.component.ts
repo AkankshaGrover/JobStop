@@ -44,15 +44,6 @@ export class LoginComponent implements OnInit {
   this.afAuth.authState.subscribe( d => this.data= d.providerData );
   await this.data;
   await this.userService.UserData(this.data)
-  // console.log(this.data)
-  
-  // this.db2.list('/candidate')
-  //   .valueChanges()
-  //   .subscribe(res => {
-
-  //     console.log("inside db2.list method"+res[0].name);
-
-  //   })
 
   if (this.type == 'Company' )
   { 
@@ -64,10 +55,9 @@ export class LoginComponent implements OnInit {
         if(res[0]!=undefined)
         {
           console.log(res);
-          
-          this.alerts.setMessage('You are already registered as an applicant', 'error');
-          this.alerts.setDefaults('timeout', 6000);
-          this.alerts.setConfig('error', 'icon', 'warning')
+          this.alerts.setMessage('You are already registered as an applicant', 'warn');
+          this.alerts.setDefaults('timeout', 2);
+          this.alerts.setConfig('warn', 'icon', 'warning')
           this.logout();
         }
         else{

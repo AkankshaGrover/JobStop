@@ -70,6 +70,7 @@ html{
 *:before,
 *:after {
   box-sizing: border-box;
+  /* padding-bottom: 10px; */
 }
 
 a {
@@ -96,6 +97,8 @@ a {
   list-style: none;
   padding: 0;
   margin: 0 0 40px 0;
+  box-sizing: border-box;
+
 }
 
 .tab-group:after {
@@ -115,7 +118,9 @@ a {
   width: 50%;
   text-align: center;
   cursor: pointer;
+  border-bottom: 4px solid white;
   /* transition: 1.5s ease; */
+  /* box-sizing: border-box; */
   transition: all .2s ease-in-out;
 
 }
@@ -124,7 +129,7 @@ a {
   /* background: black; */
   color: black;
   border-bottom: 4px solid #006666;
-
+  /* box-sizing: border-box; */
   font-weight: 500; 
   /* border-radius: 4px; */
 }
@@ -216,25 +221,25 @@ textarea {
   }
 }
 
-.alertsContainer .alertsRow.error {
-  border: 1px solid #ffc549;
+.alertsContainer .alertsRow.warn {
+  border: 1px solid #006666;
 }
 
-.alertsContainer .alertsRow.error.iconpanel {
-  background: #ffc549;
+.alertsContainer .alertsRow.warn.iconpanel {
+  background: #006666;
   color: #fff;
 }
 
-.alertsContainer .alertsRow.error.messagepanel {
+.alertsContainer .alertsRow.warn.messagepanel {
   color: #000;
   background: #fff;
 }
 
-.alertsContainer .alertsRow.error.closeicon {
+.alertsContainer .alertsRow.warn.closeicon {
   color: #000;
 }
 
-.alertsContainer .alertsRow.error.closeicon a {
+.alertsContainer .alertsRow.warn.closeicon a {
   color: #000;
   text-decoration: none;
   font-size: 12px;

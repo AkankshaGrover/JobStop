@@ -6,6 +6,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-company-profile',
@@ -34,7 +35,7 @@ export class CompanyProfileComponent implements OnInit {
   candidatesApplied = [];
 
  
-  constructor(private router: Router, private session: SessionStorageService, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase) {
+  constructor(private router: Router, private session: SessionStorageService, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase, private alerts: AlertsService) {
      }
 
   ngOnInit() {
@@ -80,6 +81,9 @@ export class CompanyProfileComponent implements OnInit {
       uid: this.session.retrieve('user')[0].uid
     })
     this.companyService.CompanyData(this.dataToBePushed[0])
+    this.alerts.setMessage('Details saved successfully!', 'success');
+    this.alerts.setDefaults('timeout', 2);
+    this.alerts.setConfig('success', 'icon', 'check')
     // this.router.navigate(['jobprofile'])
     // this.db2.list('/company').push(this.dataToBePushed[0])
   }

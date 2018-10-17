@@ -33,15 +33,17 @@
 }
 
 .add {
+  align-self: left;
   border: none;
   background: #121212;
   margin-left: 20%;
-  /* margin-top: 5%; */
+  /* margin-right: auto; */
+  margin-top: 5%;
   height: 30%;
   padding: .5% 3%;
   border-radius: 5%;
   color: white;
-  margin-bottom: 5%;
+  /* margin-bottom: 5%; */
 }
 
 .submit {
@@ -51,6 +53,14 @@
   background: #006666;
   margin: 5%;
   
+}
+
+.jobs {
+  /* display: flex; */
+  position: realtive;
+  align-items: center;
+  margin: 20px;
+  background-color: snow;
 }
 
 
