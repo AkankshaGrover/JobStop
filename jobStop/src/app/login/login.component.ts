@@ -4,6 +4,7 @@ import { FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
 import { FirebaseUISignInFailure } from 'firebaseui-angular';
 import { Router } from '@angular/router'
 import { UserService } from "../services/user.service";
+import { CandidateService } from "../services/candidate.service";
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { promise } from 'protractor';
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   users;
   constructor(private afAuth: AngularFireAuth, private router: Router, private db2: AngularFireDatabase,
-    private userService: UserService, private alerts: AlertsService) {
+    private userService: UserService, private alerts: AlertsService,private candidateService:CandidateService) {
 
   }
 
@@ -90,6 +91,7 @@ export class LoginComponent implements OnInit {
       }
       else {
         console.log(res)
+        this.candidateService.setData();
         this.router.navigate(['candidatetoolbar'])
       }
     }

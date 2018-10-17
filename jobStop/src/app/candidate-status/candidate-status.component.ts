@@ -16,7 +16,7 @@ import { async } from '@angular/core/testing';
 export class CandidateStatusComponent implements OnInit {
 
   items: Observable<any[]>;
-  companies = [];
+  companies=[];
   constructor(private db: AngularFireDatabase, private session: SessionStorageService, private cdr: ChangeDetectorRef) {
   }
 
@@ -25,20 +25,25 @@ export class CandidateStatusComponent implements OnInit {
     scope.items = scope.db.list('candidate/' + scope.session.retrieve('user')[0].uid + '/companiesApplied').valueChanges();
     scope.items.subscribe(res => {
       console.log(res)
+      let temp;
       res.forEach(elem => {
+
         // let temp=scope.db.list('/candidate/'+elem.uid+'/').valueChanges();
         // temp.subscribe(data=>{
-        console.log(elem.uid)
+        // console.log(elem.uid)
         // scope.candidates.push(data);
         // })
+        if(temp!=elem.uid){
         var starCountRef = scope.db.database.ref('/company/' + elem.uid);
         starCountRef.on('value', function (snapshot) {
           scope.companies.push(snapshot.val());
-          scope.cdr.detectChanges();
-        });
+          temp=elem.uid;
+        })
+       }
+       scope.cdr.detectChanges();
       })
     })
-    console.log(scope.companies);
+    console.log(scope.companies); 
   }
 
 }
