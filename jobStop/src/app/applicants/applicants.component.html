@@ -1,7 +1,10 @@
 <!-- <app-header></app-header> -->
 <div style="background-color: #f2f2f2">
-  <h1 style="text-align: center">applicants</h1>
-  <mat-card class="applicants" *ngFor="let item of items|async">
+  <h1 style="text-align: center">Applicants for job<select class='jobtitle' (change)="onSelect($event)">
+    <option> ...</option>
+    <option  *ngFor="let job of jobs" value="{{job}}"><h1>{{job}}</h1></option>
+  </select></h1>
+  <mat-card class="applicants" *ngFor="let item of items ">
     <div class="detail">
       <h2 class="name">{{item.name}}</h2>
       <p class="para">Job Title:{{item.jobTitle}}</p>

@@ -3,9 +3,23 @@
     border: 03ch;  
     margin:20px;
     background-color: snow;
+    
+    
     }
 .detail{
-    width: 40%;
+    width: 80%;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.jobtitle{
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 2px;
+    background: #f2f2f2;
+    border: 0px;
+    border-color: #f2f2f2;
 }
 .btn{
     justify-self: flex-end;
@@ -29,6 +43,7 @@
 {
     font-size: 15px;
     color: rgb(59, 58, 58);
+    margin: 10px;
 }
 .navi{
     display: flex;
