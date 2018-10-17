@@ -12,17 +12,19 @@ import { SessionStorageService } from 'ngx-webstorage';
 })
 
 export class CandidateprofileComponent implements OnInit {
-  addProject = false;
+  addProject = true;
   candidate = {
     "name": "",
     "address": "",
     "emailid": "",
     "contactnumber": "",
     "techskills": "",
-    "projects": [{
+    "projects": [
+      {
       "pname": "",
       "pdescription": ""
-    }],
+    }
+  ],
     "qualifications": {
       "tenth_percentage" : "",    
       "tenth_instituition": "",
@@ -45,28 +47,12 @@ export class CandidateprofileComponent implements OnInit {
   }
 
   data;
-  projects = []
-  
-  project = {};
-
+  project = {
+    "pname": "",
+    "pdescription": ""
+  };
   async addCandidate(value) {
-    
-    // name: this.candidate.name  
-    // address: this.candidate.address 
-    // emailid: this.candidate.emailid
-    // contactnumber: this.candidate.contactnumber 
-    // qualifications: this.candidate.qualifications;
-    // techskills: this.candidate.techskills; 
-    // uid : this.session.retrieve('user')[0].uid;
-    // console.log(value)
-    // this.projects.pname = this.candidate.projects[0].pname;
-    // this.projects.pdescription = this.candidate.projects[0].pdescription;
-    // this.candidate.projects.push(this.projects)
-
-    // console.log(this.candidate.projects);
-    
     this.addCandidatetoDB.CandidateData(this.candidate);
-    // console.log((this.candidate))
   }
 
   constructor(db: AngularFireDatabase, private session: SessionStorageService, private addCandidatetoDB: CandidateService) {
@@ -76,46 +62,32 @@ export class CandidateprofileComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  // specializationfunc(event) {
-  //   this.specialization = event.target.value;
-  //   if (event.target.value == "B-Tech") {
-  //     this.arrays = this.B_Tech;
-  //   }
-  //   else if (event.target.value == "BE") {
-  //     this.arrays = this.BE;
-  //   }
-  //   else if (event.target.value == "BA") {
-  //     this.arrays = this.BA;
-  //   }
-  // }
-
-  // departmentfunc(event) {
-  //   this.department = event.target.value;
-  // }
-
-  // year(event) {
-  //   console.log(event)
-  //   this.ugyear = event.target.value;
-  // }
-
-
   addProjectFunc() {
+
     this.addProject = !this.addProject;
+    // this.candidate.projects.push(this.project)
   }
 
   addProjectFunc1() {
     // if (this.candidate.name && this.candidate.contactnumber && this.candidate.address && this.candidate.emailid &&
     //   this.candidate.qualifications.ug_instituition && this.candidate.qualifications.ug_year &&
     //   this.candidate.qualifications.ug_field && this.candidate.qualifications.ug_degree)  {
-        console.log(this.project)
+        // this.addProject = !this.addProject;     
 
         // debugger;
         // this.project.pname = this.project.pname;  
         // this.project.pdescription = value.pdescription;
+        // debugger;
+    // console.log(this.candidate.projects);
         let tempProj = Object.assign({}, this.project);
-        this.projects.push(tempProj)
-        console.log(this.projects);
+        this.candidate.projects.push(tempProj)
+  
+        this.project.pdescription=""
+        this.project.pname=""
+        
+        // this.candidate.projects.push(this.projects)
+       
+
 
 
       // alert("Project Added");
@@ -128,7 +100,7 @@ export class CandidateprofileComponent implements OnInit {
     this.addProject = !this.addProject;
   }
 
-  year(event) {
-    this.candidate.qualifications.ug_year = event.target.value;
-  }
+  // year(event) {
+  //   this.candidate.qualifications.ug_year = event.target.value;
+  // }
 }

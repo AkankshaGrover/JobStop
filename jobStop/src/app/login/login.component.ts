@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
           
           this.alerts.setMessage('You are already registered as an applicant', 'error');
           this.alerts.setDefaults('timeout', 6000);
-          this.alerts.setConfig('warn', 'icon', 'warning')
+          this.alerts.setConfig('error', 'icon', 'warning')
           this.logout();
         }
         else{
