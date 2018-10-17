@@ -13,16 +13,21 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class JobprofileComponent implements OnInit {
   job = {
-    "companyname": "",
-    "contactperson": "",
-    "contactnumber": "",
     "jobtitle": "",
     "location": "",
     "package": "",
     "description": "",
     "skills": ""
   }
-  jobs = [];
+  jobs = [
+    {
+      "jobtitle": "",
+      "location": "",
+      "package": "",
+      "description": "",
+      "skills": ""
+    }
+  ];
 
   constructor(private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase) { }
 
@@ -31,9 +36,6 @@ export class JobprofileComponent implements OnInit {
 
   addJob() {
     this.jobs.push({
-      "companyname":this.job.companyname,
-      // "contactperson" : value.contactperson,
-      // "contactnumber" : value.contactnumber,
       "jobtitle": this.job.jobtitle,
       "location": this.job.location,
       "package": this.job.package,
@@ -46,19 +48,14 @@ export class JobprofileComponent implements OnInit {
   }
 
   addMoreJobs(){
-    this.jobs.push({
-      "companyname": this.job.companyname,
-      // "contactperson" : value.contactperson,
-      // "contactnumber" : value.contactnumber,
-      "jobtitle": this.job.jobtitle,
-      "location": this.job.package,
-      "package": this.job.package,
-      "description": this.job.description,
-      "skills": this.job.skills
-    });
+    let tempProj = Object.assign({}, this.job);
+    this.jobs.push(tempProj)
+    console.log(this.job);
+    this.job.jobtitle = ""
+    this.job.package = ""
+    this.job.location = ""
+    this.job.description = ""
+    this.job.skills = ""
     console.log(this.jobs);
-    this.companyService.UpdateCompanyData(this.jobs)   
-    // setTimeout(function () { window.location.reload(); }, 5000);
   }
-
 }

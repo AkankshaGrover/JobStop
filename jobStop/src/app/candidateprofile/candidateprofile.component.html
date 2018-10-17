@@ -163,31 +163,28 @@
       <input required style="margin-left: 3%;" class="input" type="text" [(ngModel)]="candidate.techskills" [ngModelOptions]="{standalone: true}"
         placeholder="Enter your technical skills" ngModel>
       <br />
-
-      <!-- <button class="add" (click)="addProjectFunc()"> + Add projects</button>
-      <div *ngIf="addProject">
-        <form #projectdetails="ngForm" (ngSubmit)="addProjectFunc1(projectdetails.value)"> -->
-      <label class="tag">
-        <b>Project Name</b>
-      </label>
-      <input style="margin-left: 3.6%;" required class="input" type="text" [(ngModel)]="candidate.projects[0].pname" [ngModelOptions]="{standalone: true}"
-        placeholder="Enter your project" ngModel>
-      <br />
-
-      <label class="tag">
-        <b>Description</b>
-      </label>
-      <input style="margin-left: 4.7%" required class="input" type="text" [(ngModel)]="candidate.projects[0].pdescription" [ngModelOptions]="{standalone: true}"
-        placeholder="Describe your project" ngModel>
-      <br />
-
-      <!-- <div class="wrapper">
-            <input  type="button" value="Add" [disabled]=projectdetails.invalid>
-          </div>
+      <div *ngFor = "let i of candidate.projects">
+        <form #projectdetails="ngForm" >
+          <label class="tag">
+            <b>Project Name</b>
+          </label>
+          <input style="margin-left: 3.6%;" required class="input" type="text" [(ngModel)]="i.pname"  [ngModelOptions] = "{standalone: true}"
+            placeholder="Enter your project" ngModel>
+          <br />
+          <label class="tag">
+            <b>Description</b>
+          </label>
+          <input style="margin-left: 4.7%" required class="input" type="text" [(ngModel)]="i.pdescription"  [ngModelOptions] = "{standalone: true}"
+            placeholder="Describe your project" ngModel>
+          <br />
+          <!-- <div class="wrapper">
+            <input class = "submit" type="submit" value="Add Project"  [disabled]=projectdetails.invalid>
+          </div>         -->
         </form>
-      </div> -->
+      </div>
+      <button class="add" (click)="addProjectFunc1()" > + Add More projects</button>  
       <div class="wrapper">
-        <input class="submit" type="submit" value="SUBMIT" [disabled]=candidatedetails.invalid>
+        <input class="submit" type="submit" value="submit" [disabled]=candidatedetails.invalid>
       </div>
     </form>
   </div>

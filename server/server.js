@@ -159,9 +159,8 @@ promiseSignIn.then(function (result) {
 
 })
 
-
 var company_name = "MountBlue"
-var company_email ="mountblue@gmail.com"
+var company_email = "mountblue@gmail.com"
 var company_contact = "HR 9876543210"
 var jobs =[]
 var companyInfo= "provides tech training"
