@@ -8,10 +8,22 @@ import { SessionStorageService, LocalStorageService } from 'ngx-webstorage';
 export class CandidateService {
   candidateData;
   constructor(private db1: AngularFireDatabase, private session: SessionStorageService) { }
+
+  setData(){
+    let scope = this;
+    var starCountRef = scope.db1.database.ref('/candidate/' +this.session.retrieve('user')[0].uid);
+        starCountRef.on('value', function (snapshot) {
+         scope.session.store('candidate', snapshot.val());
+        })
+  }
+
+
+
   async CandidateData(data) {
     console.log("inside service" + data)
     this.candidateData = await data;
-    await this.session.store('candidate', data);
+    // await this.session.store('candidate', data);
+    this.setData();
     this.db1.database.ref('/candidate/' + this.session.retrieve('user')[0].uid).set(data)
     // await this.db1.list('/candidate').push(this.candidateData)
   }

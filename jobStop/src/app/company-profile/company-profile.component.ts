@@ -34,11 +34,8 @@ export class CompanyProfileComponent implements OnInit {
   candidatesApplied = [];
 
  
-  constructor(
-    private router: Router, private session: SessionStorageService, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase
-    ) {
-     
-   }
+  constructor(private router: Router, private session: SessionStorageService, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase) {
+     }
 
   ngOnInit() {
   

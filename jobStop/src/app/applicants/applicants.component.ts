@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
+import { CompanyService } from "../services/company.service";
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { SessionStorageService } from 'ngx-webstorage';
@@ -13,10 +14,12 @@ import { SessionStorageService } from 'ngx-webstorage';
 })
 export class ApplicantsComponent implements OnInit {
   items: Observable<any[]>;
-  constructor(private db: AngularFireDatabase, private session: SessionStorageService) {
+  constructor(private db: AngularFireDatabase, private session: SessionStorageService,private companyService:CompanyService) {
     this.items = db.list('company/' + session.retrieve('user')[0].uid + '/candidatesApplied').valueChanges();
     this.items.subscribe(res =>
       console.log(res));
+      this.companyService.setData();
+
   }
   ngOnInit() { }
 
