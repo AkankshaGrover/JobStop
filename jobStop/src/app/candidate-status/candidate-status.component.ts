@@ -45,5 +45,4 @@ export class CandidateStatusComponent implements OnInit {
     })
     console.log(scope.companies); 
   }
-
 }
