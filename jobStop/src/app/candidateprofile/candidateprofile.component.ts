@@ -57,6 +57,7 @@ export class CandidateprofileComponent implements OnInit {
     this.alerts.setMessage('Details saved successfully!', 'success');
     this.alerts.setDefaults('timeout', 2);
     this.alerts.setConfig('success', 'icon', 'check')
+    
   }
 
   constructor(db: AngularFireDatabase, private session: SessionStorageService, private addCandidatetoDB: CandidateService, private alerts: AlertsService) {
