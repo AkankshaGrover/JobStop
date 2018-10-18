@@ -1,8 +1,6 @@
-import {
-  Component,
+import {Component,
   OnInit,
-  ChangeDetectorRef
-} from '@angular/core';
+  ChangeDetectorRef} from '@angular/core';
 import {
   AngularFireDatabase
 } from '@angular/fire/database';
@@ -21,6 +19,7 @@ import {
 import {
   SessionStorageService
 } from 'ngx-webstorage';
+import { AlertsService } from 'angular-alert-module';
 
 
 @Component({
@@ -32,7 +31,7 @@ export class ApplicantsComponent implements OnInit {
   items =[];
   jobs;
 
-  constructor(private db: AngularFireDatabase, private session: SessionStorageService, private companyService: CompanyService, private cdr: ChangeDetectorRef) {
+  constructor(private db: AngularFireDatabase, private session: SessionStorageService, private companyService: CompanyService, private cdr: ChangeDetectorRef, private alerts: AlertsService) {
     let scope = this;
     // this.items = db.list('company/' + session.retrieve('user')[0].uid + '/candidatesApplied').valueChanges();
     // this.items.subscribe(res =>
@@ -57,7 +56,7 @@ export class ApplicantsComponent implements OnInit {
       data.forEach(elem => {
         // console.log(elem.uid)
 
-        var starCountRef = scope.db.database.ref('candidate/' + elem.uid+'/');
+        var starCountRef = scope.db.database.ref('candidate/' +'/');
         starCountRef.on('value', function (snapshot) {
           console.log(snapshot.val())
           scope.items.push(snapshot.val())
@@ -73,11 +72,17 @@ export class ApplicantsComponent implements OnInit {
     this.db.database.ref('/company/' + this.session.retrieve('user')[0].uid + '/status/shortlisted').push({
       'uid': candidateid
     })
+    this.alerts.setMessage('Data saved successfully', 'success');
+    this.alerts.setDefaults('timeout', 2);
+    this.alerts.setConfig('success', 'icon', 'check')
   }
   reject(candidateid) {
     console.log(this.session.retrieve('user')[0].uid)
     this.db.database.ref('/company/' + this.session.retrieve('user')[0].uid + '/status/rejected').push({
       'uid': candidateid
     })
+    this.alerts.setMessage('Data saved successfully', 'success');
+    this.alerts.setDefaults('timeout', 2);
+    this.alerts.setConfig('success', 'icon', 'check')
   }
 }
