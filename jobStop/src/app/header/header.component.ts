@@ -10,8 +10,14 @@ import { SessionStorageService } from 'ngx-webstorage';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private signout: LoginComponent, private userService: UserService, private session: SessionStorageService) { }
-
+  constructor(private signout: LoginComponent, private userService: UserService, private session: SessionStorageService) { 
+    let name = {
+      "user": ""
+    }
+    let user = this.session.retrieve('user')[0].displayname;
+  }
+ 
+  
   // user = this.session.retrieve('user')[0].displayname;
   ngOnInit() {
   }

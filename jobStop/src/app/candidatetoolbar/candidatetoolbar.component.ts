@@ -14,31 +14,59 @@ export class CandidatetoolbarComponent implements OnInit {
   profile = false;
   jobsapplied = false;
 
-  constructor(private router: Router, session: SessionStorageService) {
+  constructor(private router: Router, private session: SessionStorageService) {
     if (session.retrieve('user') == null) {
       this.router.navigate(['login']);
     }
+
+    if (this.session.retrieve('candidate') == null) {
+      console.log(this.session.retrieve('candidate'))
+      this.home = false;
+      this.profile = true;
+      this.jobsapplied = false;
+    }
+
   }
 
   ngOnInit() {
   }
 
   homeFunc() {
-    this.home = true;
-    this.profile = false;
-    this.jobsapplied = false;
+    if (this.session.retrieve('candidate') == null) {
+      console.log(this.session.retrieve('candidate'))
+      this.home = false;
+      this.profile = true;
+      this.jobsapplied = false;
+    }
+    else {
+      this.home = true;
+      this.profile = false;
+      this.jobsapplied = false;
+    }
+
     // this.router.navigate(['totaljobs']);
   }
   profileFunc() {
+
     this.home = false;
     this.profile = true;
     this.jobsapplied = false;
     // this.router.navigate(['candidateprofile']);
   }
   jobsappliedFunc() {
-    this.home = false;
-    this.profile = false;
-    this.jobsapplied = true;
+
+    if (this.session.retrieve('candidate') == null) {
+      console.log(this.session.retrieve('candidate'))
+      this.home = false;
+      this.profile = true;
+      this.jobsapplied = false;
+    }
+    else {
+      this.home = false;
+      this.profile = false;
+      this.jobsapplied = true;
+    }
+
     // this.router.navigate(['candidatestatus']);
   }
 }

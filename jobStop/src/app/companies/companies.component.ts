@@ -18,7 +18,7 @@ export class CompaniesComponent implements OnInit {
     this.items = db.list('company/').valueChanges();
     this.items.subscribe(res =>
       console.log(res)
-      );
+    );
 
     // db.database.ref('company/').orderByKey();
     // this.item.subscribe(res =>
@@ -29,10 +29,8 @@ export class CompaniesComponent implements OnInit {
   apply(item, jobtitle, i) {
     console.log(item.uid)
     this.session.retrieve('user');
-    this.db.database.ref('/company/' + item.uid + '/jobs/'+jobtitle+'/candidatesApplied/').push({ 'uid':  this.session.retrieve('user')[0].uid})
-    this.db.database.ref('/candidate/' + this.session.retrieve('user')[0].uid + '/companiesApplied').push({ 'uid': item.uid, 'jobtitle':jobtitle })
+    this.db.database.ref('/company/' + item.uid + '/jobs/' + jobtitle + '/candidatesApplied/').push({ 'uid': this.session.retrieve('user')[0].uid })
+    this.db.database.ref('/candidate/' + this.session.retrieve('user')[0].uid + '/companiesApplied').push({ 'uid': item.uid, 'jobtitle': jobtitle })
   }
 }
-
-
 
