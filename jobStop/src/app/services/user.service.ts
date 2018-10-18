@@ -17,6 +17,12 @@ export class UserService {
     
   }
 
+  userName(){
+    // debugger;
+    console.log(this.session.retrieve('user')[0].displayName)
+    return this.session.retrieve('user')[0].displayName
+  }
+
   async UserData(data) {
 
     this.userData = await data;
