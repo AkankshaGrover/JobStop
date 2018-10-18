@@ -103,6 +103,13 @@ export class CandidateprofileComponent implements OnInit {
     // console.log(this.candidate.projects);
     this.addProject = !this.addProject;
   }
+  fillAllFields()
+  {
+    this.addCandidatetoDB.CandidateData(this.candidate);
+    this.alerts.setMessage('Please fill all the Fields', 'error');
+    this.alerts.setDefaults('timeout', 2);
+    this.alerts.setConfig('error', 'icon', 'check')
+  }
 
   // year(event) {
   //   this.candidate.qualifications.ug_year = event.target.value;

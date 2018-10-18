@@ -74,8 +74,8 @@ export class LoginComponent implements OnInit {
       if (res[0] != undefined){
         console.log(res);
 
-        this.alerts.setMessage('You are already registered as a company', 'error');
-        this.alerts.setDefaults('timeout', 6000);
+        this.alerts.setMessage('You are already registered as a company', 'warn');
+        this.alerts.setDefaults('timeout', 2);
         this.alerts.setConfig('warn', 'icon', 'warning')
         this.logout();
       }
