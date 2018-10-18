@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Routes, Router, RouterModule } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { LocationStrategy } from '@angular/common';
 import { SessionStorageService } from 'ngx-webstorage';
 // @import 'node_modules/angular5-toaster/toaster';
 @Component({
@@ -29,7 +30,13 @@ export class CandidatetoolbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    history.pushState(null, null, location.href);
+    window.onpopstate = function (event) {
+      console.log("runhua")
+      history.go(1);
+    };
   }
+
 
   homeFunc() {
     if (this.session.retrieve('candidate') == null) {
