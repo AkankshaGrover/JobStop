@@ -24,3 +24,64 @@
   text-decoration: none;
   font-size: 12px;
 } */
+
+
+.alert {
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* float:top; */
+  width: 100%;
+  z-index:1;
+}
+
+.alertsContainer .alertsRow.success {
+  border: 1px solid green;
+}
+
+.alertsContainer .alertsRow.success.iconpanel {
+  background: green;
+  color: #fff;
+}
+
+.alertsContainer .alertsRow.success.messagepanel {
+  color: #000;
+  background: #fff;
+  /* text-align: center; */
+  width: auto;
+}
+
+.alertsContainer .alertsRow.success.closeicon {
+  color: #000;
+}
+
+.alertsContainer .alertsRow.success.closeicon a {
+  color: #000;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.alertsContainer .alertsRow.warn {
+  border: 1px solid #006666;
+}
+
+.alertsContainer .alertsRow.warn.iconpanel {
+  background: #006666;
+  color: #fff;
+}
+
+.alertsContainer .alertsRow.warn.messagepanel {
+  color: #000;
+  background: #fff;
+}
+
+.alertsContainer .alertsRow.warn.closeicon {
+  color: #000;
+}
+
+.alertsContainer .alertsRow.warn.closeicon a {
+  color: #000;
+  text-decoration: none;
+  font-size: 12px;
+}
+

@@ -1,3 +1,6 @@
+<div class="alert">
+  <app-alerts></app-alerts>
+</div>
 <div class="container">
   <p class="head">
     <b>CANDIDATE PROFILE</b>
@@ -156,7 +159,6 @@
           <b>OTHER DETAILS</b>
         </p>
       </div>
-
       <label class="tag">
         <b>Technical skills</b>
       </label>
@@ -183,8 +185,8 @@
         </form>
       </div>
       <button class="add" (click)="addProjectFunc1()" > + Add More projects</button>  
-      <div class="wrapper">
-        <input class="submit" type="submit" value="submit" [disabled]=candidatedetails.invalid>
+      <div class="wrapper" (click) = fillAllFields()>
+        <input class="submit" type="submit" value="submit" [disabled]=candidatedetails.invalid >
       </div>
     </form>
   </div>

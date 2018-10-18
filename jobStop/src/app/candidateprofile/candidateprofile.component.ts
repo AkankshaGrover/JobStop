@@ -4,6 +4,7 @@ import { CandidateService } from '../services/candidate.service'
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { SessionStorageService } from 'ngx-webstorage';
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-candidateprofile',
@@ -53,9 +54,12 @@ export class CandidateprofileComponent implements OnInit {
   };
   async addCandidate(value) {
     this.addCandidatetoDB.CandidateData(this.candidate);
+    this.alerts.setMessage('Details saved successfully!', 'success');
+    this.alerts.setDefaults('timeout', 2);
+    this.alerts.setConfig('success', 'icon', 'check')
   }
 
-  constructor(db: AngularFireDatabase, private session: SessionStorageService, private addCandidatetoDB: CandidateService) {
+  constructor(db: AngularFireDatabase, private session: SessionStorageService, private addCandidatetoDB: CandidateService, private alerts: AlertsService) {
     this.data = db.list('/candidate');
   }
 
@@ -98,6 +102,13 @@ export class CandidateprofileComponent implements OnInit {
 
     // console.log(this.candidate.projects);
     this.addProject = !this.addProject;
+  }
+  fillAllFields()
+  {
+    this.addCandidatetoDB.CandidateData(this.candidate);
+    this.alerts.setMessage('Please fill all the Fields', 'error');
+    this.alerts.setDefaults('timeout', 2);
+    this.alerts.setConfig('error', 'icon', 'check')
   }
 
   // year(event) {
