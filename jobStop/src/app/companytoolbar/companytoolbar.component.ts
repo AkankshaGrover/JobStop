@@ -26,6 +26,11 @@ export class CompanytoolbarComponent implements OnInit {
     }
   }
   ngOnInit() {
+    history.pushState(null, null, location.href);
+    window.onpopstate = function (event) {
+      console.log("runhua")
+      history.go(1);
+    };
   }
   homeFunc() {
     if (this.session.retrieve('candidate') == null) {
