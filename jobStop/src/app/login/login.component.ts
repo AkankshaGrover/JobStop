@@ -8,6 +8,7 @@ import { CandidateService } from "../services/candidate.service";
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { promise } from 'protractor';
+import { SessionStorageService, LocalStorageService } from 'ngx-webstorage';
 import { Observable} from 'rxjs';
 import { AlertsService } from 'angular-alert-module';
 
@@ -29,12 +30,18 @@ export class LoginComponent implements OnInit {
   foo
 
   users;
-  constructor(private afAuth: AngularFireAuth, private router: Router, private db2: AngularFireDatabase,
+  constructor(private localStorage: LocalStorageService, private session: SessionStorageService,private afAuth: AngularFireAuth, private router: Router, private db2: AngularFireDatabase,
     private userService: UserService, private alerts: AlertsService,private candidateService:CandidateService) {
+      // let au= this.afAuth.auth.currentUser
+      // console.log("hi"+au)
+    // let au=  this.afAuth.auth.signOut;
 
+      // this.logout()
+    
   }
 
   ngOnInit(): void {
+    this.afAuth.auth.signOut;
 
     // this.afAuth.authState.subscribe(d => console.log("ye dekho"+console.log(d)));
 
@@ -98,7 +105,13 @@ errorCallback(data: FirebaseUISignInFailure) {
 public logout() {
   // console.log(this.afAuth.user);
   this.afAuth.auth.signOut();
+  this.localStorage.clear();
+  this.session.clear('user');
+  this.session.clear('candidate');
+  this.session.clear('company');
+  // console.log(this.session.retrieve('user'));
   this.router.navigate(['login'])
+ 
 }
 
 login(type){

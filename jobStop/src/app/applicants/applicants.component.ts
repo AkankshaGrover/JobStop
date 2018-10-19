@@ -28,7 +28,7 @@ import { AlertsService } from 'angular-alert-module';
   styleUrls: ['./applicants.component.css']
 })
 export class ApplicantsComponent implements OnInit {
-  items =[];
+  items = [];
   jobs;
 
   constructor(private db: AngularFireDatabase, private session: SessionStorageService, private companyService: CompanyService, private cdr: ChangeDetectorRef, private alerts: AlertsService) {
@@ -46,17 +46,17 @@ export class ApplicantsComponent implements OnInit {
     })
     this.companyService.setData();
   }
-  ngOnInit() {}
+  ngOnInit() { }
 
   onSelect($event) {
-    let scope=this
-    scope.items=[];
+    let scope = this
+    scope.items = [];
     scope.db.list('company/' + scope.session.retrieve('user')[0].uid + '/jobs/' + $event.target.value + '/candidatesApplied').valueChanges().subscribe(data => {
       // console.log(data)
       data.forEach(elem => {
         // console.log(elem.uid)
 
-        var starCountRef = scope.db.database.ref('candidate/' +'/');
+        var starCountRef = scope.db.database.ref('candidate/' + elem.uid + '/');
         starCountRef.on('value', function (snapshot) {
           console.log(snapshot.val())
           scope.items.push(snapshot.val())

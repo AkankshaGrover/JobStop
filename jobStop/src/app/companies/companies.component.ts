@@ -18,7 +18,7 @@ export class CompaniesComponent implements OnInit {
     this.items = db.list('company/').valueChanges();
     this.items.subscribe(res =>
       console.log(res)
-      );
+    );
 
     // db.database.ref('company/').orderByKey();
     // this.item.subscribe(res =>
@@ -36,6 +36,4 @@ export class CompaniesComponent implements OnInit {
     this.alerts.setConfig('success', 'icon', 'check')
   }
 }
-
-
 
