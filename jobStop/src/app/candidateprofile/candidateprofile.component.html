@@ -6,7 +6,7 @@
     <b>CANDIDATE PROFILE</b>
   </p>
   <div>
-    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(candidatedetails.form.invalid)" style="text-align:left">
+    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate()" style="text-align:left">
       <label class="tag">
         Name
       </label>
@@ -178,9 +178,9 @@
           <br />
         </form>
       </div>
-      <button class="add" (click)="addProjectFunc1()"> + Add More projects</button>
+      <input class="add" (click)="addProjectFunc1()" value= " + Add More projects">
       <div class="wrapper" >
-        <input class="submit" type="submit" value="SUBMIT" [disabled]="candidatedetails.form.invalid">
+        <input class="submit" type="submit" value="SUBMIT">
       </div>
     </form>
   </div>

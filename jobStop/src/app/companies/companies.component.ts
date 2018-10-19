@@ -3,7 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { UserService } from "../services/user.service";
 import { SessionStorageService } from 'ngx-webstorage';
-import { AlertsService } from 'angular-alert-module'
+import { AlertsService } from 'angular-alert-module';
 
 
 @Component({

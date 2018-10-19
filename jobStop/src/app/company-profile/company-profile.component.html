@@ -14,7 +14,7 @@
           true}" placeholder="Locations" ngModel>
       <br />
       <label class="tag">Founded </label>
-      <input required  class="input" type="number" [(ngModel)]="company.history"
+      <input required  class="input" type="text" [(ngModel)]="company.history"
         [ngModelOptions]="{standalone:
           true}" placeholder="Company history" ngModel>
         <br />
@@ -49,7 +49,7 @@
           true}" placeholder="Address" ngModel>
       <br />
       <div class="wrapper">
-        <input class="submit" type="submit" value="Add" [disabled]="companydetails.invalid">
+        <button type="submit" class = "submit" ng-disabled="companydetails.invalid">Add</button>
       </div>
     </form>
   </div>

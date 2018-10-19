@@ -45,11 +45,17 @@
   background: #121212;
   margin-left: 20%;
   height: 30%;
-  padding: .5% 3%;
+  padding: .5% 1%;
   border-radius: 5%;
   color: white;
   margin-bottom: 5%;
   margin-top: 5%;
+  width: 10%;
+}
+
+.add:hover{
+  cursor: pointer;
+  border: 1px solid gray;
 }
 
 .add1 {

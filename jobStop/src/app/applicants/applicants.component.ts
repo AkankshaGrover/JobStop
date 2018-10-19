@@ -53,7 +53,7 @@ export class ApplicantsComponent implements OnInit {
       console.log((scope.jobs))
       scope.cdr.detectChanges();
     })
-    this.companyService.setData();
+    this.companyService.setData(); 
   }
 
   onSelect($event) {
