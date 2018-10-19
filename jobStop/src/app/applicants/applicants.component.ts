@@ -57,7 +57,7 @@ export class ApplicantsComponent implements OnInit {
       data.forEach(elem => {
         // console.log(elem.uid)
 
-        var starCountRef = scope.db.database.ref('candidate/' + elem.uid + '/');
+        var starCountRef = scope.db.database.ref('candidate/' + elem['uid'] + '/');
         starCountRef.on('value', function (snapshot) {
           console.log(snapshot.val())
           scope.items.push(snapshot.val())

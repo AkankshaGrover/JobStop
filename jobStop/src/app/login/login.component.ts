@@ -37,51 +37,51 @@ export class LoginComponent implements OnInit {
     // let au=  this.afAuth.auth.signOut;
 
     // console.log("inderjot")
-    this.afAuth.authState.subscribe((auth) => {
-      this.authState = auth
-      console.log(this.authState)
-      if(this.authState!=null){
-        if (this.type == 'Company') {
-          this.items = this.db2.list('candidate/' + this.userService.Uid()).valueChanges();
-          this.items.subscribe(res => {
-            // console.log(res[0]);
-            // debugger;
-            if (res[0] != undefined) {
-              console.log(res);
-              this.alerts.setMessage('You are already registered as an applicant', 'warn');
-              this.alerts.setDefaults('timeout', 2);
-              this.alerts.setConfig('warn', 'icon', 'warning')
-              this.logout();
-            }
-            else {
-              console.log(res)
-              this.router.navigate(['companytoolbar'])
-            }
-          }
-          )
-        }
-        else if (this.type == 'Applicant') {
-          this.items = this.db2.list('company/' + this.userService.Uid()).valueChanges();
-          this.items.subscribe(res => {
-            if (res[0] != undefined) {
-              console.log(res);
+    // this.afAuth.authState.subscribe((auth) => {
+    //   this.authState = auth
+    //   console.log(this.authState)
+    //   if(this.authState!=null){
+    //     if (this.type == 'Company') {
+    //       this.items = this.db2.list('candidate/' + this.userService.Uid()).valueChanges();
+    //       this.items.subscribe(res => {
+    //         // console.log(res[0]);
+    //         // debugger;
+    //         if (res[0] != undefined) {
+    //           console.log(res);
+    //           this.alerts.setMessage('You are already registered as an applicant', 'warn');
+    //           this.alerts.setDefaults('timeout', 2);
+    //           this.alerts.setConfig('warn', 'icon', 'warning')
+    //           this.logout();
+    //         }
+    //         else {
+    //           console.log(res)
+    //           this.router.navigate(['companytoolbar']) 
+    //         }
+    //       }
+    //       )
+    //     }
+    //     else if (this.type == 'Applicant') {
+    //       this.items = this.db2.list('company/' + this.userService.Uid()).valueChanges();
+    //       this.items.subscribe(res => {
+    //         if (res[0] != undefined) {
+    //           console.log(res);
 
-              this.alerts.setMessage('You are already registered as a company', 'warn');
-              this.alerts.setDefaults('timeout', 2);
-              this.alerts.setConfig('warn', 'icon', 'warning')
-              this.logout();
-            }
-            else {
-              console.log(res)
-              this.candidateService.setData();
-              this.router.navigate(['candidatetoolbar'])
-            }
-          }
+    //           this.alerts.setMessage('You are already registered as a company', 'warn');
+    //           this.alerts.setDefaults('timeout', 2);
+    //           this.alerts.setConfig('warn', 'icon', 'warning')
+    //           this.logout();
+    //         }
+    //         else {
+    //           console.log(res)
+    //           this.candidateService.setData();
+    //           this.router.navigate(['candidatetoolbar'])
+    //         }
+    //       }
 
-          )
-        }
-      }
-    });
+    //       )
+    //     }
+    //   }
+    // });
 
   }
 
@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
   }
 
   async  successCallback(data: FirebaseUISignInSuccessWithAuthResult) {
-   
+    console.log("inderjot");
     console.log('login hogya', data.authResult.user.displayName);
     console.log(this.currentUserId)
     this.afAuth.authState.subscribe(d => this.data = d.providerData);
@@ -108,10 +108,12 @@ export class LoginComponent implements OnInit {
     await this.userService.UserData(this.data)
 
     if (this.type == 'Company') {
+
       this.items = this.db2.list('candidate/' + this.userService.Uid()).valueChanges();
       this.items.subscribe(res => {
         // console.log(res[0]);
         // debugger;
+        console.log(res);
         if (res[0] != undefined) {
           console.log(res);
           this.alerts.setMessage('You are already registered as an applicant', 'warn');
