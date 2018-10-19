@@ -3,7 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { UserService } from "../services/user.service";
 import { SessionStorageService } from 'ngx-webstorage';
-import { AlertsService } from 'angular-alert-module'
+import { AlertsService } from 'angular-alert-module';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { AlertsService } from 'angular-alert-module'
 export class CompaniesComponent implements OnInit {
   items: Observable<any[]>;
   // item: Observable<any[]>;
-  constructor(private cdr: ChangeDetectorRef,private db: AngularFireDatabase, private session: SessionStorageService, private userService: UserService,  private alerts: AlertsService) {
+  constructor(private cdr: ChangeDetectorRef,private db: AngularFireDatabase, private session: SessionStorageService, private userService: UserService,  private alerts: AlertsService) 
 {
     this.items = db.list('company/').valueChanges();
     this.items.subscribe(res =>

@@ -36,7 +36,7 @@ export class ApplicantsComponent implements OnInit {
   jobs;
   title;
 
-  constructor(private db: AngularFireDatabase, private session: SessionStorageService, private companyService: CompanyService, private cdr: ChangeDetectorRef, private alerts: AlertsService,private companyToolbar:CompanytoolbarComponent,private db: AngularFireDatabase, private session: SessionStorageService, private companyService: CompanyService, private cdr: ChangeDetectorRef) {
+  constructor(private db: AngularFireDatabase, private cdr: ChangeDetectorRef, private alerts: AlertsService,private companyToolbar:CompanytoolbarComponent, private session: SessionStorageService, private companyService: CompanyService) {
     
   }
   ngOnInit() {
@@ -52,7 +52,7 @@ export class ApplicantsComponent implements OnInit {
       console.log((scope.jobs))
       scope.cdr.detectChanges();
     })
-    this.companyService.setData();
+    this.companyService.setData(); 
   }
 
   onSelect($event) {

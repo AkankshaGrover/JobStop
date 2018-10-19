@@ -31,21 +31,34 @@ export class JobprofileComponent implements OnInit {
     }
   ];
 
-  constructor(private companyToolbar: CompanytoolbarComponent,private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase, private alerts: AlertsService) { }
+  constructor(private companyToolbar: CompanytoolbarComponent, private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase, private alerts: AlertsService) { }
 
   ngOnInit() {
   }
 
   addJobs() {
+    for (let i in this.jobs) {
+      if (this.jobs[i].description == "" || this.jobs[i].jobtitle == "" || this.jobs[i].location == "" ||
+        this.jobs[i].package == "" || this.jobs[i].skills == "") {
+        this.alerts.setMessage('Please fill in the required fields', 'error');
+        this.alerts.setDefaults('timeout', 2);
+        this.alerts.setConfig('error', 'icon', 'warn');
+        return;
+      }
+    }
     this.companyService.UpdateCompanyData(this.jobs)
     this.alerts.setMessage('Details saved successfully!', 'success');
     this.alerts.setDefaults('timeout', 2);
     this.alerts.setConfig('success', 'icon', 'check')
     this.companyToolbar.homeFunc();
-  //  console.log("this.jobs");  
+
+
+
+
+    //  console.log("this.jobs");  
   }
 
-  addMoreJobs(){
+  addMoreJobs() {
     let tempProj = Object.assign({}, this.job);
     this.jobs.push(tempProj)
     // console.log(this.jobs);
@@ -55,7 +68,7 @@ export class JobprofileComponent implements OnInit {
     this.job.description = ""
     this.job.skills = ""
     // console.log(this.jobs);
-    
-    
+
+
   }
 }
