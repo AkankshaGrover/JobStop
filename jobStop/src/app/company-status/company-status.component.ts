@@ -19,8 +19,7 @@ export class CompanyStatusComponent implements OnInit {
   constructor(private db: AngularFireDatabase, private session: SessionStorageService, private cdr: ChangeDetectorRef) {
 
   }
-
-
+  
   async ngOnInit() {
     let scope = this;
     scope.items = scope.db.list('company/' + scope.session.retrieve('user')[0].uid + '/status/shortlisted').valueChanges();
@@ -30,20 +29,15 @@ export class CompanyStatusComponent implements OnInit {
         // temp.subscribe(data=>{
         console.log(elem.uid)
         // scope.candidates.push(data);
-
         // })
         var starCountRef = scope.db.database.ref('/candidate/' + elem.uid);
         starCountRef.on('value', function (snapshot) {
-
           scope.candidates.push(snapshot.val());
           scope.cdr.detectChanges();
         });
       })
-
     })
-
     console.log(scope.candidates);
-
   }
 }
 

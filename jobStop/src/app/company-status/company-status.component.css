@@ -2,7 +2,7 @@
   background: #F2F2F2;
 }
 
-.head {
+/* .head {
   font-size: 1.5vw;
   color: #006666;
   text-align: center;
@@ -14,13 +14,13 @@
   font-size: 1.5vw;
   color: #006666;
   text-align: center;
-}
+} */
 
 .applicants {
   display: flex;
   border: 03ch;
   margin: 20px;
-  background-color: #f2f2f2;
+  background-color:snow;
 }
 
 .detail {

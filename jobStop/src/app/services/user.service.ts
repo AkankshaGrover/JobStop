@@ -13,8 +13,14 @@ export class UserService {
 
   uid;
   userData;
-  constructor(private session: SessionStorageService, private afAuth: AngularFireAuth, private router: Router) { 
+  constructor(private localStorage:LocalStorageService,private session: SessionStorageService, private afAuth: AngularFireAuth, private router: Router) { 
     
+  }
+
+  userName(){
+    // debugger;
+    console.log(this.session.retrieve('user')[0].displayName)
+    return this.session.retrieve('user')[0].displayName
   }
 
   async UserData(data) {
@@ -44,6 +50,7 @@ export class UserService {
   public logout() {
     // console.log(this.afAuth.user);
     this.afAuth.auth.signOut();
+    this.localStorage.clear();
     this.session.clear('user');
     this.session.clear('candidate');
     this.session.clear('company');

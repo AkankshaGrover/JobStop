@@ -16,21 +16,28 @@
   padding-top: 5%;
 }
 
+
 .tag {
+  display: inline-block;
   font-size: 1.3vw;
   color: #006666;
   margin-left: 20%;
+  text-align: left;
+  width: 11%;
+  /* box-sizing: content-box; */
+  font-weight: bold;
 }
 
 .input {
   width: 50%;
   height: 50%;
-  margin-top: 1%;
+  /* margin-top: 1%; */
   margin-bottom: 1%;
   height: 40px;
   border: none;
   margin-left: 5%;
   padding: 5px 15px;
+
 }
 
 .add {
@@ -38,11 +45,17 @@
   background: #121212;
   margin-left: 20%;
   height: 30%;
-  padding: .5% 3%;
+  padding: .5% 1%;
   border-radius: 5%;
   color: white;
   margin-bottom: 5%;
   margin-top: 5%;
+  width: 10%;
+}
+
+.add:hover{
+  cursor: pointer;
+  border: 1px solid gray;
 }
 
 .add1 {
@@ -63,6 +76,7 @@
   background: #006666;
   margin-top: 5%;
   margin-bottom: 5%;
+
 }
 
 .wrapper {
@@ -70,6 +84,21 @@
 }
 
 .wrapper1 {
-  margin-left: 30%;
+  /* margin-left: 30%; */
+   font-size: 1.3vw;
+   color: #006666;
+   /* margin-left: 20%; */
+   text-align: center;
+   width: 11%;
+   /* box-sizing: content-box; */
+   font-weight: bold;
+
+  text-align: center;
+  display:block;
+  width: 100%;
+
 }
+
+
+
 

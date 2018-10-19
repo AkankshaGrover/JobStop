@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { UserService } from "../services/user.service";
+import { SessionStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,16 @@ import { UserService } from "../services/user.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+us:string;
+  constructor(private cdr: ChangeDetectorRef,private signout: LoginComponent, private userService: UserService, private session: SessionStorageService) { 
+   this.us=this.userService.userName();
+   let scope=this
+    console.log(this.us);
 
-  constructor(private signout: LoginComponent, private userService: UserService) { }
+    // this.cdr.detectChanges();
+  }
 
+  
   ngOnInit() {
   }
 

@@ -4,22 +4,37 @@
     <b>CANDIDATE STATUS</b>
   </p>
   <h1 class="tag">APPLIED JOBS</h1>
-  <mat-grid-list>
+  <div *ngFor="let item of items|async">
+    <div *ngFor="let company of companies">
+      <div *ngFor="let job of company.jobs|keyvalue">
+        <mat-card class="companies" *ngIf="item.jobtitle==job.value.jobtitle">
+          <div class="main">
+            <img class="image" src="{{company.image}}">
+            <h4 class="name">{{company.name}}</h4>
+          </div>
+          <div class="detail">
+            <p class="para">
+              <b>Contacts: </b>{{company.contact_details}}</p>
+            <p class="para">
+              <b>Location: </b>{{company.location}}</p>
+            <p class="para">
+              <b>Email: </b>{{company.email}}</p>
+            <p class="para">
+              <b>Title: </b>{{job.value.jobtitle}}</p>
+            <!-- <p class="para"><b>Skills: </b>{{item.skills_required}}</p> -->
+          </div>
+          <!-- <div class="navi">
+      <button class="btn" (click)="apply(item,job)">Apply</button>
+    </div> -->
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <!-- <h1 class="tag">SHORTLISTED</h1>
     <mat-card>
-  
     </mat-card>
-  </mat-grid-list>
-  <h1 class="tag">SHORTLISTED</h1>
-  <mat-grid-list>
-    <mat-card>
-
-    </mat-card>
-  </mat-grid-list>
   <h1 class="tag">REJECTED</h1>
-  <mat-grid-list>
     <mat-card>
-  
-    </mat-card>
-  </mat-grid-list>
+    </mat-card> -->
 
 </div>

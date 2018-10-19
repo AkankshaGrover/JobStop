@@ -4,7 +4,9 @@ import { UserService } from "../services/user.service";
 import { CompanyService } from "../services/company.service";
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HeaderComponent } from '../header/header.component';
+import { CompanytoolbarComponent } from '../companytoolbar/companytoolbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AlertsService } from 'angular-alert-module'
 
 @Component({
   selector: 'app-jobprofile',
@@ -13,52 +15,60 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class JobprofileComponent implements OnInit {
   job = {
-    "companyname": "",
-    "contactperson": "",
-    "contactnumber": "",
     "jobtitle": "",
     "location": "",
     "package": "",
     "description": "",
     "skills": ""
   }
-  jobs = [];
+  jobs = [
+    {
+      "jobtitle": "",
+      "location": "",
+      "package": "",
+      "description": "",
+      "skills": ""
+    }
+  ];
 
-  constructor(private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase) { }
+  constructor(private companyToolbar: CompanytoolbarComponent, private router: Router, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase, private alerts: AlertsService) { }
 
   ngOnInit() {
   }
 
-  addJob() {
-    this.jobs.push({
-      "companyname":this.job.companyname,
-      // "contactperson" : value.contactperson,
-      // "contactnumber" : value.contactnumber,
-      "jobtitle": this.job.jobtitle,
-      "location": this.job.location,
-      "package": this.job.package,
-      "description": this.job.description,
-      "skills": this.job.skills
-    });
-   console.log("this.jobs");  
+  addJobs() {
+    for (let i in this.jobs) {
+      if (this.jobs[i].description == "" || this.jobs[i].jobtitle == "" || this.jobs[i].location == "" ||
+        this.jobs[i].package == "" || this.jobs[i].skills == "") {
+        this.alerts.setMessage('Please fill in the required fields', 'error');
+        this.alerts.setDefaults('timeout', 2);
+        this.alerts.setConfig('error', 'icon', 'warn');
+        return;
+      }
+    }
     this.companyService.UpdateCompanyData(this.jobs)
-    // this.companyService.;
+    this.alerts.setMessage('Details saved successfully!', 'success');
+    this.alerts.setDefaults('timeout', 2);
+    this.alerts.setConfig('success', 'icon', 'check')
+    this.companyToolbar.homeFunc();
+
+
+
+
+    //  console.log("this.jobs");  
   }
 
-  addMoreJobs(){
-    this.jobs.push({
-      "companyname": this.job.companyname,
-      // "contactperson" : value.contactperson,
-      // "contactnumber" : value.contactnumber,
-      "jobtitle": this.job.jobtitle,
-      "location": this.job.package,
-      "package": this.job.package,
-      "description": this.job.description,
-      "skills": this.job.skills
-    });
-    console.log(this.jobs);
-    this.companyService.UpdateCompanyData(this.jobs)   
-    // setTimeout(function () { window.location.reload(); }, 5000);
-  }
+  addMoreJobs() {
+    let tempProj = Object.assign({}, this.job);
+    this.jobs.push(tempProj)
+    // console.log(this.jobs);
+    this.job.jobtitle = ""
+    this.job.package = ""
+    this.job.location = ""
+    this.job.description = ""
+    this.job.skills = ""
+    // console.log(this.jobs);
 
+
+  }
 }
