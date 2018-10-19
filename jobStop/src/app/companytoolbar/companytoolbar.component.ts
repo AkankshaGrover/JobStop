@@ -17,8 +17,8 @@ export class CompanytoolbarComponent implements OnInit {
     if (session.retrieve('user') == null) {
       this.router.navigate(['login']);
     }
-    if (this.session.retrieve('candidate') == null) {
-      console.log(this.session.retrieve('candidate'))
+    if (this.session.retrieve('company') == null) {
+      console.log(this.session.retrieve('company'))
       this.home = false;
       this.profile = true;
       this.candidatesapplied = false;
@@ -33,8 +33,8 @@ export class CompanytoolbarComponent implements OnInit {
     };
   }
   homeFunc() {
-    if (this.session.retrieve('candidate') == null) {
-      console.log(this.session.retrieve('candidate'))
+    if (this.session.retrieve('company') == null) {
+      console.log(this.session.retrieve('company'))
       this.home = false;
       this.profile = true;
       this.candidatesapplied = false;
@@ -49,8 +49,8 @@ export class CompanytoolbarComponent implements OnInit {
     // this.router.navigate(['totalapplicants']);
   }
   profileFunc() {
-    if (this.session.retrieve('candidate') == null) {
-      console.log(this.session.retrieve('candidate'))
+    if (this.session.retrieve('company') == null) {
+      console.log(this.session.retrieve('company'))
       this.home = false;
       this.profile = true;
       this.candidatesapplied = false;
@@ -64,8 +64,8 @@ export class CompanytoolbarComponent implements OnInit {
     }    // this.router.navigate(['companyprofile']);
   }
   candidatesappliedFunc() {
-    if (this.session.retrieve('candidate') == null) {
-      console.log(this.session.retrieve('candidate'))
+    if (this.session.retrieve('company') == null) {
+      console.log(this.session.retrieve('company'))
       this.home = false;
       this.profile = true;
       this.candidatesapplied = false;
@@ -81,8 +81,8 @@ export class CompanytoolbarComponent implements OnInit {
   }
 
   addjobFunc() {
-    if (this.session.retrieve('candidate') == null) {
-      console.log(this.session.retrieve('candidate'))
+    if (this.session.retrieve('company') == null) {
+      console.log(this.session.retrieve('company'))
       this.home = false;
       this.profile = true;
       this.candidatesapplied = false;

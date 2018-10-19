@@ -6,6 +6,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { CompanytoolbarComponent } from '../companytoolbar/companytoolbar.component';
 import { AlertsService } from 'angular-alert-module';
 
 @Component({
@@ -35,7 +36,7 @@ export class CompanyProfileComponent implements OnInit {
   candidatesApplied = [];
 
  
-  constructor(private router: Router, private session: SessionStorageService, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase, private alerts: AlertsService) {
+  constructor(private companyToolbar: CompanytoolbarComponent,private router: Router, private session: SessionStorageService, private userService: UserService, private companyService: CompanyService, private db2: AngularFireDatabase, private alerts: AlertsService) {
      }
 
   ngOnInit() {
@@ -85,6 +86,7 @@ export class CompanyProfileComponent implements OnInit {
     this.alerts.setDefaults('timeout', 2);
     this.alerts.setConfig('success', 'icon', 'check')
     // this.router.navigate(['jobprofile'])
+    this.companyToolbar.addjobFunc()
     // this.db2.list('/company').push(this.dataToBePushed[0])
   }
 }
