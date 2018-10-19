@@ -24,6 +24,7 @@ import { AlertsService } from 'angular-alert-module';
 import {
   CompanytoolbarComponent
 } from '../companytoolbar/companytoolbar.component';
+import { async } from '@angular/core/testing';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class ApplicantsComponent implements OnInit {
   jobs;
   title;
 
-  constructor(private db: AngularFireDatabase, private cdr: ChangeDetectorRef, private alerts: AlertsService,private companyToolbar:CompanytoolbarComponent, private session: SessionStorageService, private companyService: CompanyService) {
+  constructor(private db: AngularFireDatabase, private session: SessionStorageService, private companyService: CompanyService, private cdr: ChangeDetectorRef, private alerts: AlertsService,private companyToolbar:CompanytoolbarComponent) {
     
   }
   ngOnInit() {
@@ -58,7 +59,8 @@ export class ApplicantsComponent implements OnInit {
   onSelect($event) {
     let scope = this
     scope.items = [];
-    scope.db.list('company/' + scope.session.retrieve('user')[0].uid + '/jobs/' + $event.target.value + '/candidatesApplied').valueChanges().subscribe(data => {
+    this.title=$event.target.value
+    scope.db.list('company/' + scope.session.retrieve('user')[0].uid + '/jobs/' + this.title + '/candidatesApplied').valueChanges().subscribe(data => {
         // console.log(data)
       data.forEach(elem => {
         // console.log(elem.uid)
@@ -82,15 +84,17 @@ export class ApplicantsComponent implements OnInit {
     this.alerts.setDefaults('timeout', 2);
     this.alerts.setConfig('success', 'icon', 'check')
     this.db.database.ref('/company/' + this.session.retrieve('user')[0].uid + '/jobs/' + this.title + '/candidatesApplied')
-      .on('value', function (snapshot) {
-        let temp = snapshot.val()
+      .on('value',async function (snapshot) {
+        let temp = await snapshot.val()
         let ids = [];
+        console.log(temp)
         if(temp!=null&& temp!=undefined){
         Object.keys(temp).forEach(elem => {
           ids.push(elem);
         })
       }
         ids.forEach(ele => {
+          console.log(ele);
           if (temp[ele].uid == candidateid) {
             scope.db.database.ref('/company/' + scope.session.retrieve('user')[0].uid + '/jobs/' + scope.title + '/candidatesApplied/' + ele).set(null);
             scope.cdr.detectChanges();
