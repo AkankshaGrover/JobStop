@@ -4,6 +4,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { LocationStrategy } from '@angular/common';
 import { SessionStorageService } from 'ngx-webstorage';
+import { UserService } from '../services/user.service';
 // @import 'node_modules/angular5-toaster/toaster';
 @Component({
   selector: 'app-candidatetoolbar',
@@ -14,8 +15,9 @@ export class CandidatetoolbarComponent implements OnInit {
   home = true;
   profile = false;
   jobsapplied = false;
+  username = "";
 
-  constructor(private router: Router, private session: SessionStorageService) {
+  constructor(private router: Router, private session: SessionStorageService, private user : UserService) {
     if (session.retrieve('user') == null) {
       this.router.navigate(['login']);
     }
@@ -30,6 +32,7 @@ export class CandidatetoolbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.username = this.user.userName();
     history.pushState(null, null, location.href);
     window.onpopstate = function (event) {
       console.log("runhua")
@@ -75,5 +78,10 @@ export class CandidatetoolbarComponent implements OnInit {
     }
 
     // this.router.navigate(['candidatestatus']);
+  }
+
+  logout(){
+    this.user.logout();
+    console.log("Logged Out");
   }
 }

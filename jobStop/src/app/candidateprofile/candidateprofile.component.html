@@ -185,3 +185,188 @@
     </form>
   </div>
 </div>
+
+<div class="mcontainer">
+  <div class="mhead">
+    <p><b>CANDIDATE PROFILE</b></p>
+  </div>
+  <div>
+    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate()" style="text-align:left">
+      <label class="tag">
+        Name
+      </label>
+      <input class="minput" type="text" [(ngModel)]="candidate.name" [ngModelOptions]="{standalone:
+              true}" placeholder="Your Name" required>
+      <br />
+      <label class="tag">
+        Address
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.address" [ngModelOptions]="{standalone:
+                true}" placeholder=" Present Address" ngModel>
+      <br />
+
+      <label class="tag">
+        E-mail Id
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.emailid" [ngModelOptions]="{standalone: true}" placeholder="Mail Id for Communication"
+        ngModel>
+      <br />
+      <label class="tag">
+        Contact Number
+      </label>
+      <input required class="minput" type="number" [(ngModel)]="candidate.contactnumber" [ngModelOptions]="{standalone: true}" placeholder="Contact Number"
+        ngModel>
+      <br />
+     
+        <div class="mwrapper1">
+          10th QUALIFICATION
+        </div>
+     
+      <label class="tag">
+        Institutuion
+      </label>
+      <input required class="minput" required type="text" [(ngModel)]="candidate.qualifications.tenth_instituition" [ngModelOptions]="{standalone: true}"
+        placeholder="10th Institutuion" ngModel>
+      <br />
+      <label class="tag">
+        Percentage
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.qualifications.tenth_percentage" [ngModelOptions]="{standalone: true}"
+        placeholder="Overall Percentage secured" ngModel>
+      <br />
+      <label class="tag">
+        Year of Passing
+      </label>
+      <input required class="minput" type="number" [(ngModel)]="candidate.qualifications.tenth_year" [ngModelOptions]="{standalone: true}"
+        placeholder="Year of Passing" ngModel>
+      <br />
+     
+        <div class="mwrapper1">
+          12th QUALIFICATION
+        </div>
+     
+      <label class="tag">
+        Institutuion
+      </label>
+      <input required class="minput" required type="text" [(ngModel)]="candidate.qualifications.twelfth_instituition" [ngModelOptions]="{standalone: true}"
+        placeholder="12th Institution" ngModel>
+      <br />
+      <label class="tag">
+        Percentage
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.qualifications.twelfth_percentage" [ngModelOptions]="{standalone: true}"
+        placeholder="Overall Percentage secuered" ngModel>
+      <br />
+      <label class="tag">
+        Year of Passing
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.qualifications.twelfth_year" [ngModelOptions]="{standalone: true}"
+        placeholder="Year of Passing" ngModel>
+      <br />
+   
+        <div class="mwrapper1">
+          UNDER GRADUATION
+        </div>
+      
+      <label class="tag">
+        Institutuion
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.qualifications.ug_instituition" [ngModelOptions]="{standalone: true}"
+        placeholder="UG Institution" ngModel>
+      <br />
+      <label class="tag">
+        Percentage
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.qualifications.ug_percentage" [ngModelOptions]="{standalone: true}"
+        placeholder="Overall Percentage secuered or CGPA" ngModel>
+      <br />
+      <label class="tag">
+        Year of Passing
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.qualifications.ug_year" [ngModelOptions]="{standalone: true}"
+        placeholder="Year of Passing" ngModel>
+      <br />
+      <label class="tag">
+        Degree
+      </label>
+      <input class="minput" required type="text" [(ngModel)]="candidate.qualifications.ug_degree" [ngModelOptions]="{standalone: true}"
+        placeholder="Degree (e.g B.Tech, B.A, etc)" ngModel>
+      <br />
+      <label class="tag">
+        Field
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.qualifications.ug_field" [ngModelOptions]="{standalone: true}"
+        placeholder="Field (e.g Civil, ECE, etc)" ngModel>
+      <br />
+      <div>
+        <div class="mwrapper1">
+          POST GRADUATION
+        </div>
+      </div>
+      <label class="tag">
+        Instituition
+      </label>
+      <input class="minput" type="text" [(ngModel)]="candidate.qualifications.pg_instituition" [ngModelOptions]="{standalone: true}"
+        placeholder="PG Instituition" ngModel>
+      <br />
+      <label class="tag">
+        Percentage
+      </label>
+      <input class="minput" type="text" [(ngModel)]="candidate.qualifications.pg_percentage" [ngModelOptions]="{standalone: true}"
+        placeholder="Overall Percentage
+      secured or CGPA" ngModel>
+      <br />
+      <label class="tag">
+        Year of Passing
+      </label>
+      <input class="minput" type="text" [(ngModel)]="candidate.qualifications.pg_year" [ngModelOptions]="{standalone: true}" placeholder="Year of Passing"
+        ngModel>
+      <br />
+      <label class="tag">
+        Degree
+      </label>
+      <input class="minput" type="text" [(ngModel)]="candidate.qualifications.pg_degree" [ngModelOptions]="{standalone: true}" placeholder="Degree (e.g M.Tech, M.A, etc)"
+        ngModel>
+      <br />
+
+      <label class="tag">
+        Field
+      </label>
+      <input class="minput" type="text" [(ngModel)]="candidate.qualifications.pg_field" [ngModelOptions]="{standalone: true}" placeholder="Field (e.g Civil, ECE,
+      etc)" ngModel>
+      <br />
+
+     
+        <div class="mwrapper1">
+          OTHER DETAILS
+        </div>
+    
+      <label class="tag">
+        Technical skills
+      </label>
+      <input required class="minput" type="text" [(ngModel)]="candidate.techskills" [ngModelOptions]="{standalone: true}" placeholder="Enter your technical skills"
+        ngModel>
+      <br />
+      <div *ngFor="let i of candidate.projects">
+        <form #projectdetails="ngForm">
+          <label class="tag">
+            Project Name
+          </label>
+          <input class="minput" type="text" [(ngModel)]="i.pname" [ngModelOptions]="{standalone: true}" placeholder="Enter your project"
+            ngModel>
+          <br />
+          <label class="tag">
+            Description
+          </label>
+          <input class="minput" type="text" [(ngModel)]="i.pdescription" [ngModelOptions]="{standalone: true}" placeholder="Describe your project"
+            ngModel>
+          <br />
+        </form>
+      </div>
+      <input class="madd" (click)="addProjectFunc1()" value=" + Add More projects">
+      <div class="mwrapper">
+        <input class="msubmit" type="submit" value="SUBMIT">
+      </div>
+    </form>
+  </div>
+</div>

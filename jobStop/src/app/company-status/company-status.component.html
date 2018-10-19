@@ -2,7 +2,7 @@
   <p class="head">
     <b>COMPANY STATUS</b>
   </p>
-  <h1 class="tag">Shortlisted Candidates</h1>
+  <h1 class="tag" style="height:70vh">Shortlisted Candidates</h1>
   <div *ngFor="let item of candidates">
     <mat-card class="applicants">
       <div class="detail">
@@ -12,6 +12,28 @@
 
       </div>
       <div class="navi">
+        <!-- <a class="link" href="#">Resume</a> -->
+        <!-- <button class="btn" id="callButton" (click)="call(item.uid)">Call for Interview</button>
+        <button class="btn" id="rejectButton" (click)="reject(item.uid)">Reject</button> -->
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div class="mcontainer">
+  <p class="mhead">
+    <b>COMPANY STATUS</b>
+  </p>
+  <h1 class="mtag">Shortlisted Candidates</h1>
+  <div *ngFor="let item of candidates">
+    <mat-card class="mapplicants">
+      <div class="mdetail">
+        <h2 class="mname">{{item.name}}</h2>
+        <p class="mpara">Email:{{item.emailid}}</p>
+        <p class="mpara">Technical Skills:{{item.techskills[0]}}</p>
+
+      </div>
+      <div class="mnavi">
         <!-- <a class="link" href="#">Resume</a> -->
         <!-- <button class="btn" id="callButton" (click)="call(item.uid)">Call for Interview</button>
         <button class="btn" id="rejectButton" (click)="reject(item.uid)">Reject</button> -->

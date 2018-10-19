@@ -24,11 +24,18 @@
             <i class="fa fa-reorder"></i>
         </button>
         <div class="dropdown-content">
+            <a>{{username}}</a>
             <a (click)="homeFunc()">Home</a>
             <a (click)="profileFunc()">Profile</a>
             <a (click)="candidatesappliedFunc()">List of Candidates</a>
             <a (click)="addjobFunc()">Add Job</a>
+            <a (click)= "logout()">Logout</a>
         </div>
     </div>
+    <div class = forms>
+        <app-company-status *ngIf="candidatesapplied"></app-company-status>
+        <app-company-profile *ngIf="profile"></app-company-profile>
+        <app-jobprofile *ngIf="addjob" style="height:100%"></app-jobprofile>
+    </div>
 </div>
-<app-footer></app-footer>
+<app-footer class="foot"></app-footer>
