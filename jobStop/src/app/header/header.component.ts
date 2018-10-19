@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { UserService } from "../services/user.service";
 import { SessionStorageService } from 'ngx-webstorage';
@@ -9,16 +9,16 @@ import { SessionStorageService } from 'ngx-webstorage';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+us:string;
+  constructor(private cdr: ChangeDetectorRef,private signout: LoginComponent, private userService: UserService, private session: SessionStorageService) { 
+   this.us=this.userService.userName();
+   let scope=this
+    console.log(this.us);
 
-  constructor(private signout: LoginComponent, private userService: UserService, private session: SessionStorageService) { 
-    let name = {
-      "user": ""
-    }
-    let user = this.session.retrieve('user')[0].displayname;
+    // this.cdr.detectChanges();
   }
- 
+
   
-  // user = this.session.retrieve('user')[0].displayname;
   ngOnInit() {
   }
 
