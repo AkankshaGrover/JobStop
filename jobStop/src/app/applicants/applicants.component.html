@@ -14,8 +14,29 @@
       <p class="para">uid:{{item.uid}}</p>
     </div>
     <div class="navi">
-      <a class="link" href="#">Resume</a>
+      <!-- <a class="link" href="#">Resume</a> -->
       <button class="btn" (click)="call(item.uid)">Call for Interview</button>
+      <!-- <button class="btn" (click)="reject(item.uid)">Reject</button> -->
+    </div>
+  </mat-card>
+</div>
+
+<div class="mcontainer">
+  <div class="mhead">APPLICANTS</div>
+  <select class='mjobtitle mtag' (change)="onSelect($event)">
+    <option> ...</option>
+    <option *ngFor="let job of jobs" value="{{job}}" class="jobtitle tag">{{job}}</option>
+  </select>
+  <mat-card class="mapplicants" *ngFor="let item of items ">
+    <div class="mdetail">
+      <h2 class="mname">{{item.name}}</h2>
+      <p class="mpara">Job Title:{{item.jobTitle}}</p>
+      <p class="mpara">CGPA:{{item.CGPA}}</p>
+      <p class="mpara">uid:{{item.uid}}</p>
+    </div>
+    <div class="mnavi">
+      <!-- <a class="mlink" href="#">Resume</a> -->
+      <button class="mbtn" (click)="call(item.uid)">Call for Interview</button>
       <!-- <button class="btn" (click)="reject(item.uid)">Reject</button> -->
     </div>
   </mat-card>

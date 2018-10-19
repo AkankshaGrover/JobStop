@@ -1,3 +1,11 @@
+.container{
+    display: block;
+}
+
+.mcontainer{
+    display: none;
+}
+
 .companies
 {
     display: flex;
@@ -49,4 +57,73 @@
   text-align: center;
   margin-bottom: 5%;
   padding-top: 5%;
+}
+
+@media only screen and (max-width: 640px) {
+    .container{
+        display: none;
+    }
+
+    .mcontainer{
+        display: block;
+    }
+
+    .mcompanies {
+      display: flex;
+      align-items: center;
+      margin: 20px;
+      background-color: snow;
+
+    }
+
+    .mmain {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+    }
+
+    .mpara {
+      color: rgb(67, 64, 77);
+      padding: 10px;
+      margin: 0px;
+    }
+
+    .mimage {
+      width: 100px;
+    }
+
+    .mname {
+      width: 100%;
+      padding-left: 5px;
+    }
+
+    .mlink {
+      padding-right: 20px;
+    }
+
+    .mbtn {
+      height: 30px;
+      width: 90px;
+      border: 0px;
+      background-color: #006666;
+    }
+
+    .mbtn:hover{
+        cursor: pointer;
+        border: 1px solid gray;
+    }
+
+    .mhead {
+      text-align: center;
+      font-size: 4vw;
+      color: #006666;
+      text-align: center;
+      margin-bottom: 5%;
+      padding-top: 5%;
+    }
+
+    .mnavi{
+         margin-top: 30px;
+
+    }
+
 }

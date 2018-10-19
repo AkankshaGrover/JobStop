@@ -30,28 +30,32 @@
     display: none;
   }
   .mcontainer {
+    margin-top: 6%;
     display: flex;
     justify-content: flex-end;
   }
+
   .dropbtn {
     background-color: #006666;
     color: white;
-    padding: 5% 30%;
+    padding: 5px 19px;
     border: none;
     color: black;
   }
+
   .dropdown {
     position: relative;
     display: block;
     margin-top: 3%;
     margin-right: 7%;
   }
+
   .dropdown-content {
     display: none;
     position: absolute;
+     width: 200px;
     right: 0%;
     background-color: #f1f1f1;
-    width: 700%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
@@ -70,5 +74,16 @@
   .dropdown:hover .dropbtn {
     background-color: #006666;
   }
+
+  .forms{
+    position: absolute;
+    top: 20%;
+    left: 0%;
+  }
+
+  .foot {
+    display: none;
+  }
+
 }
 

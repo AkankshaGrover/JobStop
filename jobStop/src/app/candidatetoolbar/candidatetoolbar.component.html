@@ -1,4 +1,5 @@
 <app-header></app-header>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,9 +13,9 @@
     <button class="hide" *ngIf="!profile" (click)="profileFunc()">Profile</button>
     <button *ngIf="jobsapplied" class="button" (click)="jobsappliedFunc()">Applied Jobs</button>
     <button class="hide" *ngIf="!jobsapplied" (click)="jobsappliedFunc()">Applied Jobs</button>
-    <app-candidate-status *ngIf = "jobsapplied"></app-candidate-status>
-    <app-candidateprofile *ngIf =  "profile"></app-candidateprofile>
-    <app-companies *ngIf = "home"></app-companies>
+    <app-candidate-status *ngIf="jobsapplied"></app-candidate-status>
+    <app-candidateprofile *ngIf="profile"></app-candidateprofile>
+    <app-companies *ngIf="home"></app-companies>
 </div>
 
 <div class="mcontainer">
@@ -23,10 +24,20 @@
             <i class="fa fa-reorder"></i>
         </button>
         <div class="dropdown-content">
+            <a>{{username}}</a>
             <a (click)="homeFunc()">Home</a>
             <a (click)="profileFunc()">Profile</a>
             <a (click)="jobsappliedFunc()">Applied Jobs</a>
+            <a (click)="logout()">Logout</a>
         </div>
     </div>
+    <div class = "forms">
+        <app-candidate-status *ngIf="jobsapplied"></app-candidate-status>
+        <app-candidateprofile *ngIf="profile"></app-candidateprofile>
+        <app-companies *ngIf="home"></app-companies>
+    </div>
+    
+
+
 </div>
-<app-footer></app-footer>
+<app-footer class="foot"></app-footer> 

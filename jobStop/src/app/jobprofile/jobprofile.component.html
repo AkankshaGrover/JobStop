@@ -51,45 +51,48 @@
 
 <div class="mcontainer">
   <p class="mhead">
-    JOB PROFILE
+    <b>ADD JOBS</b>
   </p>
   <div>
-    <form #jobdetails="ngForm" (ngSubmit)="addJob()">
-      <label class="tag">
-        Job Title 
-      </label>
-      <input required class="minput" type="text" [(ngModel)]="job.jobtitle" [ngModelOptions]="{standalone:
+    <form>
+      <mat-card class="jobs" *ngFor="let i of jobs">
+        <form #jobdetails="ngForm" style="text-align: left">
+          <label class="tag">
+            Job Title
+          </label>
+          <input required class="input" type="text" [(ngModel)]="i.jobtitle" [ngModelOptions]="{standalone:
         true}" placeholder="Job Profile" ngModel>
-      <br />
-      <label class="tag">
-        Location 
-      </label>
-      <input required class="minput" type="text" [(ngModel)]="job.location" [ngModelOptions]="{standalone:
+          <br />
+          <label class="tag">
+            Location
+          </label>
+          <input required class="input" type="text" [(ngModel)]="i.location" [ngModelOptions]="{standalone:
         true}" placeholder="Location" ngModel>
-      <br />
-      <label class="tag">
-        Package Offered 
-      </label>
-      <input required class="minput" type="text" [(ngModel)]="job.package" [ngModelOptions]="{standalone:
+          <br />
+          <label class="tag">
+            Package Offered
+          </label>
+          <input required class="input" type="text" [(ngModel)]="i.package" [ngModelOptions]="{standalone:
         true}" placeholder="Package Offered" ngModel>
-      <br />
-      <label class="tag">
-        Post Description 
-      </label>
-      <input required class="minput" type="text" [(ngModel)]="job.description" [ngModelOptions]="{standalone:
+          <br />
+          <label class="tag">
+            Post Description
+          </label>
+          <input required class="input" type="text" [(ngModel)]="i.description" [ngModelOptions]="{standalone:
         true}" placeholder="Description" ngModel>
-      <br />
-      <label class="tag">
-        Skills required 
-      </label>
-      <input required class="minput" type="text" [(ngModel)]="job.skills" [ngModelOptions]="{standalone:
+          <br />
+          <label class="tag">
+            Skills required
+          </label>
+          <input required class="input" type="text" [(ngModel)]="i.skills" [ngModelOptions]="{standalone:
         true}" placeholder="Skills required" ngModel>
-      <br />
-      <div class="wrapper">
-        <input class="msubmit" type="submit" value="Add" [disabled]="jobdetails.invalid">
+          <br />
+        </form>
+      </mat-card>
+      <button class="madd" (click)="addMoreJobs()"> + Add More Jobs</button>
+      <div class="mwrapper">
+        <input class="msubmit" type="submit" value="Add" (click)="addJobs()">
       </div>
     </form>
-
   </div>
-
 </div>
