@@ -3,40 +3,40 @@
 </div>
 <div class="container">
   <p class="head">
-    <b>ADD JOBS </b>
+    <b>ADD JOBS</b>
   </p>
   <div>
     <form>
       <mat-card class="jobs" *ngFor ="let i of jobs" >
       <form #jobdetails="ngForm" style="text-align: left">
         <label class="tag">
-          <b>Job Title </b>
+          Job Title 
         </label>
-        <input required style="margin-left: 9.3%;" class="input" type="text" [(ngModel)]="i.jobtitle" [ngModelOptions]="{standalone:
+        <input required  class="input" type="text" [(ngModel)]="i.jobtitle" [ngModelOptions]="{standalone:
         true}" placeholder="Job Profile" ngModel>
         <br />
         <label class="tag">
-          <b>Location </b>
+          Location 
         </label>
-        <input style="margin-left: 9.3%;" required class="input" type="text" [(ngModel)]="i.location" [ngModelOptions]="{standalone:
+        <input  required class="input" type="text" [(ngModel)]="i.location" [ngModelOptions]="{standalone:
         true}" placeholder="Location" ngModel>
         <br />
         <label class="tag">
-          <b>Package Offered </b>
+          Package Offered 
         </label>
-        <input style="margin-left: 4.8%;" required class="input" type="text" [(ngModel)]="i.package" [ngModelOptions]="{standalone:
+        <input  required class="input" type="text" [(ngModel)]="i.package" [ngModelOptions]="{standalone:
         true}" placeholder="Package Offered" ngModel>
         <br />
         <label class="tag">
-          <b>Post Description </b>
+          Post Description 
         </label>
-        <input style="margin-left: 4.9%;" required class="input" type="text" [(ngModel)]="i.description" [ngModelOptions]="{standalone:
+        <input  required class="input" type="text" [(ngModel)]="i.description" [ngModelOptions]="{standalone:
         true}" placeholder="Description" ngModel>
         <br />
         <label class="tag">
-          <b>Skills required </b>
+          Skills required 
         </label>
-        <input style="margin-left: 5.8%" required class="input" type="text" [(ngModel)]="i.skills" [ngModelOptions]="{standalone:
+        <input required class="input" type="text" [(ngModel)]="i.skills" [ngModelOptions]="{standalone:
         true}" placeholder="Skills required" ngModel>
         <br />
         </form>
@@ -51,36 +51,36 @@
 
 <div class="mcontainer">
   <p class="mhead">
-    <b>JOB PROFILE</b>
+    JOB PROFILE
   </p>
   <div>
     <form #jobdetails="ngForm" (ngSubmit)="addJob()">
       <label class="tag">
-        <b>Job Title </b>
+        Job Title 
       </label>
       <input required class="minput" type="text" [(ngModel)]="job.jobtitle" [ngModelOptions]="{standalone:
         true}" placeholder="Job Profile" ngModel>
       <br />
       <label class="tag">
-        <b>Location </b>
+        Location 
       </label>
       <input required class="minput" type="text" [(ngModel)]="job.location" [ngModelOptions]="{standalone:
         true}" placeholder="Location" ngModel>
       <br />
       <label class="tag">
-        <b>Package Offered </b>
+        Package Offered 
       </label>
       <input required class="minput" type="text" [(ngModel)]="job.package" [ngModelOptions]="{standalone:
         true}" placeholder="Package Offered" ngModel>
       <br />
       <label class="tag">
-        <b>Post Description </b>
+        Post Description 
       </label>
       <input required class="minput" type="text" [(ngModel)]="job.description" [ngModelOptions]="{standalone:
         true}" placeholder="Description" ngModel>
       <br />
       <label class="tag">
-        <b>Skills required </b>
+        Skills required 
       </label>
       <input required class="minput" type="text" [(ngModel)]="job.skills" [ngModelOptions]="{standalone:
         true}" placeholder="Skills required" ngModel>

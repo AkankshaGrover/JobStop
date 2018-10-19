@@ -4,48 +4,47 @@
 <div class="container">
   <p class="head"><b>COMPANY PROFILE</b></p>
   <div>
-    <form #companydetails="ngForm" (ngSubmit)="addCompany()" style= "text-align: left">
-      <label class="tag"><b>Company Name </b> </label>
-      <input required style="margin-left: 2.5%;" class="input" type="text" [(ngModel)]="company.companyname"
+    <form #companydetails="ngForm" (ngSubmit)="addCompany()" style="text-align:left"> 
+      <label class="tag">Company Name  </label>
+      <input required  class="input" type="text" [(ngModel)]="company.companyname"
         [ngModelOptions]="{standalone : true}" placeholder="Company Name" ngModel>
       <br />
-      <label class="tag"><b>Hubs</b></label>
-      <input required style="margin-left: 9%;" class="input" type="text" [(ngModel)]="company.hubs" [ngModelOptions]="{standalone:
-          true}"
-        placeholder="Locations" ngModel>
+      <label class="tag">Hubs</label>
+      <input required class="input" type="text" [(ngModel)]="company.hubs" [ngModelOptions]="{standalone:
+          true}" placeholder="Locations" ngModel>
       <br />
-      <label class="tag"><b>Founded </b></label>
-      <input required style="margin-left: 6.6%;" class="input" type="number" [(ngModel)]="company.history"
+      <label class="tag">Founded </label>
+      <input required  class="input" type="number" [(ngModel)]="company.history"
         [ngModelOptions]="{standalone:
           true}" placeholder="Company history" ngModel>
         <br />
-      <label class="tag"><b>Website </b></label>
-      <input required style="margin-left: 7.1%;" class="input" type="text" [(ngModel)]="company.website"
+      <label class="tag">Website </label>
+      <input required  class="input" type="text" [(ngModel)]="company.website"
         [ngModelOptions]="{standalone:
           true}" placeholder="website Id or Ids" ngModel>
       <br />
-      <label class="tag"><b>Description </b></label>
-      <input style="margin-left: 5%;" required class="input" type="text" [(ngModel)]="company.description"
+      <label class="tag">Description </label>
+      <input required class="input" type="text" [(ngModel)]="company.description"
         [ngModelOptions]="{standalone:
           true}" placeholder="About" ngModel>
       <br />
-      <label class="tag"><b>Top Clients</b></label>
-      <input style="margin-left: 5.4%;" required class="input" type="text" [(ngModel)]="company.topclients"
+      <label class="tag">Top Clients</label>
+      <input  required class="input" type="text" [(ngModel)]="company.topclients"
         [ngModelOptions]="{standalone:
           true}" placeholder="Top clients" ngModel>
       <br />
-      <label class="tag"><b>E-mail Ids </b></label>
-      <input style="margin-left: 5.6%;" required class="input" type="text" [(ngModel)]="company.emailids"
+      <label class="tag">E-mail Ids </label>
+      <input  required class="input" type="text" [(ngModel)]="company.emailids"
         [ngModelOptions]="{standalone:
           true}" placeholder="Contact info" ngModel>
       <br />
-      <label class="tag"><b>Contact Number</b></label>
-      <input pattern="^[789]\d{9}$" style="margin-left: 2.3%" required class="input" type="text" [(ngModel)]="company.contactnumber"
+      <label class="tag">Contact Number</label>
+      <input pattern="^[789]\d{9}$" required class="input" type="text" [(ngModel)]="company.contactnumber"
         [ngModelOptions]="{standalone:
           true}" placeholder="Contact number" ngModel>
       <br />
-      <label class="tag"><b>Address</b></label>
-      <input style="margin-left: 7.3%" required class="input" type="text" [(ngModel)]="company.address"
+      <label class="tag">Address</label>
+      <input required class="input" type="text" [(ngModel)]="company.address"
         [ngModelOptions]="{standalone:
           true}" placeholder="Address" ngModel>
       <br />
@@ -57,50 +56,50 @@
 </div>
 
 <div class="mcontainer">
-  <p class="mhead"><b>COMPANY PROFILE</b></p>
+  <p class="mhead">COMPANY PROFILE</p>
   <div>
     <form #companydetails="ngForm" (ngSubmit)="addCompany()">
-      <label class="tag"><b>Company Name </b> </label>
+      <label class="tag">Company Name  </label>
       <input required class="minput" type="text" [(ngModel)]="company.companyname" [ngModelOptions]="{standalone:
           true}"
         placeholder="Company Name" ngModel>
       <br />
-      <label class="tag"><b>Hubs</b></label>
+      <label class="tag">Hubs</label>
       <input required class="minput" type="text" [(ngModel)]="company.hubs" [ngModelOptions]="{standalone:
           true}"
         placeholder="Locations" ngModel>
       <br />
-      <label class="tag"><b>Founded </b></label>
+      <label class="tag">Founded </label>
       <input required class="minput" type="number" [(ngModel)]="company.history" [ngModelOptions]="{standalone:
           true}"
         placeholder="Company history" ngModel>
       <br />
-      <label class="tag"><b>Website </b></label>
+      <label class="tag">Website </label>
       <input required class="minput" type="text" [(ngModel)]="company.website" [ngModelOptions]="{standalone:
           true}"
         placeholder="website Id or Ids" ngModel>
       <br />
-      <label class="tag"><b>Description </b></label>
+      <label class="tag">Description </label>
       <input required class="minput" type="text" [(ngModel)]="company.description" [ngModelOptions]="{standalone:
           true}"
         placeholder="About" ngModel>
       <br />
-      <label class="tag"><b>Top Clients</b></label>
+      <label class="tag">Top Clients</label>
       <input required class="minput" type="text" [(ngModel)]="company.topclients" [ngModelOptions]="{standalone:
           true}"
         placeholder="Top clients" ngModel>
       <br />
-      <label class="tag"><b>E-mail Ids </b></label>
+      <label class="tag">E-mail Ids </label>
       <input required class="minput" type="text" [(ngModel)]="company.emailids" [ngModelOptions]="{standalone:
           true}"
         placeholder="Contact info" ngModel>
       <br />
-      <label class="tag"><b>Contact Number</b></label>
+      <label class="tag">Contact Number</label>
       <input pattern="^[789]\d{9}$" required class="minput" type="text" [(ngModel)]="company.contactnumber"
         [ngModelOptions]="{standalone:
           true}" placeholder="Contact number" ngModel>
       <br />
-      <label class="tag"><b>Address</b></label>
+      <label class="tag">Address</label>
       <input required class="minput" type="text" [(ngModel)]="company.address" [ngModelOptions]="{standalone:
           true}"
         placeholder="Address" ngModel>
