@@ -15,7 +15,7 @@ export class CompaniesComponent implements OnInit {
   items: Observable<any[]>;
   // item: Observable<any[]>;
   constructor(private cdr: ChangeDetectorRef,private db: AngularFireDatabase, private session: SessionStorageService, private userService: UserService,  private alerts: AlertsService) {
-{
+
     this.items = db.list('company/').valueChanges();
     this.items.subscribe(res =>
       console.log(res)
@@ -35,7 +35,7 @@ export class CompaniesComponent implements OnInit {
     temp.subscribe(res=>{
       
       res.forEach(element => {
-      if(element.uid==this.session.retrieve('user')[0].uid)
+      if(element['uid']==this.session.retrieve('user')[0].uid)
        {count++;}
       })
       if(count==0)
@@ -46,7 +46,7 @@ export class CompaniesComponent implements OnInit {
         this.alerts.setDefaults('timeout', 2);
         this.alerts.setConfig('success', 'icon', 'check')
        count=0; 
-       scope.cdr.detach();
+       scope.cdr.detectChanges();
       }
   })
   
