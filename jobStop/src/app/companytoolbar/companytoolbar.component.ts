@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes, Router, RouterModule } from '@angular/router';
 import { SessionStorageService } from 'ngx-webstorage';
+import {UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-companytoolbar',
@@ -8,12 +9,13 @@ import { SessionStorageService } from 'ngx-webstorage';
   styleUrls: ['./companytoolbar.component.css']
 })
 export class CompanytoolbarComponent implements OnInit {
+  username = "";
   home = true;
   profile = false;
   candidatesapplied = false;
   addjob = false;
 
-  constructor(private router: Router, private session: SessionStorageService) {
+  constructor(private router: Router, private session: SessionStorageService, private user : UserService) {
     if (session.retrieve('user') == null) {
       this.router.navigate(['login']);
     }
@@ -26,6 +28,7 @@ export class CompanytoolbarComponent implements OnInit {
     }
   }
   ngOnInit() {
+    this.username = this.user.userName();
     history.pushState(null, null, location.href);
     window.onpopstate = function (event) {
       console.log("runhua")
@@ -94,5 +97,10 @@ export class CompanytoolbarComponent implements OnInit {
       this.candidatesapplied = false;
       this.addjob = true;
     }    // this.router.navigate(['jobprofile']);
+  }
+
+  logout(){
+    this.user.logout();
+    console.log("Logged Out")
   }
 }

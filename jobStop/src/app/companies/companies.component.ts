@@ -35,7 +35,7 @@ export class CompaniesComponent implements OnInit {
     temp.subscribe(res=>{
       
       res.forEach(element => {
-      if(element.uid==this.session.retrieve('user')[0].uid)
+      //if(element.uid==this.session.retrieve('user')[0].uid)
        {count++;}
       })
       if(count==0)

@@ -1,28 +1,64 @@
 <div class="alert">
   <app-alerts></app-alerts>
 </div>
-<div style="background-color: #f2f2f2">
-  <p style="" class="head"><b>COMPANIES</b></p>
-  <div *ngFor="let item of items | async">
-    <mat-card class="companies" *ngFor="let job of item.jobs | keyvalue">
-      <div class="main">
-        <img class="image" src="{{item.image}}">
-        <h4 class="name">{{item.name}}</h4>
-      </div>
-      <div class="detail">
-        <p class="para">
-          <b>Contacts: </b>{{item.contact_details}}</p>
-        <p class="para">
-          <b>Location: </b>{{item.location}}</p>
-        <p class="para">
-          <b>Email: </b>{{item.email}}</p>
-        <p class="para">
-          <b>Title: </b>{{job.value.jobtitle}}</p>
-        <!-- <p class="para"><b>Skills: </b>{{item.skills_required}}</p> -->
-      </div>
-      <div class="navi">
-        <button class="btn" (click)="apply(item,job.value.jobtitle)">Apply</button>
-      </div>
-    </mat-card>
+<div class = "container">
+  <div style="background-color: #f2f2f2">
+    <p style="" class="head">
+      <b>COMPANIES</b>
+    </p>
+    <div *ngFor="let item of items | async">
+      <mat-card class="companies" *ngFor="let job of item.jobs | keyvalue">
+        <div class="main">
+          <img class="image" src="{{item.image}}">
+          <h4 class="name">{{item.name}}</h4>
+        </div>
+        <div class="detail">
+          <p class="para">
+            <b>Contacts: </b>{{item.contact_details}}</p>
+          <p class="para">
+            <b>Location: </b>{{item.location}}</p>
+          <p class="para">
+            <b>Email: </b>{{item.email}}</p>
+          <p class="para">
+            <b>Title: </b>{{job.value.jobtitle}}</p>
+          <!-- <p class="para"><b>Skills: </b>{{item.skills_required}}</p> -->
+        </div>
+        <div class="navi">
+          <button class="btn" (click)="apply(item,job.value.jobtitle)">Apply</button>
+        </div>
+      </mat-card>
+    </div>
   </div>
+
+</div>
+
+<div class="mcontainer">
+  <div style="background-color: #f2f2f2">
+    <p  class="mhead">
+      <b>COMPANIES</b>
+    </p>
+    <div *ngFor="let item of items | async">
+      <mat-card class="companies" *ngFor="let job of item.jobs | keyvalue">
+        <div class="mmain">
+          <div>
+          <img class="image" src="{{item.image}}">
+          <h4 class="mname">{{item.name}}</h4>
+          <p class="mpara">
+            <b>Contacts: </b>{{item.contact_details}}</p>
+          <p class="mpara">
+            <b>Location: </b>{{item.location}}</p>
+          <p class="mpara">
+            <b>Email: </b>{{item.email}}</p>
+          <p class="mpara">
+            <b>Title: </b>{{job.value.jobtitle}}</p>
+          <!-- <p class="para"><b>Skills: </b>{{item.skills_required}}</p> -->
+        </div>
+        <div class="mnavi">
+          <button class="mbtn" (click)="apply(item,job.value.jobtitle)">Apply</button>
+        </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
 </div>

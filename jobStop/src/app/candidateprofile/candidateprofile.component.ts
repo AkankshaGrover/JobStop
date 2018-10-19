@@ -73,7 +73,8 @@ export class CandidateprofileComponent implements OnInit {
     else {
       this.alerts.setMessage('Please fill the required fields', 'error');
       this.alerts.setDefaults('timeout', 2);
-      this.alerts.setConfig('error', 'icon', 'warn')
+      this.alerts.setConfig('error', 'icon', 'warn');
+      return;
     }
   }
 

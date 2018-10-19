@@ -9,6 +9,12 @@
   height:100vh;
 }
 
+.mcontainer {
+    background: #F2F2F2;
+    height: 100vh;
+    display: none;
+}
+
 .detail{
     width: 80%;
     display: flex;
@@ -56,4 +62,80 @@
     justify-self: flex-end;
     justify-content: flex-end;
     align-content: center;
+}
+
+@media only screen and (max-width: 640px) {
+    .container{
+        display: none;
+    }
+
+    .mcontainer{
+        background: #F2F2F2;
+        height:100vh;
+        display: block;
+    }
+
+    .mapplicants {
+      display: flex;
+      border: 03ch;
+      margin: 20px;
+      background-color: snow;
+    }
+
+
+    .mdetail {
+      width: 80%;
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .mjobtitle {
+      /* font-size: 20px; */
+      /* font-weight: 100; */
+      /* margin-left: 2px; */
+      background: #f2f2f2;
+      border: none;
+      /* border-color: #f2f2f2; */
+      margin-left: 60px;
+      text-align: left;
+    }
+
+    .mbtn {
+      justify-self: flex-end;
+      /* padding-left: 5%; */
+      align-self: center;
+      height: 25px;
+      border: 0px;
+      width: auto;
+      margin: 5px;
+      background-color: #006666;
+    }
+
+    .mlink {
+      align-self: center;
+      text-decoration: none;
+      color: blue;
+      padding: 20px;
+    }
+
+    .mname {
+      color: rgb(36, 56, 56);
+    }
+
+    .mpara {
+      font-size: 15px;
+      color: rgb(59, 58, 58);
+      margin: 10px;
+    }
+
+    .mnavi {
+      display: flex;
+      justify-self: flex-end;
+      justify-content: flex-end;
+      align-content: center;
+    }
+
+
 }

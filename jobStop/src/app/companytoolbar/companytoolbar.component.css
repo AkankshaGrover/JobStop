@@ -29,8 +29,10 @@
     display: none;
   }
   .mcontainer {
-    display: flex;
-    justify-content: flex-end;
+     margin-top: 6%;
+     display: flex;
+     justify-content: flex-end;
+
   }
   .dropbtn {
     background-color: #006666;
@@ -50,7 +52,7 @@
     position: absolute;
     right: 0%;
     background-color: #f1f1f1;
-    width: 900%;
+    width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
@@ -69,5 +71,15 @@
   .dropdown:hover .dropbtn {
     background-color: #006666;
   }
+
+.forms {
+  position: absolute;
+  top: 20%;
+  left: 0%;
+}
+.foot{
+  display:none;
+}
+
 }
 
