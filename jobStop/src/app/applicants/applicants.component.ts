@@ -1,8 +1,6 @@
-import {
-  Component,
+import {Component,
   OnInit,
-  ChangeDetectorRef
-} from '@angular/core';
+  ChangeDetectorRef} from '@angular/core';
 import {
   AngularFireDatabase
 } from '@angular/fire/database';
@@ -21,6 +19,7 @@ import {
 import {
   SessionStorageService
 } from 'ngx-webstorage';
+import { AlertsService } from 'angular-alert-module';
 
 import {
   CompanytoolbarComponent
@@ -37,7 +36,7 @@ export class ApplicantsComponent implements OnInit {
   jobs;
   title;
 
-  constructor(private companyToolbar:CompanytoolbarComponent,private db: AngularFireDatabase, private session: SessionStorageService, private companyService: CompanyService, private cdr: ChangeDetectorRef) {
+  constructor(private db: AngularFireDatabase, private session: SessionStorageService, private companyService: CompanyService, private cdr: ChangeDetectorRef, private alerts: AlertsService,private companyToolbar:CompanytoolbarComponent,private db: AngularFireDatabase, private session: SessionStorageService, private companyService: CompanyService, private cdr: ChangeDetectorRef) {
     
   }
   ngOnInit() {
@@ -54,10 +53,9 @@ export class ApplicantsComponent implements OnInit {
       scope.cdr.detectChanges();
     })
     this.companyService.setData();
-   }
+  }
 
   onSelect($event) {
-    this.title = $event.target.value;
     let scope = this
     scope.items = [];
     scope.db.list('company/' + scope.session.retrieve('user')[0].uid + '/jobs/' + $event.target.value + '/candidatesApplied').valueChanges().subscribe(data => {
@@ -65,7 +63,7 @@ export class ApplicantsComponent implements OnInit {
       data.forEach(elem => {
         // console.log(elem.uid)
 
-        var starCountRef = scope.db.database.ref('candidate/' + elem.uid + '/');
+        var starCountRef = scope.db.database.ref('candidate/' + elem['uid'] + '/');
         starCountRef.on('value', function (snapshot) {
           // console.log(snapshot.val())
           scope.items.push(snapshot.val())
@@ -80,6 +78,9 @@ export class ApplicantsComponent implements OnInit {
     let scope = this
     console.log(this.session.retrieve('user')[0].uid)
     this.db.database.ref('/company/' + this.session.retrieve('user')[0].uid + '/status/shortlisted').push({ 'uid': candidateid })
+    this.alerts.setMessage('Data saved successfully', 'success');
+    this.alerts.setDefaults('timeout', 2);
+    this.alerts.setConfig('success', 'icon', 'check')
     this.db.database.ref('/company/' + this.session.retrieve('user')[0].uid + '/jobs/' + this.title + '/candidatesApplied')
       .on('value', function (snapshot) {
         let temp = snapshot.val()
@@ -97,8 +98,15 @@ export class ApplicantsComponent implements OnInit {
         })
       })
   }
+  
   reject(candidateid) {
     console.log(this.session.retrieve('user')[0].uid)
-    this.db.database.ref('/company/' + this.session.retrieve('user')[0].uid + '/status/rejected').push({ 'uid': candidateid })
+    this.db.database.ref('/company/' + this.session.retrieve('user')[0].uid + '/status/rejected').push({
+      'uid': candidateid
+    })
+    this.alerts.setMessage('Data saved successfully', 'success');
+    this.alerts.setDefaults('timeout', 2);
+    this.alerts.setConfig('success', 'icon', 'check')
+    
   }
 }

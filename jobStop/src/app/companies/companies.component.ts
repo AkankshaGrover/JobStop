@@ -3,7 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { UserService } from "../services/user.service";
 import { SessionStorageService } from 'ngx-webstorage';
-
+import { AlertsService } from 'angular-alert-module'
 
 
 @Component({
@@ -14,11 +14,12 @@ import { SessionStorageService } from 'ngx-webstorage';
 export class CompaniesComponent implements OnInit {
   items: Observable<any[]>;
   // item: Observable<any[]>;
-  constructor(private cdr: ChangeDetectorRef,private db: AngularFireDatabase, private session: SessionStorageService, private userService: UserService) {
+  constructor(private cdr: ChangeDetectorRef,private db: AngularFireDatabase, private session: SessionStorageService, private userService: UserService,  private alerts: AlertsService) {
+{
     this.items = db.list('company/').valueChanges();
     this.items.subscribe(res =>
       console.log(res)
-      );
+    );
 
     // db.database.ref('company/').orderByKey();
     // this.item.subscribe(res =>
@@ -41,6 +42,9 @@ export class CompaniesComponent implements OnInit {
       {
        this.db.database.ref('/company/' + item.uid + '/jobs/'+jobtitle+'/candidatesApplied/').push({ 'uid':  this.session.retrieve('user')[0].uid})
        this.db.database.ref('/candidate/' + this.session.retrieve('user')[0].uid + '/companiesApplied').push({ 'uid': item.uid, 'jobtitle':jobtitle })
+       this.alerts.setMessage('Applied!', 'success');
+        this.alerts.setDefaults('timeout', 2);
+        this.alerts.setConfig('success', 'icon', 'check')
        count=0; 
        scope.cdr.detach();
       }
@@ -49,6 +53,4 @@ export class CompaniesComponent implements OnInit {
     // this.session.retrieve('user');
   }
 }
-
-
 

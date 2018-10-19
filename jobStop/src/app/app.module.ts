@@ -12,7 +12,11 @@ import { UserService } from "./services/user.service";
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Routes, RouterModule } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';;
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
@@ -31,6 +35,8 @@ import { LoginComponent } from './login/login.component';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { CandidateService } from './services/candidate.service';
 import { AlertsModule } from 'angular-alert-module';
+
+
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
@@ -86,6 +92,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AngularFireAuthModule,
     FormsModule,
     MatGridListModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
     AlertsModule.forRoot()
   ],
   providers: [AngularFireDatabase, LoginComponent, HeaderComponent,

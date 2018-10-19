@@ -1,8 +1,10 @@
-<!-- <app-header></app-header> -->
-<div style="background-color: #f2f2f2">
-  <h1 style="text-align: center">Applicants for job<select class='jobtitle' (change)="onSelect($event)">
+<div class="alert">
+  <app-alerts></app-alerts>
+</div>
+<div  class="container">
+  <h1  class="head" >APPLICANTS <select class='jobtitle tag' (change)="onSelect($event)">
     <option> ...</option>
-    <option  *ngFor="let job of jobs" value="{{job}}"><h1>{{job}}</h1></option>
+    <option  *ngFor="let job of jobs" value="{{job}}" class="jobtitle tag">{{job}}</option>
   </select></h1>
   <mat-card class="applicants" *ngFor="let item of items ">
     <div class="detail">
@@ -14,7 +16,7 @@
     <div class="navi">
       <a class="link" href="#">Resume</a>
       <button class="btn" (click)="call(item.uid)">Call for Interview</button>
-      <button class="btn" (click)="reject(item.uid)">Reject</button>
+      <!-- <button class="btn" (click)="reject(item.uid)">Reject</button> -->
     </div>
   </mat-card>
 </div>

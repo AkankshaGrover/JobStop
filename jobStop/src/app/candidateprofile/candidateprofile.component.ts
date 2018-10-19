@@ -4,6 +4,13 @@ import { CandidateService } from '../services/candidate.service'
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { SessionStorageService } from 'ngx-webstorage';
+import { AlertsService } from 'angular-alert-module';
+import { CandidatetoolbarComponent} from '../candidatetoolbar/candidatetoolbar.component';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-candidateprofile',
@@ -51,11 +58,25 @@ export class CandidateprofileComponent implements OnInit {
     "pname": "",
     "pdescription": ""
   };
-  async addCandidate(value) {
-    this.addCandidatetoDB.CandidateData(this.candidate);
+    addCandidate(value) {
+      console.log(value);
+      if(!value)
+      {
+      this.addCandidatetoDB.CandidateData(this.candidate);
+      this.alerts.setMessage('Details saved successfully!', 'success');
+      this.alerts.setDefaults('timeout', 2);
+      this.alerts.setConfig('success', 'icon', 'check')
+      }
+    else
+    {
+        this.alerts.setMessage('Please fill all the Fields', 'error');
+        this.alerts.setDefaults('timeout', 2);
+        this.alerts.setConfig('error', 'icon', 'warn')
+    }
+    // this.candidateComponent.homeFunc();
   }
 
-  constructor(db: AngularFireDatabase, private session: SessionStorageService, private addCandidatetoDB: CandidateService) {
+  constructor(private candidateComponent:CandidatetoolbarComponent,db: AngularFireDatabase, private session: SessionStorageService, private addCandidatetoDB: CandidateService, private alerts: AlertsService) {
     this.data = db.list('/candidate');
   }
 
@@ -98,6 +119,17 @@ export class CandidateprofileComponent implements OnInit {
 
     // console.log(this.candidate.projects);
     this.addProject = !this.addProject;
+  }
+  fillAllFields(fields)
+  {
+    // this.addCandidatetoDB.CandidateData(this.candidate);
+    // debugger;
+    if(fields)
+    {
+      this.alerts.setMessage('Please fill all the Fields', 'error');
+      this.alerts.setDefaults('timeout', 2);
+      this.alerts.setConfig('error', 'icon', 'check')
+    }
   }
 
   // year(event) {

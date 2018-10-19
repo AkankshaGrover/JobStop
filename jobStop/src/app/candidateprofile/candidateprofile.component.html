@@ -1,192 +1,187 @@
+<div class="alert">
+  <app-alerts></app-alerts>
+</div>
 <div class="container">
   <p class="head">
     <b>CANDIDATE PROFILE</b>
   </p>
   <div>
-    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(candidatedetails.value)" style="text-align: left">
+    <form #candidatedetails="ngForm" (ngSubmit)="addCandidate(candidatedetails.form.invalid)" style="text-align:left">
       <label class="tag">
-        <b>Name </b>
+        Name
       </label>
-      <input required style="margin-left: 8.5%;" class="input" type="text" [(ngModel)]="candidate.name" [ngModelOptions]="{standalone:
-              true}" placeholder="Your Name" ngModel>
+      <input class="input" type="text" [(ngModel)]="candidate.name" [ngModelOptions]="{standalone:
+              true}" placeholder="Your Name" required>
       <br />
-
       <label class="tag">
-        <b>Address</b>
+        Address
       </label>
-      <input required style="margin-left: 7.5%;" class="input" type="text" [(ngModel)]="candidate.address" [ngModelOptions]="{standalone:
+      <input required class="input" type="text" [(ngModel)]="candidate.address" [ngModelOptions]="{standalone:
                 true}" placeholder=" Present Address" ngModel>
       <br />
 
-
       <label class="tag">
-        <b>E-mail Id</b>
+        E-mail Id
       </label>
-      <input required style="margin-left: 6.6%;" class="input" type="text" [(ngModel)]="candidate.emailid" [ngModelOptions]="{standalone: true}"
-        placeholder="Mail Id for Communication" ngModel>
+      <input required class="input" type="text" [(ngModel)]="candidate.emailid" [ngModelOptions]="{standalone: true}" placeholder="Mail Id for Communication"
+        ngModel>
       <br />
       <label class="tag">
-        <b>Contact Number</b>
+        Contact Number
       </label>
-      <input required style="margin-left: 2.4%;" class="input" type="number" [(ngModel)]="candidate.contactnumber" [ngModelOptions]="{standalone: true}"
-        placeholder="Contact Number" ngModel>
+      <input required class="input" type="number" [(ngModel)]="candidate.contactnumber" [ngModelOptions]="{standalone: true}" placeholder="Contact Number"
+        ngModel>
       <br />
-      <div class="wrapper1">
-        <p class="tag">
-          <b>10th QUALIFICATION</b>
+      <div>
+        <p class="wrapper1">
+          10th QUALIFICATION
         </p>
       </div>
       <label class="tag">
-        <b>Institutuion</b>
+        Institutuion
       </label>
-      <input style="margin-left: 5%;" required class="input" required type="text" [(ngModel)]="candidate.qualifications.tenth_instituition"
-        [ngModelOptions]="{standalone: true}" placeholder="10th Institutuion" ngModel>
+      <input required class="input" required type="text" [(ngModel)]="candidate.qualifications.tenth_instituition" [ngModelOptions]="{standalone: true}"
+        placeholder="10th Institutuion" ngModel>
       <br />
       <label class="tag">
-        <b>Percentage</b>
+        Percentage
       </label>
-      <input style="margin-left: 5.4%;" required class="input" type="text" [(ngModel)]="candidate.qualifications.tenth_percentage"
-        [ngModelOptions]="{standalone: true}" placeholder="Overall Percentage secured" ngModel>
+      <input required class="input" type="text" [(ngModel)]="candidate.qualifications.tenth_percentage" [ngModelOptions]="{standalone: true}"
+        placeholder="Overall Percentage secured" ngModel>
       <br />
       <label class="tag">
-        <b>Year of Passing</b>
+        Year of Passing
       </label>
-      <input style="margin-left:3%;" required class="input" type="number" [(ngModel)]="candidate.qualifications.tenth_year" [ngModelOptions]="{standalone: true}"
+      <input required class="input" type="number" [(ngModel)]="candidate.qualifications.tenth_year" [ngModelOptions]="{standalone: true}"
         placeholder="Year of Passing" ngModel>
       <br />
-      <div class="wrapper1">
-        <p class="tag">
-          <b>12th QUALIFICATION</b>
+      <div>
+        <p class=" wrapper1">
+          12th QUALIFICATION
         </p>
       </div>
       <label class="tag">
-        <b>Institutuion</b>
+        Institutuion
       </label>
-      <input style="margin-left: 5%;" required class="input" required type="text" [(ngModel)]="candidate.qualifications.twelfth_instituition"
-        [ngModelOptions]="{standalone: true}" placeholder="12th Institution" ngModel>
+      <input required class="input" required type="text" [(ngModel)]="candidate.qualifications.twelfth_instituition" [ngModelOptions]="{standalone: true}"
+        placeholder="12th Institution" ngModel>
       <br />
       <label class="tag">
-        <b>Percentage</b>
+        Percentage
       </label>
-      <input style="margin-left: 5.4%;" required class="input" type="text" [(ngModel)]="candidate.qualifications.twelfth_percentage"
-        [ngModelOptions]="{standalone: true}" placeholder="Overall Percentage secuered" ngModel>
+      <input required class="input" type="text" [(ngModel)]="candidate.qualifications.twelfth_percentage" [ngModelOptions]="{standalone: true}"
+        placeholder="Overall Percentage secuered" ngModel>
       <br />
       <label class="tag">
-        <b>Year of Passing</b>
+        Year of Passing
       </label>
-      <input style="margin-left: 3%;" required class="input" type="text" [(ngModel)]="candidate.qualifications.twelfth_year" [ngModelOptions]="{standalone: true}"
+      <input required class="input" type="text" [(ngModel)]="candidate.qualifications.twelfth_year" [ngModelOptions]="{standalone: true}"
         placeholder="Year of Passing" ngModel>
       <br />
-      <div class="wrapper1">
-        <p class="tag">
-          <b>UNDER GRADUATION</b>
+      <div>
+        <p class=" wrapper1">
+          UNDER GRADUATION
         </p>
       </div>
       <label class="tag">
-        <b>Institutuion</b>
+        Institutuion
       </label>
-      <input style="margin-left: 5%;" required class="input" required type="text" [(ngModel)]="candidate.qualifications.ug_instituition"
-        [ngModelOptions]="{standalone: true}" placeholder="UG Institution" ngModel>
+      <input required class="input" type="text" [(ngModel)]="candidate.qualifications.ug_instituition" [ngModelOptions]="{standalone: true}"
+        placeholder="UG Institution" ngModel>
       <br />
       <label class="tag">
-        <b>Percentage</b>
+        Percentage
       </label>
-      <input style="margin-left: 5.4%;" required class="input" type="text" [(ngModel)]="candidate.qualifications.ug_percentage"
-        [ngModelOptions]="{standalone: true}" placeholder="Overall Percentage secuered or CGPA" ngModel>
+      <input required class="input" type="text" [(ngModel)]="candidate.qualifications.ug_percentage" [ngModelOptions]="{standalone: true}"
+        placeholder="Overall Percentage secuered or CGPA" ngModel>
       <br />
       <label class="tag">
-        <b>Year of Passing</b>
+        Year of Passing
       </label>
-      <input style=" margin-left: 3%" required class="input" type="text" [(ngModel)]="candidate.qualifications.ug_year" [ngModelOptions]="{standalone: true}"
+      <input required class="input" type="text" [(ngModel)]="candidate.qualifications.ug_year" [ngModelOptions]="{standalone: true}"
         placeholder="Year of Passing" ngModel>
       <br />
       <label class="tag">
-        <b>Degree</b>
+        Degree
       </label>
-      <input class="input" style="margin-left: 8%;" required type="text" [(ngModel)]="candidate.qualifications.ug_degree" [ngModelOptions]="{standalone: true}"
-        placeholder="Degree (e.g B.Tech, M.Tech, B.A, etc)" ngModel>
+      <input class="input" required type="text" [(ngModel)]="candidate.qualifications.ug_degree" [ngModelOptions]="{standalone: true}"
+        placeholder="Degree (e.g B.Tech, B.A, etc)" ngModel>
       <br />
       <label class="tag">
-        <b>Field</b>
+        Field
       </label>
-      <input style=" margin-left: 9%;" required class="input" type="text" [(ngModel)]="candidate.qualifications.ug_field" [ngModelOptions]="{standalone: true}"
+      <input required class="input" type="text" [(ngModel)]="candidate.qualifications.ug_field" [ngModelOptions]="{standalone: true}"
         placeholder="Field (e.g Civil, ECE, etc)" ngModel>
       <br />
-      <div class="wrapper1">
-        <p class="tag">
-          <b>POST GRADUATION</b>
+      <div>
+        <p class="wrapper1">
+          POST GRADUATION
         </p>
       </div>
       <label class="tag">
-        <b>Instituition</b>
+        Instituition
       </label>
-      <input style="margin-left: 5%;" class="input" type="text" [(ngModel)]="candidate.qualifications.pg_instituition" [ngModelOptions]="{standalone: true}"
+      <input class="input" type="text" [(ngModel)]="candidate.qualifications.pg_instituition" [ngModelOptions]="{standalone: true}"
         placeholder="PG Instituition" ngModel>
       <br />
       <label class="tag">
-        <b>Percentage</b>
+        Percentage
       </label>
-      <input style="margin-left: 5.4%;" class="input" type="text" [(ngModel)]="candidate.qualifications.pg_percentage" [ngModelOptions]="{standalone: true}"
+      <input class="input" type="text" [(ngModel)]="candidate.qualifications.pg_percentage" [ngModelOptions]="{standalone: true}"
         placeholder="Overall Percentage
       secured or CGPA" ngModel>
       <br />
       <label class="tag">
-        <b>Year of Passing</b>
+        Year of Passing
       </label>
-      <input style="margin-left: 3%;" class="input" type="text" [(ngModel)]="candidate.qualifications.pg_year" [ngModelOptions]="{standalone: true}"
-        placeholder="Year of Passing" ngModel>
+      <input class="input" type="text" [(ngModel)]="candidate.qualifications.pg_year" [ngModelOptions]="{standalone: true}" placeholder="Year of Passing"
+        ngModel>
       <br />
       <label class="tag">
-        <b>Degree</b>
+        Degree
       </label>
-      <input class="input" style="margin-left: 8%;" required type="text" [(ngModel)]="candidate.qualifications.pg_degree" [ngModelOptions]="{standalone: true}"
-        placeholder="Degree (e.g M.Tech, M.A, etc)" ngModel>
+      <input class="input" type="text" [(ngModel)]="candidate.qualifications.pg_degree" [ngModelOptions]="{standalone: true}" placeholder="Degree (e.g M.Tech, M.A, etc)"
+        ngModel>
       <br />
 
       <label class="tag">
-        <b>Field</b>
+        Field
       </label>
-      <input style=" margin-left: 9%;" required class="input" type="text" [(ngModel)]="candidate.qualifications.pg_field" [ngModelOptions]="{standalone: true}"
-        placeholder="Field (e.g Civil, ECE,
+      <input class="input" type="text" [(ngModel)]="candidate.qualifications.pg_field" [ngModelOptions]="{standalone: true}" placeholder="Field (e.g Civil, ECE,
       etc)" ngModel>
       <br />
 
-      <div class="wrapper1">
-        <p class="tag">
-          <b>OTHER DETAILS</b>
+      <div>
+        <p class="wrapper1">
+          OTHER DETAILS
         </p>
       </div>
-
       <label class="tag">
-        <b>Technical skills</b>
+        Technical skills
       </label>
-      <input required style="margin-left: 3%;" class="input" type="text" [(ngModel)]="candidate.techskills" [ngModelOptions]="{standalone: true}"
-        placeholder="Enter your technical skills" ngModel>
+      <input required class="input" type="text" [(ngModel)]="candidate.techskills" [ngModelOptions]="{standalone: true}" placeholder="Enter your technical skills"
+        ngModel>
       <br />
-      <div *ngFor = "let i of candidate.projects">
-        <form #projectdetails="ngForm" >
+      <div *ngFor="let i of candidate.projects">
+        <form #projectdetails="ngForm">
           <label class="tag">
-            <b>Project Name</b>
+            Project Name
           </label>
-          <input style="margin-left: 3.6%;" required class="input" type="text" [(ngModel)]="i.pname"  [ngModelOptions] = "{standalone: true}"
-            placeholder="Enter your project" ngModel>
+          <input class="input" type="text" [(ngModel)]="i.pname" [ngModelOptions]="{standalone: true}" placeholder="Enter your project"
+            ngModel>
           <br />
           <label class="tag">
-            <b>Description</b>
+            Description
           </label>
-          <input style="margin-left: 4.7%" required class="input" type="text" [(ngModel)]="i.pdescription"  [ngModelOptions] = "{standalone: true}"
-            placeholder="Describe your project" ngModel>
+          <input class="input" type="text" [(ngModel)]="i.pdescription" [ngModelOptions]="{standalone: true}" placeholder="Describe your project"
+            ngModel>
           <br />
-          <!-- <div class="wrapper">
-            <input class = "submit" type="submit" value="Add Project"  [disabled]=projectdetails.invalid>
-          </div>         -->
         </form>
       </div>
-      <button class="add" (click)="addProjectFunc1()" > + Add More projects</button>  
-      <div class="wrapper">
-        <input class="submit" type="submit" value="submit" [disabled]=candidatedetails.invalid>
+      <button class="add" (click)="addProjectFunc1()"> + Add More projects</button>
+      <div class="wrapper" >
+        <input class="submit" type="submit" value="SUBMIT" [disabled]="candidatedetails.form.invalid">
       </div>
     </form>
   </div>
-
 </div>
