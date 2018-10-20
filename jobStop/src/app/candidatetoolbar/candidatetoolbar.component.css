@@ -34,6 +34,11 @@
     display: flex;
     justify-content: flex-end;
   }
+  .uname{
+    /* background: #009999; */
+    color: #009999;
+    font-weight: bold;
+  }
 
   .dropbtn {
     background-color: #006666;
