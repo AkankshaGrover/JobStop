@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes, Router, RouterModule } from '@angular/router';
 import { SessionStorageService } from 'ngx-webstorage';
-import {UserService } from '../services/user.service';
+import { CompanyService } from "../services/company.service";
 
 @Component({
   selector: 'app-companytoolbar',
@@ -9,16 +9,20 @@ import {UserService } from '../services/user.service';
   styleUrls: ['./companytoolbar.component.css']
 })
 export class CompanytoolbarComponent implements OnInit {
-  username = "";
   home = true;
   profile = false;
   candidatesapplied = false;
   addjob = false;
 
-  constructor(private router: Router, private session: SessionStorageService, private user : UserService) {
+  constructor(private router: Router, private session: SessionStorageService,private companyService:CompanyService) {
+    
     if (session.retrieve('user') == null) {
       this.router.navigate(['login']);
     }
+    else{
+      this.companyService.setData();
+    }
+
     if (this.session.retrieve('company') == null) {
       console.log(this.session.retrieve('company'))
       this.home = false;
@@ -28,7 +32,6 @@ export class CompanytoolbarComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.username = this.user.userName();
     history.pushState(null, null, location.href);
     window.onpopstate = function (event) {
       console.log("runhua")
@@ -97,10 +100,5 @@ export class CompanytoolbarComponent implements OnInit {
       this.candidatesapplied = false;
       this.addjob = true;
     }    // this.router.navigate(['jobprofile']);
-  }
-
-  logout(){
-    this.user.logout();
-    console.log("Logged Out")
   }
 }
