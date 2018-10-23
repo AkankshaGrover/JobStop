@@ -219,6 +219,17 @@ textarea {
   .form {
     margin: 30px auto;
   }
+
+  .logo {
+    background: transparent;
+    width: 65%;
+    height: 20%;
+    display: block;
+    margin-top: 5vh;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
 }
 
 

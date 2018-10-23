@@ -3,7 +3,7 @@
   <p class="head">
     <b>CANDIDATE STATUS</b>
   </p>
-  <h1 class="tag" style="height:80vh">APPLIED JOBS</h1>
+  <h1 class="tag" style="height:30vh">APPLIED JOBS</h1>
   <div *ngFor="let item of items|async">
     <div *ngFor="let company of companies">
       <div *ngFor="let job of company.jobs|keyvalue">
@@ -43,7 +43,7 @@
   <div class="mhead">
     <b>CANDIDATE STATUS</b>
   </div>
-  <h1 class="mtag">APPLIED JOBS</h1>
+  <h1 class="mtag" style="height:30vh">APPLIED JOBS</h1>
   <div *ngFor="let item of items|async">
     <div *ngFor="let company of companies">
       <div *ngFor="let job of company.jobs|keyvalue">
